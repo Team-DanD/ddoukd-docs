@@ -1,7 +1,7 @@
 # 똑디 — 데이터 모델 설계 (첫 슬라이스)
 
 > 2026-08-02 초안 · **2026-08-09 리뷰 반영** · 범위: 회원 등록 → 회원권 발급 → 예약 → 자동 차감 → 잔여 확인
-> 기획: [../README.md](../README.md) · 커스텀 스펙: custom-spec.md (미이관)
+> 기획: [../README.md](../README.md) · 커스텀 스펙: [custom-spec.md](custom-spec.md)
 
 ## 설계 원칙 4개
 
@@ -205,6 +205,8 @@ plan type에 따라 갈린다:
 | 자원(베드/룸) | 뷰티 버티컬용. Resource 테이블은 확장 시 추가 |
 | 강사 예외 스케줄(휴가) | 반복 스케줄 먼저 |
 | 홀딩 실행, 환불 계산 | 정책 필드만 두고 로직은 나중 |
+| 선불충전권(금액 차감형) | [custom-spec.md](custom-spec.md) 유형 예시에 있으나 COUNT/PERIOD/HYBRID로 못 담음(횟수가 아니라 금액 잔액). 뷰티 확장 시 type 추가 |
+| 회원 커스텀 필드 (부상 이력·피부 타입·태그 등) | [custom-spec.md](custom-spec.md) 영역 5. 첫 슬라이스는 memo만 — 확장 시 member에 custom_fields JSONB + shop별 필드 정의 |
 | 사진·계약서 업로드, 설문, 알림톡 | MVP+1 이후 ([../mvp.md](../mvp.md) 백로그) |
 | LLM 조회 | 데이터 쌓인 뒤. 조회 함수는 이 모델 확정 후 작성 |
 

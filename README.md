@@ -30,7 +30,7 @@ LLM 레이어로 "박서현 회원 노쇼 횟수 보여줘" 같은 자연어 조
 | [mvp.md](mvp.md) | MVP 범위(기능 3개), 뺄 것, 기능 백로그 |
 | [interviews/](interviews/) | 사장 인터뷰 기록 (1건씩) + 공통 질문 템플릿 |
 | [spec/data-model.md](spec/data-model.md) | 데이터 모델 설계 — 첫 슬라이스 (2026-08-09 리뷰 반영) |
-| spec/custom-spec.md | ⚠️ 미이관 — 원본 `claude/fitness-booking-custom-spec.md`에서 옮겨올 것 |
+| [spec/custom-spec.md](spec/custom-spec.md) | "무한 커스텀"의 범위·설계 원칙 + LLM 설정(v2) 방향 |
 
 ## 다음 액션
 
