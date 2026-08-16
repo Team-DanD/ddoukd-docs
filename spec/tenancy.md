@@ -114,3 +114,57 @@ mail, ns, dev, stage, test, ddokd, ddocd
 - 강사 실명 노출은 당사자 동의 사항이라 `staff.display_name`을 따로 뒀다 (2026-08-16 확정).
   null이면 `name`으로 폴백하므로 사장 입력 부담은 0, 꺼리는 강사만 닉네임을 채운다
 - 조회 API는 인증이 없으므로 IP 기준 rate limit이 필요해진다 (파일럿 규모에선 후순위, 잊지 말 것)
+
+### 공개 캘린더 요청 흐름
+
+인증이 없는 유일한 경로다. 필터 3개가 전부 서버에 있어야 한다.
+
+```mermaid
+sequenceDiagram
+    participant U as 누구나 (비로그인)
+    participant TR as TenantResolver
+    participant API as API
+    participant DB as Postgres
+
+    U->>TR: GET /{shop-key}/schedule?from=&to=
+    TR->>DB: shop-key → shop_id
+    alt shop 없음 또는 active = false
+        TR-->>U: 404
+    end
+    TR-->>API: shop_id (토큰 대조 없음 — 공개 경로)
+    API->>DB: SELECT ... WHERE shop_id = ?<br/>AND is_public = true<br/>AND status IN ('OPEN','CLOSED')<br/>AND start_at BETWEEN ? AND ?
+    DB-->>API: 세션 목록
+    API->>API: PublicScheduleDto 매핑<br/>(관리자 DTO 재사용 금지)
+    API-->>U: 수업명 · 시각 · display_name ?: name · 잔여 정원
+```
+
+- 필터 3개(`is_public` / `status` / `shop_id`) 중 **하나라도 빠지면 사고**다. 각각
+  비공개 ad-hoc 세션 노출 / 취소된 수업 노출 / 남의 샵 노출로 이어진다
+- `shop.active = false`면 404. 미납·해지 샵의 캘린더가 계속 살아있으면 안 된다
+- `PublicScheduleDto`를 **별도 클래스**로 둔다. 관리자 DTO에 필드를 추가하는 순간
+  공개 API로 새어나가는 구조를 애초에 만들지 않는다
+
+## 8. 권한 매트릭스
+
+C=생성 R=조회 U=수정 D=삭제(비활성) — 리소스별로 한 장에 고정한다.
+
+| 리소스 | platform_admin | staff · OWNER | staff · INSTRUCTOR | 비로그인 |
+|--------|:--------------:|:-------------:|:------------------:|:--------:|
+| shop (생성·목록) | C R U | — | — | — |
+| staff | C (최초 OWNER) | C R U D | R (본인) | — |
+| member | R ※ | C R U D | R | — |
+| service | — | C R U D | R | — |
+| staff_availability | — | C R U D | C R U D (본인) | — |
+| class_session | — | C R U D | C R U D (본인 담당) | **R (공개분만)** |
+| booking | — | C R U D | C R U D (본인 세션) | — |
+| 🟡 membership_plan | — | C R U D | R | — |
+| 🟡 membership | — | C R U D | R | — |
+| 🟡 membership_transaction | — | C R (수동 조정) | R | — |
+
+- ※ 마스터의 샵 데이터 열람은 **운영 지원 목적으로만**. 남의 장부를 보는 행위라 접근 로그를
+  남기는 걸 전제로 나중에 설계한다 (6절)
+- **INSTRUCTOR 열은 지금 구현하지 않는다.** 파일럿이 1인샵(사장 = 강사)이라 OWNER와 동일하게
+  동작시킨다. `role` 컬럼만 채워두고, 강사 여러 명인 샵이 붙을 때 이 표를 실행 사양으로 쓴다
+- **원장(`membership_transaction`)에 U·D가 없다.** 장부는 고치는 게 아니라 반대 줄을 추가해서
+  바로잡는다 — `MANUAL_ADJUST`가 그 용도
+- 비로그인 열에 R이 하나뿐인 것이 이 표의 요점이다. 나머지는 전부 공란이어야 한다
