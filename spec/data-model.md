@@ -47,15 +47,19 @@
 |------|------|------|
 | id | uuid PK | |
 | shop_id | uuid FK | |
-| name | text | |
+| name | text | 실명. 관리자 화면에서만 씀 |
+| display_name | text null | **공개 캘린더 표시명.** null이면 `name`으로 폴백 — 실명 공개를 꺼리는 강사만 채운다 |
 | phone | text | |
 | email | text null | `(shop_id, email)` unique. 로그인 ID |
 | password_hash | text null | **null = 로그인 안 하는 강사** (이름만 등록된 사람) |
+| must_change_password | boolean | true면 로그인 직후 비밀번호 변경 화면으로 강제 이동 |
 | role | text | OWNER / INSTRUCTOR |
 | active | boolean | 퇴사해도 과거 예약 이력은 남아야 하므로 삭제 대신 비활성 |
 
 계정 테이블을 따로 두지 않고 여기에 합쳤다 (2026-08-16 결정). 1인샵은 사장 = 강사.
 `role`은 컬럼만 두고 권한 분기는 강사 여러 명인 샵이 붙을 때 구현 — [tenancy.md](tenancy.md) 6절.
+
+공개 캘린더로 나가는 건 `display_name ?: name` 하나뿐. `phone` / `email`은 공개 DTO에 절대 넣지 않는다.
 
 ### member — 회원
 
@@ -120,7 +124,8 @@
   못 막으므로 앱 레벨 체크가 유일한 방어 — 멀티 관리자 단계에서 Postgres EXCLUDE 제약 재검토
 - 정원 초과 방지는 조건부 UPDATE: `SET booked_count = booked_count + 1 WHERE id = :id AND booked_count < capacity`
   (0행이면 실패 — 동시 예약 레이스 차단)
-- `CANCELLED`(사장이 수업 취소)일 때 붙어 있던 booking들을 어떻게 처리할지는 "결정 필요" 참고
+- `CANCELLED`(사장이 수업 취소)면 붙은 booking을 **전원 자동 취소 + 차감 무조건 복구**한다 —
+  아래 "세션 취소" 참고
 
 ### membership_plan — 회원권 상품 (= 정책 번들)
 
@@ -161,8 +166,9 @@ Kotlin에서는 sealed class + data class로 파싱해서 타입 안전하게 �
 | policy_snapshot | jsonb | **발급 시점 정책 복사본** |
 | status | text | ACTIVE / EXPIRED / SUSPENDED / REFUNDED |
 | total_count | int null | |
+| duration_days | int null | **발급 시점의 plan.duration_days 복사.** FIRST_USE는 만료일을 나중에 계산하므로, 그때 plan을 다시 읽으면 사장이 그사이 바꾼 기간이 소급 적용된다 |
 | remaining_count | int null | 캐시 (진실은 transaction). PERIOD형은 null |
-| started_at | timestamptz null | FIRST_USE면 첫 이용 때 채워짐 — 기산 기준은 "결정 필요" 참고 |
+| started_at | timestamptz null | FIRST_USE면 **첫 예약의 세션 시작 시각**으로 채워짐 (2026-08-16 확정). 롤백 규칙은 아래 |
 | expires_at | timestamptz null | |
 | price_paid | int | 첫 슬라이스 한정 — 분할·추가 결제는 `payment` 테이블로 분리 예정 (뺀 것 참고) |
 | paid_at | timestamptz | |
@@ -199,16 +205,29 @@ Kotlin에서는 sealed class + data class로 파싱해서 타입 안전하게 �
 | booking_id | uuid FK null | |
 | type | text | GRANT / DEDUCT / RESTORE / ADJUST |
 | amount | int | +/- (GRANT +10, DEDUCT -1) |
-| reason | text | "예약 차감", "마감 전 취소 복구", "사장 수동 조정" |
+| reason | text | 사유 코드 (아래) |
+| memo | text null | 사장이 남기는 자유 사유 ("원장님 병가") |
 | created_at | timestamptz | |
 
 **이 테이블이 이 제품의 심장이다.** 인터뷰 1의 "차감을 수기로 한다"가 정확히 여기서 해결되고,
 "박서현 회원 결제 금액·횟수 보여줘" 같은 LLM 조회도 전부 이 이력을 먹고 산다.
 `remaining_count`가 틀어져도 `SUM(amount)`로 언제든 복구 가능.
 
+`reason`은 자유 문자열이 아니라 **코드**로 둔다. 나중에 "샵 사유 휴강이 몇 번이었나" 같은 집계가
+문자열 매칭 없이 된다.
+
+| reason | type | 언제 |
+|--------|------|------|
+| `GRANT` | GRANT | 회원권 발급 |
+| `BOOKING_DEDUCT` | DEDUCT | 예약 생성 |
+| `CANCEL_RESTORE` | RESTORE | 마감선 전 취소 |
+| `SESSION_CANCEL_RESTORE` | RESTORE | **샵 사유 수업 취소** — 마감선·패널티 정책 무관하게 항상 복구 |
+| `NO_SHOW_RESTORE` | RESTORE | 노쇼인데 policy.noShowPenalty = NONE |
+| `MANUAL_ADJUST` | ADJUST | 사장 수동 조정 (`memo` 필수) |
+
 ---
 
-## 차감 로직 (첫 슬라이스 · 2026-08-09 분기 보강)
+## 차감 로직 (첫 슬라이스 · 2026-08-09 분기 보강 · **2026-08-16 확정**)
 
 plan type에 따라 갈린다:
 
@@ -228,29 +247,50 @@ plan type에 따라 갈린다:
         UPDATE membership SET remaining_count = remaining_count - :d
         WHERE id = :id AND remaining_count >= :d
         (0행이면 실패 처리 — 동시 예약 레이스에서도 음수 잔여 차단)
+  → FIRST_USE 기산: started_at이 null이면
+        started_at  = session.start_at      ← 예약을 잡은 시각이 아니라 수업 시각
+        expires_at  = started_at + membership.duration_days   ← plan을 다시 읽지 않는다
 
 예약 취소
-  → 마감선(policy.cancelDeadlineHours, session.start_at 기준) 이전이면 transaction(RESTORE, +deduction)
+  → 마감선(policy.cancelDeadlineHours, session.start_at 기준) 이전이면
+        transaction(RESTORE, +deduction, CANCEL_RESTORE)
   → 이후면 policy.lateCancelPenalty에 따라: DEDUCT = 미복구 / NONE = 복구
   → 어느 쪽이든 session.booked_count 감소 (자리는 돌려준다 — 차감 복구와 별개)
+  → FIRST_USE 롤백: 위에서 RESTORE가 발생했고 이 예약이 기산점이었다면
+        남은 BOOKED 예약 중 가장 이른 session.start_at으로 재계산
+        없으면 started_at = expires_at = null   ← 다음 예약 때 다시 기산
 
 노쇼 처리
   → status = NO_SHOW
   → policy.noShowPenalty에 따라: DEDUCT = 복구 안 함 / NONE = transaction(RESTORE, +deduction)
      (정책은 값 — 원칙 3. 하드코딩하지 않는다)
+  → RESTORE가 발생했으면 위와 같은 FIRST_USE 롤백 규칙 적용
+
+세션 취소 (사장이 수업을 닫음 — 샵 사유)
+  → session.status = CANCELLED
+  → 붙은 booking 전부 CANCELLED
+  → 전원 transaction(RESTORE, +deduction, SESSION_CANCEL_RESTORE)
+        ← 마감선·lateCancelPenalty와 무관하게 무조건 복구. 샵 사유니까
+  → booked_count = 0
+  → RESTORE이므로 FIRST_USE 롤백 규칙이 그대로 적용됨
 ```
 
 차감 시점을 "예약 시"로 잡음. 샵에 따라 "수업 완료 시" 차감을 원할 수 있으나 정책 값으로 나중에 추가.
 
-## 결정 필요 (구현 전 확정)
+### FIRST_USE 규칙 한 줄 요약 (2026-08-16 확정)
 
-| 항목 | 쟁점 |
-|------|------|
-| FIRST_USE 기산 기준 | "첫 예약 생성" vs "첫 수업 완료" 중 무엇으로 started_at/expires_at을 채우나. 사장 관점은 보통 첫 수업일이 자연스러움 |
-| FIRST_USE 롤백 | 기산점이 된 첫 예약이 취소되면 started_at/expires_at을 되돌리나. 안 정하면 유효기간 분쟁으로 이어짐 |
-| 세션 취소 시 예약 처리 | 사장이 `class_session`을 CANCELLED로 바꿀 때 붙은 booking을 자동 취소 + 전원 차감 복구할지, 사장이 개별 처리할지. 자동이 맞아 보이지만 "복구"인지 "패널티 없는 취소"인지 원장 reason이 갈림 |
-| 강사 표시명 | 공개 캘린더에 `staff.name`(실명)을 그대로 쓸지, `display_name`을 따로 둘지. 실명 공개는 당사자 동의 사항 — [tenancy.md](tenancy.md) 7절 |
-| 초기 비밀번호 전달 | 백오피스에서 OWNER 생성 시 임시 비밀번호를 우리가 알려주나, 초대 링크(토큰 만료)를 보내나. 후자가 안전하지만 메일 발송 인프라가 필요 |
+> **기산은 첫 예약의 수업 시각으로. 횟수를 돌려받으면 기간도 돌아간다.**
+
+- 기산에 "수업 완료 처리"를 걸지 않았다. 우리 모델은 예약 시점 차감이라 `COMPLETED` 전이가 없어도
+  장부가 돌아가고, 수기 차감하던 사장이 완료 버튼을 매번 누를 거라 기대하기 어렵다.
+  완료를 기준으로 삼으면 아무도 안 눌러서 유효기간이 영원히 시작 안 되는 회원권이 생긴다
+- 노쇼는 차감이 유지되므로(패널티 DEDUCT) 기산도 유지된다 — "소비된 예약"이라는 해석이 일관됨
+- 별도 배치·스케줄러가 필요 없다. 예약 생성 시점에 미래 시각을 확정해 넣을 뿐
+
+## 결정 필요
+
+없음. 2026-08-16에 5건 모두 확정 — [../decisions.md](../decisions.md) 참고.
+새 쟁점이 나오면 여기에 다시 쌓는다.
 
 ---
 
@@ -276,7 +316,7 @@ plan type에 따라 갈린다:
 
 **서현 (백엔드)**
 
-1. 이 모델 리뷰 → 확정 ("결정 필요" 5건 포함)
+1. ~~이 모델 리뷰 → 확정~~ → 2026-08-16 확정 완료
 2. Kotlin + Spring Boot 프로젝트 생성 (Gradle, Postgres, Flyway) + 엔티티/도메인 클래스
 3. TenantResolver + 인증 (platform_admin / staff) — [tenancy.md](tenancy.md) 4·5절
 4. API:
