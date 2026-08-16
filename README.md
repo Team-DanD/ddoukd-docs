@@ -1,7 +1,7 @@
 # 똑디 DDocD — 문서
 
 > 팀: **단디 DanD** (서현 + 민수) · 운동샵 예약·회원관리 SaaS
-> 상태: 💡 기획 정리 완료 (2026-07-27) · 인터뷰 1/5 진행 · 첫 슬라이스 착수 전
+> 상태: 💡 기획 정리 완료 · 인터뷰 1/5 · **2026-08-16 스코프 확정, 구현 착수**
 > "똑디"는 가칭 — 런칭 전 재검토 필요, [naming.md](naming.md) 참고
 
 ## 한 줄 정의
@@ -29,15 +29,28 @@ LLM 레이어로 "박서현 회원 노쇼 횟수 보여줘" 같은 자연어 조
 | [naming.md](naming.md) | 네이밍 리스크 조사, 대안 후보, 다음 네이밍 때 배운 것 |
 | [mvp.md](mvp.md) | MVP 범위(기능 3개), 뺄 것, 기능 백로그 |
 | [interviews/](interviews/) | 사장 인터뷰 기록 (1건씩) + 공통 질문 템플릿 |
-| [spec/data-model.md](spec/data-model.md) | 데이터 모델 설계 — 첫 슬라이스 (2026-08-09 리뷰 반영) |
-| [spec/custom-spec.md](spec/custom-spec.md) | "무한 커스텀"의 범위·설계 원칙 + LLM 설정(v2) 방향 |
+| [spec/data-model.md](spec/data-model.md) | 데이터 모델 설계 — 첫 슬라이스 (2026-08-16 갱신) |
+| [spec/tenancy.md](spec/tenancy.md) | shop-key 라우팅, 계정 3종, 공개 캘린더 노출 범위 |
+| [spec/custom-spec.md](spec/custom-spec.md) | "무한 커스텀"의 단계·범위·설계 원칙 + LLM 설정(v2) 방향 |
+
+## 이번 스코프 한 줄 (2026-08-16)
+
+마스터가 백오피스에서 shop을 만들고 shop-key를 발급 → 사업장 user가 `/{shop-key}`로 들어와
+회원·회원권·수업을 관리 → 오픈한 수업은 비로그인 누구나 캘린더로 조회. **회원 user는 이번에 안 만든다.**
 
 ## 다음 액션
 
-1. 데이터 모델 리뷰 → 확정 ([spec/data-model.md](spec/data-model.md) — "결정 필요" 섹션 포함) — 서현 + 민수
-2. 서버 세팅: Lightsail + Postgres + 배포 파이프라인 — 민수. **백업 포함**: Managed DB(자동 스냅샷) 또는 컨테이너 유지 시 pg_dump 크론 + 오프사이트 저장. 남의 장부 데이터를 받는 순간 필수
-3. 첫 슬라이스 구현: 회원 등록 → 회원권 발급 → 예약 → 차감 → 잔여 확인 (백엔드 서현 / Expo 웹 화면 민수)
-4. Figma 화면 설계 (회원 목록 → 상세 → 예약 잡기, 폰 기준) — 민수
-5. 사장 인터뷰 계속 (1/5) — 메이미 남은 질문 + 계약서 샘플 + 다른 샵 2~4곳 — 서현(영업). 질문지: [interviews/template.md](interviews/template.md)
-6. 파일럿: 후보 1호 메이미 필라테스, 목표 2~3곳 확보 · 지표는 [hypotheses.md](hypotheses.md) 참고
-7. (런칭 결정 시점에) 네이밍 재검토 — [naming.md](naming.md). 그 전까지 똑디는 가칭
+| # | 할 일 | 담당 |
+|---|-------|------|
+| 1 | 데이터 모델 리뷰 → 확정 ("결정 필요" 5건 포함) — [spec/data-model.md](spec/data-model.md) | 서현 + 민수 |
+| 2 | Kotlin + Spring Boot 프로젝트 생성, 도메인 모델링 확정 | 서현 |
+| 3 | RN(Expo) **웹 타깃 실현 가능성 검토** — 라우팅·반응형·빌드 | 민수 |
+| 4 | 백오피스 화면 (shop 생성·목록) | 민수 |
+| 5 | 사업장 user 화면 (로그인 → 회원 → 세션 개설 → 예약, 폰 기준) + Figma | 민수 |
+| 6 | 서버 세팅: Lightsail + Postgres + 배포 파이프라인. **백업 포함** — Managed DB(자동 스냅샷) 또는 pg_dump 크론 + 오프사이트. 남의 장부 데이터를 받는 순간 필수 | 민수 |
+| 7 | 사장 인터뷰 계속 (1/5) — 메이미 남은 질문 + 계약서 샘플 + 다른 샵 2~4곳. 질문지: [interviews/template.md](interviews/template.md) | 서현 |
+| 8 | 파일럿: 후보 1호 메이미 필라테스, 목표 2~3곳 · 지표는 [hypotheses.md](hypotheses.md) | 서현 |
+| 9 | (런칭 결정 시점에) 네이밍 재검토 — [naming.md](naming.md). 그 전까지 똑디는 가칭 | 팀 |
+
+3번이 먼저 끝나야 4·5번 방향이 정해진다. RN 웹이 막히면 백오피스만 별도 웹(Next.js 등)으로
+빼는 선택지도 있다 — 백오피스는 우리만 쓰므로 앱으로 낼 이유가 없다.
