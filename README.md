@@ -29,21 +29,27 @@ LLM 레이어로 "박서현 회원 노쇼 횟수 보여줘" 같은 자연어 조
 | [naming.md](naming.md) | 네이밍 리스크 조사, 대안 후보, 다음 네이밍 때 배운 것 |
 | [mvp.md](mvp.md) | MVP 범위(기능 3개), 뺄 것, 기능 백로그 |
 | [interviews/](interviews/) | 사장 인터뷰 기록 (1건씩) + 공통 질문 템플릿 |
-| [spec/data-model.md](spec/data-model.md) | 데이터 모델 설계 — 첫 슬라이스 (2026-08-16 갱신) |
-| [spec/tenancy.md](spec/tenancy.md) | shop-key 라우팅, 계정 3종, 공개 캘린더 노출 범위 |
+| [spec/data-model.md](spec/data-model.md) | 데이터 모델 설계 + ERD — 슬라이스 구분 (2026-08-16 갱신) |
+| [spec/lifecycle.md](spec/lifecycle.md) | 생애주기·시퀀스 도식 — 상태 전이, 트랜잭션 경계, 회원권 시간 축 |
+| [spec/tenancy.md](spec/tenancy.md) | shop-key 라우팅, 계정 3종, 권한 매트릭스, 공개 캘린더 노출 범위 |
 | [spec/custom-spec.md](spec/custom-spec.md) | "무한 커스텀"의 단계·범위·설계 원칙 + LLM 설정(v2) 방향 |
 
 ## 이번 스코프 한 줄 (2026-08-16)
 
 마스터가 백오피스에서 shop을 만들고 shop-key를 발급 → 사업장 user가 `/{shop-key}`로 들어와
-회원·회원권·수업을 관리 → 오픈한 수업은 비로그인 누구나 캘린더로 조회. **회원 user는 이번에 안 만든다.**
+회원·수업·예약을 관리 → 오픈한 수업은 비로그인 누구나 캘린더로 조회. **회원 user는 이번에 안 만든다.**
+
+**회원권은 구현 슬라이스에서 분리한다 (2026-08-16)** — 설계를 계속 구체화하면서 개발은 병행.
+예약이 소비하는 자원 2개 중 자리(정원) 트랙만 먼저 만든다. 회원권 트랙은 결정 필요 6건이 열려
+있는 상태 — [spec/lifecycle.md](spec/lifecycle.md)
 
 ## 다음 액션
 
 | # | 할 일 | 담당 |
 |---|-------|------|
-| 1 | ~~데이터 모델 "결정 필요" 5건~~ → **2026-08-16 전부 확정** ([decisions.md](decisions.md)) | ✅ |
-| 2 | Kotlin + Spring Boot 프로젝트 생성, 도메인 모델링 확정 | 서현 |
+| 1 | ~~데이터 모델 "결정 필요" 5건~~ → 2026-08-16 확정. 단, 도식화하며 **6건이 새로 열림** ([spec/lifecycle.md](spec/lifecycle.md)) | ⚠️ |
+| 1-1 | 그중 `booking.COMPLETED` 전이 주체 1건이 **2번을 막는다** — 먼저 결정 | 서현 |
+| 2 | Kotlin + Spring Boot 프로젝트 생성, 슬라이스 1 스키마(8테이블) 마이그레이션 | 서현 |
 | 3 | RN(Expo) **웹 타깃 실현 가능성 검토** — 라우팅·반응형·빌드 | 민수 |
 | 4 | 백오피스 화면 (shop 생성·목록) | 민수 |
 | 5 | 사업장 user 화면 (로그인 → 회원 → 세션 개설 → 예약, 폰 기준) + Figma | 민수 |

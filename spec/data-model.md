@@ -1,8 +1,10 @@
 # 똑디 — 데이터 모델 설계 (첫 슬라이스)
 
-> 2026-08-02 초안 · 2026-08-09 리뷰 반영 · **2026-08-16 갱신** (shop-key / 계정 / 공개 캘린더)
-> 범위: shop 생성 → 사업장 로그인 → 회원 등록 → 회원권 발급 → 수업 개설 → 예약 → 자동 차감 → 잔여 확인 → 공개 캘린더
-> 기획: [../README.md](../README.md) · 커스텀 스펙: [custom-spec.md](custom-spec.md) · 라우팅·계정: [tenancy.md](tenancy.md)
+> 2026-08-02 초안 · 2026-08-09 리뷰 반영 · 2026-08-16 갱신 (shop-key / 계정 / 공개 캘린더)
+> **2026-08-16 갱신 2 — 회원권을 구현 슬라이스에서 분리** ([../decisions.md](../decisions.md))
+> 범위: shop 생성 → 사업장 로그인 → 회원 등록 → 수업 개설 → 예약 → 공개 캘린더
+> 병행 설계(구현 대기): 회원권 발급 → 자동 차감 → 잔여 확인
+> 기획: [../README.md](../README.md) · 생애주기·시퀀스: [lifecycle.md](lifecycle.md) · 커스텀 스펙: [custom-spec.md](custom-spec.md) · 라우팅·계정: [tenancy.md](tenancy.md)
 
 ## 설계 원칙 4개
 
@@ -11,6 +13,182 @@
 3. **정책은 값(JSONB)** — 기능 스위치가 아니라 회원권 상품에 묶인 정책 번들. 정책 추가할 때마다 마이그레이션 하지 않기 위함.
 4. **shop_id는 전 테이블에, 예외 없이** — 나중에 멀티테넌시 붙이면 전 테이블을 손봐야 하고, LLM 조회 함수가 테넌트 필터를 join 없이 걸 수 있어야 남의 샵 데이터 유출을 막는 마지막 방어선이 된다.
    - 유일한 예외는 `platform_admin` — 테넌트 **위에** 있는 우리 계정이라 소속 shop이 없다. 예외가 하나뿐이어야 "shop_id 없는 테이블 = platform_admin" 이라는 검사가 성립한다.
+
+---
+
+## 구현 슬라이스 구분 (2026-08-16)
+
+회원권은 **설계를 계속 구체화하면서 구현은 나중에** 붙인다. 예약 1건이 소비하는 자원 2개 중
+자리(정원) 트랙만 먼저 만든다 — 근거: [../decisions.md](../decisions.md), 로직: [lifecycle.md](lifecycle.md)
+
+| | 테이블 | 상태 |
+|---|--------|------|
+| 🟢 슬라이스 1 | `platform_admin` `shop` `staff` `member` `service` `staff_availability` `class_session` `booking` | 지금 구현 |
+| 🟡 회원권 트랙 | `membership_plan` `membership` `membership_transaction` + `booking.membership_id` | 구체화 중 |
+
+- 첫 마이그레이션에 🟡 테이블은 **넣지 않는다.** 아직 상태 전이가 안 닫혀 있고
+  ([lifecycle.md](lifecycle.md) 6절), 확정 안 된 스키마를 깔면 곧 뒤집는 마이그레이션이 따라온다
+- 나중에 붙이는 비용은 낮다. `booking.membership_id`가 처음부터 **nullable** 설계라
+  `ALTER TABLE booking ADD COLUMN membership_id uuid NULL` 한 줄이면 되고, 기존 예약은
+  자연스럽게 "회원권 없는 예약"으로 남는다
+- 슬라이스 1에서는 모든 예약에 차감이 없다. **이건 파일럿 투입 가능한 제품이 아니다** —
+  인터뷰 1의 핵심 페인(수기 차감)이 회원권 트랙에 있기 때문. 슬라이스 1은 기반 구축 단계로 본다
+
+## ERD
+
+### 🟢 슬라이스 1
+
+```mermaid
+erDiagram
+    platform_admin {
+        uuid id PK
+        text email UK "전역 unique"
+        boolean active
+    }
+    shop {
+        uuid id PK
+        text key UK "URL의 shop-key"
+        text name
+        text timezone
+        jsonb labels
+        boolean active
+    }
+    staff {
+        uuid id PK
+        uuid shop_id FK
+        text name
+        text display_name "null이면 name으로 폴백"
+        text email "shop 내 unique · 로그인 ID"
+        text password_hash "null = 로그인 안 하는 강사"
+        text role "OWNER / INSTRUCTOR"
+        boolean active
+    }
+    member {
+        uuid id PK
+        uuid shop_id FK
+        text name
+        text phone "shop 내 unique"
+        text memo
+    }
+    service {
+        uuid id PK
+        uuid shop_id FK
+        text name
+        int duration_minutes
+        int capacity
+        int deduction_count
+    }
+    staff_availability {
+        uuid id PK
+        uuid shop_id FK
+        uuid staff_id FK
+        int day_of_week
+        time start_time
+        time end_time
+    }
+    class_session {
+        uuid id PK
+        uuid shop_id FK
+        uuid staff_id FK
+        uuid service_id FK
+        timestamptz start_at
+        timestamptz end_at
+        int capacity "개설 시점 복사"
+        int booked_count "캐시"
+        boolean is_public
+        text status "OPEN / CLOSED / CANCELLED"
+    }
+    booking {
+        uuid id PK
+        uuid shop_id FK
+        uuid session_id FK
+        uuid member_id FK
+        text status "BOOKED / COMPLETED / CANCELLED / NO_SHOW"
+        timestamptz cancelled_at
+    }
+
+    shop ||--o{ staff : "shop_id"
+    shop ||--o{ member : "shop_id"
+    shop ||--o{ service : "shop_id"
+    shop ||--o{ staff_availability : "shop_id"
+    shop ||--o{ class_session : "shop_id"
+    shop ||--o{ booking : "shop_id"
+    staff ||--o{ staff_availability : "요일 반복 가용시간"
+    staff ||--o{ class_session : "담당"
+    service ||--o{ class_session : "회차 개설"
+    class_session ||--o{ booking : "정원 소비"
+    member ||--o{ booking : "신청"
+```
+
+`platform_admin`만 선이 없다 — 테넌트 **위에** 있어서 `shop_id`가 없는 유일한 테이블(원칙 4의 예외).
+"shop_id 없는 테이블 = platform_admin"이 검사식으로 성립한다.
+
+읽는 법 세 가지:
+
+- **shop에서 나가는 6개 선이 원칙 4다.** 모든 조회의 첫 조건이 `shop_id = ?`
+- **`booking`은 강사·서비스·시각을 갖지 않는다.** 전부 `class_session`이 갖고, 조회는 join.
+  복사해두면 세션 시간이 바뀔 때 두 곳이 어긋난다 (2026-08-16 변경)
+- **`staff_availability`는 예약과 직접 연결되지 않는다.** 세션을 만들 때 후보 시간을
+  제안·검증하는 기준일 뿐, 예약 슬롯의 진실은 `class_session`
+
+### 🟡 회원권 트랙이 붙었을 때
+
+```mermaid
+erDiagram
+    member {
+        uuid id PK
+    }
+    booking {
+        uuid id PK
+        uuid membership_id FK "nullable — null이면 차감 없음"
+    }
+    membership_plan {
+        uuid id PK
+        uuid shop_id FK
+        text type "COUNT / PERIOD / HYBRID"
+        int total_count
+        int duration_days
+        int price
+        jsonb policy "정책 번들"
+    }
+    membership {
+        uuid id PK
+        uuid shop_id FK
+        uuid member_id FK
+        uuid plan_id FK
+        jsonb policy_snapshot "발급 시점 복사"
+        int duration_days "발급 시점 복사"
+        int remaining_count "캐시"
+        timestamptz started_at
+        timestamptz expires_at
+        text status "ACTIVE / EXPIRED / SUSPENDED / REFUNDED"
+    }
+    membership_transaction {
+        uuid id PK
+        uuid shop_id FK
+        uuid membership_id FK
+        uuid booking_id FK "nullable"
+        text type "GRANT / DEDUCT / RESTORE / ADJUST"
+        int amount "부호 있음"
+        text reason "코드"
+        text memo
+    }
+
+    member ||--o{ membership : "보유"
+    membership_plan ||--o{ membership : "발급"
+    membership ||--o{ membership_transaction : "원장"
+    membership |o--o{ booking : "잔여 소비 (nullable)"
+    booking |o--o{ membership_transaction : "차감 · 복구 (nullable)"
+```
+
+**nullable FK 2개가 이 그림의 핵심**이고, 표만 봐서는 안 보이는 부분이다.
+
+- `booking.membership_id = null` → 회원권 없는 예약(체험 수업). 차감 없음.
+  **슬라이스 1의 모든 예약이 이 상태다**
+- `membership_transaction.booking_id = null` → 예약과 무관한 원장 줄(발급 `GRANT`,
+  사장 수동 조정 `MANUAL_ADJUST`, 환불)
+- `booking` 1건이 원장 **여러 줄**을 만든다 (차감 1 + 복구 1). 조회할 때 `SUM`을 쓰지
+  마지막 줄만 보면 안 된다
 
 ---
 
@@ -227,7 +405,10 @@ Kotlin에서는 sealed class + data class로 파싱해서 타입 안전하게 �
 
 ---
 
-## 차감 로직 (첫 슬라이스 · 2026-08-09 분기 보강 · **2026-08-16 확정**)
+## 🟡 차감 로직 (2026-08-09 분기 보강 · 2026-08-16 확정 · **구현은 회원권 트랙**)
+
+> 이 절 전체가 회원권 트랙이다. 슬라이스 1의 예약 생성은 아래에서 **세션 확인 단계까지만** 돈다
+> (`membership` 이후 전부 생략). 시퀀스: [lifecycle.md](lifecycle.md) 4절
 
 plan type에 따라 갈린다:
 
@@ -289,8 +470,20 @@ plan type에 따라 갈린다:
 
 ## 결정 필요
 
-없음. 2026-08-16에 5건 모두 확정 — [../decisions.md](../decisions.md) 참고.
-새 쟁점이 나오면 여기에 다시 쌓는다.
+2026-08-16 오전에 5건을 닫았는데, 그날 **상태 전이도를 그리면서 6건이 새로 나왔다.**
+표(컬럼·값 목록)로는 안 보이고 전이도로 그려야 드러나는 것들이라, 상세와 선택지는
+[lifecycle.md](lifecycle.md)에 있다.
+
+| # | 쟁점 | 트랙 | 상세 |
+|---|------|------|------|
+| 1 | `booking.COMPLETED` 전이 주체 — 아무도 안 누르면 지난 예약이 영원히 `BOOKED` | 🟢 슬라이스 1 | [lifecycle.md](lifecycle.md) 3절 |
+| 2 | `membership.EXPIRED` 전이 주체 — 배치인가 조회 시 lazy 판정인가 | 🟡 | 6-1 |
+| 3 | 기간은 남고 횟수만 소진된 상태 — `EXHAUSTED`를 추가할 것인가 | 🟡 | 6-2 |
+| 4 | 환불 시 원장 처리 — `reason` 코드에 환불이 없다. 부분 환불은 `payment` 분리와 묶임 | 🟡 | 6-3 |
+| 5 | `SUSPENDED`(홀딩) 진입 경로가 없다 — 만료일 연장·예약 차단·횟수 카운터 위치 | 🟡 | 6-4 |
+| 6 | FIRST_USE 롤백이 **만료를 앞당길 수 있다** — 회원에게 불리한 방향 | 🟡 | 7절 |
+
+**1번만 슬라이스 1을 막는다.** 나머지 5건은 회원권 트랙에서 구현 착수 전까지 닫으면 된다.
 
 ---
 
@@ -316,13 +509,19 @@ plan type에 따라 갈린다:
 
 **서현 (백엔드)**
 
+구현(🟢)과 설계(🟡)를 **병행**한다.
+
 1. ~~이 모델 리뷰 → 확정~~ → 2026-08-16 확정 완료
-2. Kotlin + Spring Boot 프로젝트 생성 (Gradle, Postgres, Flyway) + 엔티티/도메인 클래스
-3. TenantResolver + 인증 (platform_admin / staff) — [tenancy.md](tenancy.md) 4·5절
-4. API:
+2. 🟢 Kotlin + Spring Boot 프로젝트 생성 (Gradle, Postgres, Flyway) + 엔티티/도메인 클래스
+   — 마이그레이션은 슬라이스 1의 8개 테이블만
+3. 🟢 TenantResolver + 인증 (platform_admin / staff) — [tenancy.md](tenancy.md) 4·5절
+4. 🟢 API:
    - 백오피스: shop 생성(+최초 OWNER), shop 목록
-   - 사업장: 로그인 / 회원 등록 / 회원권 발급 / 세션 개설·공개 / 예약 생성 / 예약 취소·노쇼
+   - 사업장: 로그인 / 회원 등록 / 세션 개설·공개 / 예약 생성 / 예약 취소·노쇼
    - 공개: `GET /{shop-key}/schedule` (인증 없음, 전용 DTO)
+   - 착수 전 `COMPLETED` 처리 결정 필요 ([lifecycle.md](lifecycle.md) 3절)
+5. 🟡 회원권 트랙 — 위와 **동시에** 진행. 결정 필요 5건을 닫는 게 먼저이고,
+   구현은 슬라이스 1이 돌아간 뒤 스키마 추가로 붙인다
 
 **민수 (프론트)**
 
