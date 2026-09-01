@@ -1,4 +1,4 @@
-# 똑디 DDocD — 문서
+# 똑디 ddoukd — 문서
 
 > 팀: **단디 DanD** (서현 + 민수) · 운동샵 예약·회원관리 SaaS
 > 상태: 💡 기획 정리 완료 · 인터뷰 1/5 · **2026-08-16 스코프 확정, 구현 착수**
@@ -33,6 +33,7 @@ LLM 레이어로 "박서현 회원 노쇼 횟수 보여줘" 같은 자연어 조
 | [spec/lifecycle.md](spec/lifecycle.md) | 생애주기·시퀀스 도식 — 상태 전이, 트랜잭션 경계, 회원권 시간 축 |
 | [spec/tenancy.md](spec/tenancy.md) | shop-key 라우팅, 계정 3종, 권한 매트릭스, 공개 캘린더 노출 범위 |
 | [spec/custom-spec.md](spec/custom-spec.md) | "무한 커스텀"의 단계·범위·설계 원칙 + LLM 설정(v2) 방향 |
+| [study-kotlin-spring.md](study-kotlin-spring.md) | 서현 백엔드 착수용 Kotlin/Spring 학습 가이드 — 작업 순서 = 학습 순서 |
 
 ## 이번 스코프 한 줄 (2026-08-16)
 

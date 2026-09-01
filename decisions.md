@@ -196,6 +196,12 @@ shop-key 없이 들어온 사람을 위한 샵 검색 로그인은 나중 편의
 선택지와 권장안은 [spec/lifecycle.md](spec/lifecycle.md)에. 배운 것: **상태 값을 나열하는 것과
 전이를 그리는 것은 다른 작업이다.** 다음 스펙부터는 status 컬럼을 정의할 때 전이도를 같이 그린다.
 
+## 2026-09-01 — 로마자 표기 `ddoukd`로 확정
+
+`ddoukd` / `DDocD` / `ddocd` 혼재를 정리. repo명·패키지명·문서 전부 `ddoukd`.
+가칭 "똑디" 자체의 런칭 전 재검토([naming.md](naming.md))와는 별개 — 표기만 고정한 것.
+shop-key 예약어 목록에도 `ddoukd` 추가 ([spec/tenancy.md](spec/tenancy.md)).
+
 ## 협업 툴
 
 Claude 계정 공유는 약관 위반 → 각자 Pro 또는 Team 플랜(최소 좌석 요건 확인 필요).

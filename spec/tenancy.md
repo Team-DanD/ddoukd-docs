@@ -38,7 +38,7 @@
 ```
 admin, api, app, www, static, assets, cdn, health, status,
 login, logout, signup, backoffice, docs, help, support, blog,
-mail, ns, dev, stage, test, ddokd, ddocd
+mail, ns, dev, stage, test, ddoukd, ddokd, ddocd
 ```
 
 ## 3. URL 구조
