@@ -2,7 +2,8 @@
 
 > 2026-09-01 작성. 전제: TypeScript(strict) + NestJS + TypeORM은 매일 쓰는 수준,
 > Spring Boot는 예전에 잠깐, Kotlin은 처음.
-> 대상 작업: [spec/data-model.md](spec/data-model.md) "다음 단계"의 서버 구현 전체.
+> 대상 작업: **슬라이스 1**(자리 트랙 8테이블 — [spec/data-model.md](spec/data-model.md) 슬라이스 구분)
+> 구현 + 회원권 트랙(🟡) 병행 설계. 차감·원장 구현은 이 가이드의 "병행" 행으로 미뤄져 있다.
 
 ## 결론 먼저
 
@@ -41,7 +42,7 @@
 |------|------------------------|
 | `val`/`var`, 타입 추론, null safety (`?.` `?:` `!!`) | 전부. `display_name ?: name` 폴백이 문자 그대로 `?:` 한 줄 |
 | data class | 모든 DTO, 정책 값 객체 |
-| **sealed class/interface + `when` 완전성 검사** | **회원권 정책 모델링의 심장.** COUNT/PERIOD/HYBRID 분기를 `when`으로 쓰면 유형 추가 시 컴파일러가 빠뜨린 분기를 잡아준다 — [decisions.md](decisions.md) 스택 선정 이유이기도 함 |
+| **sealed class/interface + `when` 완전성 검사** | **회원권 정책 모델링의 심장.** COUNT/PERIOD/HYBRID 분기를 `when`으로 쓰면 유형 추가 시 컴파일러가 빠뜨린 분기를 잡아준다 — [decisions.md](decisions.md) 스택 선정 이유이기도 함. 실전 투입은 회원권 트랙(🟡)이지만 문법은 지금 익혀둔다 |
 | enum class | BookingStatus, 원장 reason 코드 등 상태·코드 전부 |
 | 주 생성자, named/default arguments | 엔티티·DTO 생성. 빌더 패턴이 필요 없어짐 |
 | 컬렉션 API (`map/filter/sumOf/groupBy/minByOrNull`) | TS 배열 메서드와 거의 동일. `minByOrNull`은 FIRST_USE 롤백(남은 예약 중 최소 시각) 재계산에 바로 씀 |
@@ -66,8 +67,8 @@ MVP 서버는 전부 동기 블로킹 코드로 충분하다.
 |------|------------------------|
 | DI, 컴포넌트 스캔, 생성자 주입 | 전부 |
 | `@RestController` + DTO + Bean Validation | 모든 API. 공개 캘린더 **전용 DTO 분리**([spec/tenancy.md](spec/tenancy.md) 7절) 원칙 실행 지점 |
-| **`@Transactional`** + 전파·롤백 기본 | **가장 중요.** "원장 기록 + remaining_count 갱신 + booked_count 증가"가 한 트랜잭션([spec/data-model.md](spec/data-model.md) 차감 로직). 이거 하나는 대충 넘어가지 말 것 |
-| 조건부 UPDATE 패턴 (`UPDATE ... WHERE remaining_count >= :d` 0행이면 실패) | 동시 예약 레이스 차단. JPA만으로 안 되고 `@Modifying` 쿼리 또는 JDBC로 — 설계 문서에 이미 SQL이 적혀 있으니 그대로 옮기면 됨 |
+| **`@Transactional`** + 전파·롤백 기본 | **가장 중요.** 슬라이스 1에서도 "ad-hoc 세션 생성 + booking INSERT"와 "세션 취소 → 예약 N건 팬아웃"이 각각 한 트랜잭션([spec/lifecycle.md](spec/lifecycle.md) 4·5절). 회원권 트랙이 붙으면 여기에 원장 기록까지 확장된다. 이거 하나는 대충 넘어가지 말 것 |
+| 조건부 UPDATE 패턴 (`UPDATE ... WHERE booked_count < capacity` 0행이면 실패) | 동시 예약 레이스 차단 — 정원 초과·마감 세션·지난 세션을 한 번에 막는다. JPA만으로 안 되고 `@Modifying` 쿼리 또는 JDBC로 — 설계 문서에 이미 SQL이 적혀 있으니 그대로 옮기면 됨 |
 | Flyway | 스키마는 V1__init.sql부터 SQL로 직접. 테이블 11개 DDL을 손으로 쓰는 게 곧 모델 복습 |
 | `@RestControllerAdvice` 예외 처리 | 정원 마감·잔여 부족·마감선 초과 등 도메인 에러 → HTTP 응답 변환 |
 | HandlerInterceptor (TenantResolver) | shop-key → shop_id 해석을 한 곳에 — [spec/tenancy.md](spec/tenancy.md) 4절 |
@@ -75,9 +76,10 @@ MVP 서버는 전부 동기 블로킹 코드로 충분하다.
 
 ### 프로젝트 특화 — 일반 튜토리얼에 안 나오는 것 3개
 
-1. **JSONB ↔ Kotlin 객체**: `membership_plan.policy` / `membership.policy_snapshot`.
-   Hibernate 6이면 `@JdbcTypeCode(SqlTypes.JSON)` + jackson-module-kotlin으로 컬럼을
-   data class(sealed 포함)로 바로 매핑 가능. 착수 첫 주에 스파이크로 검증해둘 것 —
+1. **JSONB ↔ Kotlin 객체**: 슬라이스 1에서는 `shop.labels` 하나뿐이지만, 회원권 트랙의
+   `policy` / `policy_snapshot`이 전부 이 매핑에 걸려 있다. Hibernate 6이면
+   `@JdbcTypeCode(SqlTypes.JSON)` + jackson-module-kotlin으로 컬럼을 data class(sealed 포함)로
+   바로 매핑 가능. 회원권 트랙 **구현 착수 전에** 스파이크로 검증해둘 것 —
    여기가 막히면 원칙 3(정책은 값)이 흔들린다
 2. **인증은 Spring Security 풀세트 말고 최소로**: Spring Security는 러닝커브가 가장 큰
    구간인데, MVP 요구는 "JWT 검증 + 토큰 shop_id ↔ URL shop-key 대조 + 비밀번호 해시"뿐.
@@ -109,23 +111,28 @@ decisions.md에 아직 없는 결정. 선택지 2개:
 ## 작업 순서 = 학습 순서
 
 미리 몰아서 공부하지 않고, 각 단계 직전에 그 단계 재료만 배운다.
+범위는 슬라이스 1(🟢 자리 트랙 8테이블) — 회원권 트랙(🟡)은 마지막 "병행" 행.
+
+**착수 전 블로커 1건**: `booking.COMPLETED` 전이 주체 결정 ([spec/lifecycle.md](spec/lifecycle.md)
+3절, 권장 A안 = 상태 삭제). 단계 2의 DDL(status 값 목록)과 단계 6의 API가 이 결정에 걸려 있다.
 
 | 단계 | 작업 ([spec/data-model.md](spec/data-model.md) 다음 단계) | 그때 배우는 것 | 감 잡기용 예상 |
 |------|------|------|------|
 | 0 | Kotlin 문법 훑기 — 공식 문서 + Kotlin Koans 일부 | 위 "필수" 표 전부 | 1~1.5일 |
 | 1 | 프로젝트 생성 (start.spring.io: Kotlin, Gradle-KTS, Web, Validation, JPA, Flyway, Postgres) + 로컬 Postgres(docker compose) + `/health` 하나 | Gradle 구조, application.yml, 프로파일 | 0.5일 |
-| 2 | Flyway V1 마이그레이션 — 테이블 11개 DDL + 엔티티 클래스 | Flyway, JPA 기본 매핑, **JSONB 스파이크** | 1~2일 |
+| 2 | Flyway V1 마이그레이션 — **슬라이스 1의 8개 테이블만** DDL + 엔티티 클래스 (🟡 3테이블은 안 깐다) | Flyway, JPA 기본 매핑 | 1~2일 |
 | 3 | TenantResolver + 인증 (platform_admin/staff 로그인, JWT, must_change_password) | 인터셉터, BCrypt, JWT 라이브러리 | 1~2일 |
 | 4 | 백오피스 API (shop 생성 + 최초 OWNER + 임시 비번) | `@Transactional` 첫 실전, 예외 처리 | 1일 |
-| 5 | 사업장 API — 회원·회원권 발급(GRANT 원장)·세션 개설 | 트랜잭션 심화, 검증 | 2~3일 |
-| 6 | **차감 로직** — 예약 생성/취소/노쇼/세션취소 + FIRST_USE 기산·롤백 | 조건부 UPDATE, sealed class로 정책 분기 | 2~3일 |
+| 5 | 사업장 API — 회원 등록 · 서비스 · 가용시간 · 세션 개설/마감/공개 | 트랜잭션 심화, 검증 | 2~3일 |
+| 6 | **예약 트랙** — 생성(ad-hoc 세션 포함)/취소/노쇼 + 세션 취소 팬아웃. 전부 자리(정원)만 움직이고 원장은 없음 | 조건부 UPDATE, 트랜잭션 경계 ([spec/lifecycle.md](spec/lifecycle.md) 4·5절 시퀀스가 그대로 사양) | 2~3일 |
 | 7 | 공개 캘린더 API (비로그인, 전용 DTO) + 단계 3~6 테스트 보강 | 테스트 (`@SpringBootTest`, Testcontainers) | 1~2일 |
+| 병행 | 🟡 회원권 트랙 — 결정 필요 5건 닫기 + JSONB policy ↔ sealed class 스파이크. 구현은 슬라이스 1이 돌아간 뒤 스키마 추가로 | sealed class 실전, JSONB 매핑, 원장 패턴 | 슬라이스 1과 동시 |
 
 - 예상치는 학습 포함 기준. 절반은 6단계(도메인 로직)에 쓰는 게 맞고, 1~4단계에서 오래
   걸리면 프레임워크와 싸우고 있다는 신호 — 그때는 접근을 바꾼다 (예: Security 풀세트 →
   수동 필터)
-- 테스트는 7에 몰지 말고 6단계 차감 로직만큼은 작성과 동시에. 설계 문서의 분기
-  (잔여 ≥ deduction, 마감선, FIRST_USE 롤백)가 곧 테스트 케이스 목록이다
+- 테스트는 7에 몰지 말고 6단계 예약 트랙만큼은 작성과 동시에. [spec/lifecycle.md](spec/lifecycle.md)
+  2절 "전이별 자원 반환표"의 자리 열이 곧 슬라이스 1 테스트 케이스 목록이다 (동시 예약 레이스 포함)
 
 ## 자료
 
