@@ -103,7 +103,7 @@ erDiagram
         uuid shop_id FK
         uuid session_id FK
         uuid member_id FK
-        text status "BOOKED / COMPLETED / CANCELLED / NO_SHOW"
+        text status "BOOKED / CANCELLED / NO_SHOW"
         timestamptz cancelled_at
     }
 
@@ -362,7 +362,7 @@ Kotlin에서는 sealed class + data class로 파싱해서 타입 안전하게 �
 | session_id | uuid FK | **어느 세션에 붙은 예약인지.** 강사·서비스·시간은 세션이 갖는다 |
 | member_id | uuid FK | |
 | membership_id | uuid FK null | **어느 회원권으로 잡은 예약인지** — 차감 연결고리. null = 회원권 없는 예약(체험 수업 등), 차감 없음 |
-| status | text | BOOKED / COMPLETED / CANCELLED / NO_SHOW |
+| status | text | BOOKED / CANCELLED / NO_SHOW |
 | cancelled_at | timestamptz null | |
 | created_at | timestamptz | |
 
@@ -370,7 +370,8 @@ Kotlin에서는 sealed class + data class로 파싱해서 타입 안전하게 �
   세션 시간이 바뀔 때 두 곳이 어긋난다. 세션은 삭제하지 않고 `CANCELLED`로 남기므로 이력도 안전.
   조회는 `booking JOIN class_session`.
 - `(session_id, member_id)` unique — 같은 회원의 같은 세션 중복 예약 방지. 단, 취소 후 재예약을
-  허용하려면 부분 인덱스(`WHERE status = 'BOOKED'`)로 걸어야 한다
+  허용하므로 부분 인덱스(`WHERE status <> 'CANCELLED'`)로 건다. 노쇼도 자리를 유지하므로 중복 예약에서 제외하지 않는다
+- 완료는 `status = BOOKED`이고 연결된 수업의 `end_at < now()`일 때 조회 시 판정한다. `COMPLETED`는 저장하지 않는다 (2026-10-01 A안 확정).
 - `status = NO_SHOW`가 곧 LLM 조회 "노쇼 횟수"의 원천.
 
 ### membership_transaction — 차감/복구 원장
@@ -476,7 +477,7 @@ plan type에 따라 갈린다:
 
 | # | 쟁점 | 트랙 | 상세 |
 |---|------|------|------|
-| 1 | `booking.COMPLETED` 전이 주체 — 아무도 안 누르면 지난 예약이 영원히 `BOOKED` | 🟢 슬라이스 1 | [lifecycle.md](lifecycle.md) 3절 |
+| 1 | 예약 완료 A안 확정 (2026-10-01): BOOKED + 수업 종료 시각 경과 | 🟢 해결 | [lifecycle.md](lifecycle.md) 3절 |
 | 2 | `membership.EXPIRED` 전이 주체 — 배치인가 조회 시 lazy 판정인가 | 🟡 | 6-1 |
 | 3 | 기간은 남고 횟수만 소진된 상태 — `EXHAUSTED`를 추가할 것인가 | 🟡 | 6-2 |
 | 4 | 환불 시 원장 처리 — `reason` 코드에 환불이 없다. 부분 환불은 `payment` 분리와 묶임 | 🟡 | 6-3 |
@@ -519,7 +520,7 @@ plan type에 따라 갈린다:
    - 백오피스: shop 생성(+최초 OWNER), shop 목록
    - 사업장: 로그인 / 회원 등록 / 세션 개설·공개 / 예약 생성 / 예약 취소·노쇼
    - 공개: `GET /{shop-key}/schedule` (인증 없음, 전용 DTO)
-   - 착수 전 `COMPLETED` 처리 결정 필요 ([lifecycle.md](lifecycle.md) 3절)
+   - 완료 처리는 A안 확정: `BOOKED` + 수업 `end_at < now()`로 조회 시 판정 ([lifecycle.md](lifecycle.md) 3절)
 5. 🟡 회원권 트랙 — 위와 **동시에** 진행. 결정 필요 5건을 닫는 게 먼저이고,
    구현은 슬라이스 1이 돌아간 뒤 스키마 추가로 붙인다
 
