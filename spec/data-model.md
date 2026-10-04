@@ -517,7 +517,7 @@ plan type에 따라 갈린다:
 1. ~~이 모델 리뷰 → 확정~~ → 2026-08-16 확정 완료
 2. 🟢 [ddoukd-server-nest](https://github.com/Team-DanD/ddoukd-server-nest)에 NestJS 프로젝트 구성
    (Node.js + TypeScript + Postgres) + 도메인별 모듈
-   — 기존 Spring 작업은 보존. ORM·마이그레이션 도구는 서버 구성 시 선택하고,
+   — 기존 Spring 작업은 보존. ORM은 TypeORM, 스키마는 SQL 마이그레이션으로 관리하고(2026-10-04 확정),
    마이그레이션은 슬라이스 1의 8개 테이블만 대상으로 한다
 3. 🟢 TenantResolver + 인증 (platform_admin / staff) — [tenancy.md](tenancy.md) 4·5절
    — 기존 Spring의 인증·테넌트 격리 테스트 시나리오도 계승한다

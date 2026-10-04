@@ -1,7 +1,7 @@
 # 똑디 ddoukd — 문서
 
 > 팀: **단디 DanD** (서현 + 민수) · 운동샵 예약·회원관리 SaaS
-> 상태: 💡 기획 정리 완료 · 인터뷰 1/5 · **2026-10-01 백엔드 NestJS 전환 결정, 서버 구성 준비**
+> 상태: 💡 기획 정리 완료 · 인터뷰 1/5 · **2026-10-04 NestJS 서버 초기 구성·슬라이스 1 API 구현 완료, 리뷰 중**
 > "똑디"는 가칭 — 런칭 전 재검토 필요, [naming.md](naming.md) 참고
 
 ## 한 줄 정의
@@ -26,7 +26,8 @@ DB는 Postgres를 유지하고, 기존 도메인 설계와 슬라이스 구분�
 
 - 기존 `ddoukd-server`의 Kotlin/Spring 코드와 작업 이력은 그대로 보존한다
 - NestJS 서버는 별도 비공개 레포 [Team-DanD/ddoukd-server-nest](https://github.com/Team-DanD/ddoukd-server-nest)에서 개발한다
-- ORM·마이그레이션 도구는 서버 구성 단계에서 선택한다
+- ORM은 **TypeORM**, 스키마는 손으로 쓴 SQL 마이그레이션으로 관리한다 (`synchronize: false`) — [decisions.md](decisions.md)의 2026-10-04 기록
+- 초기 구성과 슬라이스 1 API(인증·회원·수업·예약·공개 캘린더)는 [ddoukd-server-nest PR #1](https://github.com/Team-DanD/ddoukd-server-nest/pull/1)에 올라와 있고 리뷰 중이다
 - 전환 이유와 계승할 규칙: [decisions.md](decisions.md)의 2026-10-01 결정
 
 ## 문서 맵
@@ -63,7 +64,7 @@ DB는 Postgres를 유지하고, 기존 도메인 설계와 슬라이스 구분�
 |---|-------|------|
 | 1 | ~~데이터 모델 "결정 필요" 5건~~ → 2026-08-16 확정. 도식화로 열린 6건 중 예약 완료 A안 확정, **회원권 5건은 미정** ([spec/lifecycle.md](spec/lifecycle.md)) | ⚠️ |
 | 1-1 | 예약 완료 **A안 확정**: `BOOKED` + 수업 종료 시각 경과로 판정. 예약 스키마·API 구현 진행 가능 | 서현 |
-| 2 | NestJS 프로젝트 구성(Node.js + TypeScript + Postgres), 슬라이스 1 스키마(8테이블) 마이그레이션. 기존 Spring 작업 보존 | 서현 |
+| 2 | ~~NestJS 프로젝트 구성, 슬라이스 1 스키마(8테이블) 마이그레이션~~ → [ddoukd-server-nest PR #1](https://github.com/Team-DanD/ddoukd-server-nest/pull/1)에 구현. **리뷰 반영 후 머지**가 남음. 기존 Spring 작업은 `ddoukd-server` main에 보존 | 서현 |
 | 3 | RN(Expo) **웹 타깃 실현 가능성 검토** — 라우팅·반응형·빌드 | 민수 |
 | 4 | 백오피스 화면 (shop 생성·목록) | 민수 |
 | 5 | 사업장 user 화면 (로그인 → 회원 → 세션 개설 → 예약, 폰 기준) + Figma | 민수 |
