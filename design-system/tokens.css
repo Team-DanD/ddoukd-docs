@@ -55,6 +55,21 @@
   --dd-intensity-low-border: var(--dd-color-rule);
   --dd-intensity-mid-border: var(--dd-color-purple);
   --dd-intensity-high-border: var(--dd-color-ink);
+  --dd-overlay-scrim: rgba(17,17,17,0.5);
+  --dd-booking-no-show-background: var(--dd-color-ink);
+  --dd-booking-no-show-foreground: var(--dd-color-paper);
+  --dd-booking-completed-background: var(--dd-color-surface);
+  --dd-booking-completed-foreground: var(--dd-color-ink);
+  --dd-session-open-background: var(--dd-color-paper);
+  --dd-session-open-foreground: var(--dd-color-ink);
+  --dd-session-closed-background: var(--dd-color-surface2);
+  --dd-session-closed-foreground: var(--dd-color-ink);
+  --dd-session-cancelled-background: var(--dd-color-surface2);
+  --dd-session-cancelled-foreground: var(--dd-color-ink-soft);
+  --dd-visibility-public-background: var(--dd-color-purple-tint);
+  --dd-visibility-public-foreground: var(--dd-color-purple-deep);
+  --dd-visibility-private-background: var(--dd-color-surface);
+  --dd-visibility-private-foreground: var(--dd-color-ink-soft);
   --dd-space-4: 4px;
   --dd-space-6: 6px;
   --dd-space-8: 8px;
@@ -79,6 +94,8 @@
   --dd-shadow-emphasis: 5px 5px 0 var(--dd-color-ink);
   --dd-duration-fast: 150ms;
   --dd-duration-standard: 300ms;
+  --dd-duration-toast: 4000ms;
+  --dd-layer-popover: 30;
 }
 
 /* Proposed implementation examples. */
