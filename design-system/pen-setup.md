@@ -31,9 +31,11 @@ VS Code 탐색기에서 `design-system/ddoukd.pen`을 클릭합니다. `.pen` �
 | 프레임 | 내용 |
 | --- | --- |
 | Foundations | 색, 타이포, 간격, 하드 섀도 견본 |
-| Components | Button, IntensityBadge, BookingBadge, CapacityMeter, Decoration |
+| Components | Button, IntensityBadge, BookingBadge, CapacityMeter, Decoration, ClassCard, BookingRow |
+| Operator Components | 운영자 화면용 입력·목록·피드백 컴포넌트. 명세는 [components-operator.md](components-operator.md) |
+| App Shells | 헤더·내비게이션 부품과 예시 화면 5개 |
 
-변수 목록에 `color-purple`, `action-primary-background`, `space-16` 같은 토큰 132개가 보이면 정상입니다. 변수 패널의 위치는 확장 버전에 따라 다를 수 있습니다. 이름 규칙은 [README의 pen.dev 대응](README.md#pendev-대응-2026-10-04)에 있습니다.
+변수 목록에 `color-purple`, `action-primary-background`, `space-16` 같은 토큰 193개가 보이면 정상입니다. 변수 패널의 위치는 확장 버전에 따라 다를 수 있습니다. 이름 규칙은 [README의 pen.dev 대응](README.md#pendev-대응-2026-10-04)에 있습니다.
 
 ## 3. 화면 기획 시작하기
 
@@ -46,7 +48,7 @@ cp design-system/ddoukd.pen plans/booking-calendar/booking-calendar.pen
 
 1. 복사한 파일을 열고, Foundations·Components 프레임 아래쪽에 화면 프레임을 만듭니다.
 2. 프레임 크기는 모바일 390 × 844, 데스크톱 1440 × 1000을 기본으로 씁니다. 좁은 화면 확인은 360 × 800, 태블릿은 768 × 1024입니다.
-3. 버튼·배지는 새로 그리지 않고 Components의 컴포넌트를 복사해 인스턴스로 씁니다.
+3. 버튼·배지·입력 필드·표는 새로 그리지 않고 Components·Operator Components의 컴포넌트를 복사해 인스턴스로 씁니다. 화면 틀은 App Shells의 예시 화면을 복사해서 시작하면 빠릅니다.
 4. `plans/<작업>/README.md`에 화면 목록·정책·미결 사항을 적습니다. 템플릿은 [../plans/README.md](../plans/README.md)에 있습니다.
 
 `design-system/ddoukd.pen` 자체는 토큰이나 공통 컴포넌트를 바꿀 때만 고칩니다. 값은 `tokens.json`을 먼저 고친 뒤 맞춥니다.
