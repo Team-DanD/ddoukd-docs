@@ -1,7 +1,7 @@
 # 똑디 ddoukd — 문서
 
 > 팀: **단디 DanD** (서현 + 민수) · 운동샵 예약·회원관리 SaaS
-> 상태: 💡 기획 정리 완료 · 인터뷰 1/5 · **2026-08-16 스코프 확정, 구현 착수**
+> 상태: 💡 기획 정리 완료 · 인터뷰 1/5 · **2026-10-01 백엔드 NestJS 전환 결정, 서버 구성 준비**
 > "똑디"는 가칭 — 런칭 전 재검토 필요, [naming.md](naming.md) 참고
 
 ## 한 줄 정의
@@ -16,8 +16,18 @@ LLM 레이어로 "박서현 회원 노쇼 횟수 보여줘" 같은 자연어 조
 
 | 사람 | 담당 |
 |------|------|
-| 서현 | 기획 · 영업 · 백엔드 (Kotlin/Spring — 이번 기회에 학습 겸함) |
+| 서현 | 기획 · 영업 · 백엔드 (Node.js + TypeScript + NestJS) |
 | 민수 | 재정 · 디자인 · 인프라 · 프론트(앱, RN/Expo) |
+
+## 현재 백엔드 방향 (2026-10-01)
+
+백엔드는 **Node.js + TypeScript + NestJS**로 전환한다. 이번에는 제품 구현·검증 속도를 우선한다.
+DB는 Postgres를 유지하고, 기존 도메인 설계와 슬라이스 구분을 이어간다.
+
+- 기존 `ddoukd-server`의 Kotlin/Spring 코드와 작업 이력은 그대로 보존한다
+- NestJS 서버는 별도 비공개 레포 [Team-DanD/ddoukd-server-nest](https://github.com/Team-DanD/ddoukd-server-nest)에서 개발한다
+- ORM·마이그레이션 도구는 서버 구성 단계에서 선택한다
+- 전환 이유와 계승할 규칙: [decisions.md](decisions.md)의 2026-10-01 결정
 
 ## 문서 맵
 
@@ -27,13 +37,13 @@ LLM 레이어로 "박서현 회원 노쇼 횟수 보여줘" 같은 자연어 조
 | [strategy.md](strategy.md) | 타겟 기준, 버티컬 확장 로드맵, 경쟁 현황, 수익 모델, 플랫폼·카톡 전략 |
 | [hypotheses.md](hypotheses.md) | 핵심 가설 3개 + 가설별 검증 경로 + 파일럿 지표 |
 | [naming.md](naming.md) | 네이밍 리스크 조사, 대안 후보, 다음 네이밍 때 배운 것 |
-| [mvp.md](mvp.md) | MVP 범위(기능 3개), 뺄 것, 기능 백로그 |
+| [mvp.md](mvp.md) | MVP 범위(기능 5개), 뺄 것, 기능 백로그 |
 | [interviews/](interviews/) | 사장 인터뷰 기록 (1건씩) + 공통 질문 템플릿 |
 | [spec/data-model.md](spec/data-model.md) | 데이터 모델 설계 + ERD — 슬라이스 구분 (2026-08-16 갱신) |
 | [spec/lifecycle.md](spec/lifecycle.md) | 생애주기·시퀀스 도식 — 상태 전이, 트랜잭션 경계, 회원권 시간 축 |
 | [spec/tenancy.md](spec/tenancy.md) | shop-key 라우팅, 계정 3종, 권한 매트릭스, 공개 캘린더 노출 범위 |
 | [spec/custom-spec.md](spec/custom-spec.md) | "무한 커스텀"의 단계·범위·설계 원칙 + LLM 설정(v2) 방향 |
-| [study-kotlin-spring.md](study-kotlin-spring.md) | 서현 백엔드 착수용 Kotlin/Spring 학습 가이드 — 작업 순서 = 학습 순서 |
+| [study-kotlin-spring.md](study-kotlin-spring.md) | Kotlin/Spring 학습 가이드 — 2026-10-01 NestJS 전환으로 참고용 보존 |
 
 ## 이번 스코프 한 줄 (2026-08-16)
 
@@ -50,7 +60,7 @@ LLM 레이어로 "박서현 회원 노쇼 횟수 보여줘" 같은 자연어 조
 |---|-------|------|
 | 1 | ~~데이터 모델 "결정 필요" 5건~~ → 2026-08-16 확정. 도식화로 열린 6건 중 예약 완료 A안 확정, **회원권 5건은 미정** ([spec/lifecycle.md](spec/lifecycle.md)) | ⚠️ |
 | 1-1 | 예약 완료 **A안 확정**: `BOOKED` + 수업 종료 시각 경과로 판정. 예약 스키마·API 구현 진행 가능 | 서현 |
-| 2 | Kotlin + Spring Boot 프로젝트 생성, 슬라이스 1 스키마(8테이블) 마이그레이션 | 서현 |
+| 2 | NestJS 프로젝트 구성(Node.js + TypeScript + Postgres), 슬라이스 1 스키마(8테이블) 마이그레이션. 기존 Spring 작업 보존 | 서현 |
 | 3 | RN(Expo) **웹 타깃 실현 가능성 검토** — 라우팅·반응형·빌드 | 민수 |
 | 4 | 백오피스 화면 (shop 생성·목록) | 민수 |
 | 5 | 사업장 user 화면 (로그인 → 회원 → 세션 개설 → 예약, 폰 기준) + Figma | 민수 |

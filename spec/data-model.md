@@ -2,6 +2,7 @@
 
 > 2026-08-02 초안 · 2026-08-09 리뷰 반영 · 2026-08-16 갱신 (shop-key / 계정 / 공개 캘린더)
 > **2026-08-16 갱신 2 — 회원권을 구현 슬라이스에서 분리** ([../decisions.md](../decisions.md))
+> **2026-10-01 — 구현 스택을 Node.js + TypeScript + NestJS로 전환. Postgres와 도메인 설계는 유지**
 > 범위: shop 생성 → 사업장 로그인 → 회원 등록 → 수업 개설 → 예약 → 공개 캘린더
 > 병행 설계(구현 대기): 회원권 발급 → 자동 차감 → 잔여 확인
 > 기획: [../README.md](../README.md) · 생애주기·시퀀스: [lifecycle.md](lifecycle.md) · 커스텀 스펙: [custom-spec.md](custom-spec.md) · 라우팅·계정: [tenancy.md](tenancy.md)
@@ -331,7 +332,8 @@ erDiagram
 ```
 
 자주 필터링하는 값(type, total_count, price)만 컬럼으로 빼고 나머지는 JSONB.
-Kotlin에서는 sealed class + data class로 파싱해서 타입 안전하게 다룸.
+NestJS에서는 TypeScript 타입으로 정책 구조를 표현하고, 입력·JSONB 역직렬화 경계에서
+런타임 검증을 거친다. 타입 선언만으로 외부 값의 유효성을 보장하지 않는다.
 
 ### membership — 발급된 회원권
 
@@ -484,7 +486,7 @@ plan type에 따라 갈린다:
 | 5 | `SUSPENDED`(홀딩) 진입 경로가 없다 — 만료일 연장·예약 차단·횟수 카운터 위치 | 🟡 | 6-4 |
 | 6 | FIRST_USE 롤백이 **만료를 앞당길 수 있다** — 회원에게 불리한 방향 | 🟡 | 7절 |
 
-**1번만 슬라이스 1을 막는다.** 나머지 5건은 회원권 트랙에서 구현 착수 전까지 닫으면 된다.
+**1번은 A안으로 해결돼 슬라이스 1을 막지 않는다.** 나머지 5건은 회원권 트랙에서 구현 착수 전까지 닫으면 된다.
 
 ---
 
@@ -513,9 +515,12 @@ plan type에 따라 갈린다:
 구현(🟢)과 설계(🟡)를 **병행**한다.
 
 1. ~~이 모델 리뷰 → 확정~~ → 2026-08-16 확정 완료
-2. 🟢 Kotlin + Spring Boot 프로젝트 생성 (Gradle, Postgres, Flyway) + 엔티티/도메인 클래스
-   — 마이그레이션은 슬라이스 1의 8개 테이블만
+2. 🟢 [ddoukd-server-nest](https://github.com/Team-DanD/ddoukd-server-nest)에 NestJS 프로젝트 구성
+   (Node.js + TypeScript + Postgres) + 도메인별 모듈
+   — 기존 Spring 작업은 보존. ORM·마이그레이션 도구는 서버 구성 시 선택하고,
+   마이그레이션은 슬라이스 1의 8개 테이블만 대상으로 한다
 3. 🟢 TenantResolver + 인증 (platform_admin / staff) — [tenancy.md](tenancy.md) 4·5절
+   — 기존 Spring의 인증·테넌트 격리 테스트 시나리오도 계승한다
 4. 🟢 API:
    - 백오피스: shop 생성(+최초 OWNER), shop 목록
    - 사업장: 로그인 / 회원 등록 / 세션 개설·공개 / 예약 생성 / 예약 취소·노쇼

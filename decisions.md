@@ -202,6 +202,31 @@ shop-key 없이 들어온 사람을 위한 샵 검색 로그인은 나중 편의
 가칭 "똑디" 자체의 런칭 전 재검토([naming.md](naming.md))와는 별개 — 표기만 고정한 것.
 shop-key 예약어 목록에도 `ddoukd` 추가 ([spec/tenancy.md](spec/tenancy.md)).
 
+## 2026-10-01 — 백엔드를 NestJS로 전환, 기존 Spring 작업 보존
+
+백엔드는 **Node.js + TypeScript + NestJS**로 전환한다. Kotlin/Spring 학습 부담으로 착수가
+늦어지고 있어, 이번에는 제품 구현·검증 속도를 우선한다. 2026-08-02의 스택 선택과 학습 비용
+메모는 당시 결정 기록으로 남긴다.
+
+- DB는 **Postgres**를 유지한다. 도메인 모델, 테넌트 경계, 회원권 원장·정책 스냅샷 설계를 계승한다
+- 기존 `ddoukd-server`의 Kotlin/Spring 코드와 작업 이력은 그대로 보존한다
+- 저장소는 **NestJS용 별도 비공개 레포**
+  [Team-DanD/ddoukd-server-nest](https://github.com/Team-DanD/ddoukd-server-nest)로 확정하고 생성했다.
+  신규 개발·배포는 NestJS 서버를 대상으로 하고, 기존 Spring 저장소는 보존·참고용으로 둔다
+- ORM·마이그레이션 도구는 NestJS 서버 구성 단계에서 선택한다
+
+### 구현 범위와 계승할 규칙
+
+- 슬라이스 1은 기존 8테이블 범위다. 회원권 3테이블과 `booking.membership_id`는 이후 추가하며,
+  파일럿 투입에는 회원권 엔진이 필요하다는 기준도 유지한다
+- 예약 완료는 2026-10-01 A안(`BOOKED` + 수업 종료 시각 경과로 판정)을 그대로 구현한다
+- shop-key 해석은 `TenantResolver` 한 곳에 모으고, 보호된 테넌트 API는 토큰의 `shop_id`와
+  URL이 가리키는 샵을 매 요청 대조한다. 서비스·데이터 접근 계층은 `shop_id`를 기준으로 동작한다
+- 공개 캘린더는 전용 응답 DTO와 공개 범위 필터를 유지한다
+- 예약 생성·취소의 트랜잭션 경계와 조건부 UPDATE를 통한 정원 보호를 유지한다
+- 기존 Spring 테스트의 인증·테넌트 격리 시나리오는 NestJS에서도 검증한다.
+  실행·빌드·CI·Docker 설정은 새 서버에 맞게 구성한다
+
 ## 협업 툴
 
 Claude 계정 공유는 약관 위반 → 각자 Pro 또는 Team 플랜(최소 좌석 요건 확인 필요).
