@@ -49,7 +49,7 @@ GitHub에서도 아래 PNG 링크를 열어 원본을 확인할 수 있습니다
 | --- | --- | --- |
 | [상세 선택 상태](states/class-selected.png) | 1440 × 1000 | 선택한 행의 노랑 면과 5px 그림자. |
 | [요가 필터 선택](states/filter-yoga.png) | 1440 × 1000 | 요가 2개만 노출하며 종목 필터를 검정으로 표시합니다. |
-| [클래스 키보드 포커스](states/class-focus.png) | 1440 × 1000 | 현재 구현의 보라 4px focus-visible ring. 포커스 링을 보이도록 요소 경계 밖 8px를 포함했습니다. |
+| [클래스 키보드 포커스 표시 누락](states/class-focus.png) | 1440 × 1000 | focus-visible은 활성화되지만 인라인 boxShadow가 Tailwind 링을 덮어 표시가 보이지 않습니다. 요소 경계 밖 8px도 포함했습니다. |
 | [예약 완료 피드백](states/booking-success.png) | 1440 × 1000 | 2초간 체크와 완료 문구, 예약됨 배지, 잔여 좌석 감소. |
 | [정원 마감 상세](states/detail-full.png) | 1440 × 1000 | FULL, 가득 찬 게이지, 대기 신청하기 CTA. |
 | [대기 신청 직후](states/waitlist-feedback.png) | 1440 × 1000 | 실제 대기인데 현재 상세 CTA는 예약 완료라고 표시하는 문제를 기록합니다. |

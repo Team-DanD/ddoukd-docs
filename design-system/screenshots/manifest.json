@@ -657,8 +657,8 @@
     {
       "id": "class-focus",
       "category": "states",
-      "title": "클래스 키보드 포커스",
-      "description": "현재 구현의 보라 4px focus-visible ring. 포커스 링을 보이도록 요소 경계 밖 8px를 포함했습니다.",
+      "title": "클래스 키보드 포커스 표시 누락",
+      "description": "focus-visible은 활성화되지만 인라인 boxShadow가 Tailwind 링을 덮어 표시가 보이지 않습니다. 요소 경계 밖 8px도 포함했습니다.",
       "file": "screenshots/states/class-focus.png",
       "viewport": {
         "width": 1440,
@@ -686,7 +686,13 @@
           "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
         }
       ],
-      "capturePadding": 8
+      "capturePadding": 8,
+      "focusObservation": {
+        "focusVisible": true,
+        "boxShadow": "rgb(17, 17, 17) 3px 3px 0px 0px",
+        "outlineStyle": "none",
+        "ringShadow": "0 0 0 calc(4px + 0px) #7C3AED"
+      }
     },
     {
       "id": "booking-success",

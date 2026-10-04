@@ -85,7 +85,7 @@ const panel = () => page.locator('div.hidden.md\\:flex').filter({ has: page.getB
     await shot('filter-yoga', 'states', '요가 필터 선택', '요가 2개만 노출하며 종목 필터를 검정으로 표시합니다.');
     await reset();
     await row('모닝 요가 플로우').focus();
-    await shot('class-focus', 'states', '클래스 키보드 포커스', '현재 구현의 보라 4px focus-visible ring.', row('모닝 요가 플로우'));
+    await shot('class-focus', 'states', '클래스 키보드 포커스 표시 누락', 'focus-visible은 활성화되지만 인라인 boxShadow가 Tailwind 링을 덮어 표시가 보이지 않습니다. 요소 경계 밖 8px도 포함했습니다.', row('모닝 요가 플로우'));
     await reset();
     await row('모닝 요가 플로우').getByRole('button', { name: '예약', exact: true }).click();
     await shot('booking-success', 'states', '예약 완료 피드백', '2초간 체크와 완료 문구, 예약됨 배지, 잔여 좌석 감소.', row('모닝 요가 플로우'));

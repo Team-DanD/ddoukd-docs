@@ -213,6 +213,7 @@ stateDiagram-v2
 
 | 우선순위 | 확인한 문제 | 권장 변경 |
 | --- | --- | --- |
+| P0 | ClassCard focus-visible ring이 인라인 boxShadow에 덮임 | 독립 outline + offset 사용으로 실제 포커스 표시 보장 |
 | P0 | 취소 행 전체 opacity 0.5와 희미한 배지 글자 | opacity 제거, inkSoft 사용, 선·면·배지로 취소 구분 |
 | P0 | 대기 신청 후 예약 완료로 표시 | bookingStatus에 따라 대기/확정 피드백 분리 |
 | P0 | 모바일 dialog에 aria-modal은 있으나 포커스 trap·복귀·배경 inert 없음 | 기존 Radix Dialog 기반으로 시트 동작 구성 |
