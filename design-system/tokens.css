@@ -1,0 +1,87 @@
+/* DDoukD v0.1 proposal. Documentation only; not imported by ddoukd-web. */
+:root {
+  --dd-color-purple: #7C3AED;
+  --dd-color-purple-deep: #5B21B6;
+  --dd-color-purple-tint: #F3EEFE;
+  --dd-color-yellow: #FFE500;
+  --dd-color-yellow-deep: #E6CE00;
+  --dd-color-ink: #111111;
+  --dd-color-paper: #FFFFFF;
+  --dd-color-surface: #F5F5F7;
+  --dd-color-surface2: #EBEBEF;
+  --dd-color-ink-soft: #5A5A66;
+  --dd-color-ink-faint: #6E6E7A;
+  --dd-color-rule: rgba(17,17,17,0.14);
+  --dd-color-destructive: #E23B2E;
+  --dd-background-canvas: var(--dd-color-paper);
+  --dd-background-subtle: var(--dd-color-surface);
+  --dd-background-reserved: var(--dd-color-purple-tint);
+  --dd-text-primary: var(--dd-color-ink);
+  --dd-text-secondary: var(--dd-color-ink-soft);
+  --dd-text-caption-on-paper: var(--dd-color-ink-faint);
+  --dd-border-strong: var(--dd-color-ink);
+  --dd-border-subtle: var(--dd-color-rule);
+  --dd-brand-primary: var(--dd-color-purple);
+  --dd-action-primary-background: var(--dd-color-yellow);
+  --dd-action-primary-foreground: var(--dd-color-ink);
+  --dd-action-primary-hover: var(--dd-color-yellow-deep);
+  --dd-action-secondary-background: var(--dd-color-paper);
+  --dd-action-secondary-foreground: var(--dd-color-ink);
+  --dd-action-waitlist-background: var(--dd-color-surface2);
+  --dd-action-waitlist-foreground: var(--dd-color-ink);
+  --dd-action-disabled-background: var(--dd-color-surface2);
+  --dd-action-disabled-foreground: var(--dd-color-ink-soft);
+  --dd-selection-background: var(--dd-color-yellow);
+  --dd-selection-foreground: var(--dd-color-ink);
+  --dd-booking-confirmed-background: var(--dd-color-yellow);
+  --dd-booking-confirmed-foreground: var(--dd-color-ink);
+  --dd-booking-waitlist-background: var(--dd-color-purple);
+  --dd-booking-waitlist-foreground: var(--dd-color-paper);
+  --dd-booking-cancelled-background: var(--dd-color-surface2);
+  --dd-booking-cancelled-foreground: var(--dd-color-ink-soft);
+  --dd-intensity-low-background: var(--dd-color-surface);
+  --dd-intensity-low-foreground: var(--dd-color-ink-soft);
+  --dd-intensity-mid-background: var(--dd-color-purple-tint);
+  --dd-intensity-mid-foreground: var(--dd-color-purple-deep);
+  --dd-intensity-high-background: var(--dd-color-yellow);
+  --dd-intensity-high-foreground: var(--dd-color-ink);
+  --dd-feedback-error-background: var(--dd-color-paper);
+  --dd-feedback-error-foreground: var(--dd-color-ink);
+  --dd-feedback-error-border: var(--dd-color-destructive);
+  --dd-focus-color: var(--dd-color-purple);
+  --dd-space-4: 4px;
+  --dd-space-8: 8px;
+  --dd-space-12: 12px;
+  --dd-space-16: 16px;
+  --dd-space-20: 20px;
+  --dd-space-24: 24px;
+  --dd-space-32: 32px;
+  --dd-space-40: 40px;
+  --dd-space-48: 48px;
+  --dd-space-64: 64px;
+  --dd-font-display: 'Anton', sans-serif;
+  --dd-font-body: 'DM Sans', 'Noto Sans KR', sans-serif;
+  --dd-radius: 0px;
+  --dd-shadow-row: 3px 3px 0 var(--dd-color-ink);
+  --dd-shadow-action: 4px 4px 0 var(--dd-color-ink);
+  --dd-shadow-emphasis: 5px 5px 0 var(--dd-color-ink);
+  --dd-duration-fast: 150ms;
+  --dd-duration-standard: 300ms;
+}
+
+/* Proposed implementation examples. */
+.dd-button {
+  min-height: 48px; padding: 8px 16px; border: 2px solid var(--dd-border-strong);
+  border-radius: var(--dd-radius); box-shadow: var(--dd-shadow-action);
+  background: var(--dd-action-primary-background); color: var(--dd-action-primary-foreground);
+  font: 600 14px/1.4 var(--dd-font-body); cursor: pointer;
+  transition: transform var(--dd-duration-fast), background-color var(--dd-duration-fast);
+}
+.dd-button:hover { background: var(--dd-action-primary-hover); }
+.dd-button:active { transform: translateY(2px); box-shadow: 2px 2px 0 var(--dd-color-ink); }
+.dd-button:focus-visible { outline: 3px solid var(--dd-focus-color); outline-offset: 2px; }
+.dd-button:disabled { background: var(--dd-action-disabled-background); color: var(--dd-action-disabled-foreground); box-shadow: none; cursor: default; }
+@media (prefers-reduced-motion: reduce) {
+.dd-button { transition: none; }
+.dd-button:active { transform: none; }
+}

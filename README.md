@@ -23,6 +23,8 @@ LLM 레이어로 "박서현 회원 노쇼 횟수 보여줘" 같은 자연어 조
 
 | 문서 | 내용 |
 |------|------|
+| [design-system/](design-system/README.md) | 현재 프론트 참고 캡처 43개, 라이트 디자인 시스템 v0.1 제안, 시각 갤러리 |
+| [spec/frontend-prototype-api.md](spec/frontend-prototype-api.md) | ddoukd-web에서 이전한 회원 예약 프로토타입 API 참고 명세 — 기존 MVP 도메인 명세와 별도 |
 | [decisions.md](decisions.md) | 날짜 붙은 결정 기록 — 기술 스택, 배포 전략, 역할, 협업 툴 |
 | [strategy.md](strategy.md) | 타겟 기준, 버티컬 확장 로드맵, 경쟁 현황, 수익 모델, 플랫폼·카톡 전략 |
 | [hypotheses.md](hypotheses.md) | 핵심 가설 3개 + 가설별 검증 경로 + 파일럿 지표 |
