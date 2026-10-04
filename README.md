@@ -33,6 +33,7 @@ DB는 Postgres를 유지하고, 기존 도메인 설계와 슬라이스 구분�
 
 | 문서 | 내용 |
 |------|------|
+| [plans/](plans/README.md) | 화면 기획·프로토타입 — 작업별 디렉터리, 화면은 pen.dev `.pen` 파일 |
 | [design-system/](design-system/README.md) | 현재 프론트 참고 캡처 43개, 라이트 디자인 시스템 v0.1 제안, 시각 갤러리 |
 | [spec/frontend-prototype-api.md](spec/frontend-prototype-api.md) | ddoukd-web에서 이전한 회원 예약 프로토타입 API 참고 명세 — 기존 MVP 도메인 명세와 별도 |
 | [decisions.md](decisions.md) | 날짜 붙은 결정 기록 — 기술 스택, 배포 전략, 역할, 협업 툴 |
