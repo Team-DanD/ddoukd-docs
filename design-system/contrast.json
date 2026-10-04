@@ -1,0 +1,85 @@
+{
+  "method": "sRGB relative luminance; opacity composited over white; excludes images and browser font rendering",
+  "results": [
+    {
+      "label": "본문 / 흰 면",
+      "foreground": "#111111",
+      "background": "#FFFFFF",
+      "opacity": 1,
+      "ratio": 18.88,
+      "normalTextAA": true
+    },
+    {
+      "label": "보조 / 흰 면",
+      "foreground": "#5A5A66",
+      "background": "#FFFFFF",
+      "opacity": 1,
+      "ratio": 6.8,
+      "normalTextAA": true
+    },
+    {
+      "label": "희미 / 흰 면",
+      "foreground": "#6E6E7A",
+      "background": "#FFFFFF",
+      "opacity": 1,
+      "ratio": 5.03,
+      "normalTextAA": true
+    },
+    {
+      "label": "주요 버튼",
+      "foreground": "#111111",
+      "background": "#FFE500",
+      "opacity": 1,
+      "ratio": 14.8,
+      "normalTextAA": true
+    },
+    {
+      "label": "보라 배지",
+      "foreground": "#FFFFFF",
+      "background": "#7C3AED",
+      "opacity": 1,
+      "ratio": 5.7,
+      "normalTextAA": true
+    },
+    {
+      "label": "중강도 배지",
+      "foreground": "#5B21B6",
+      "background": "#F3EEFE",
+      "opacity": 1,
+      "ratio": 7.9,
+      "normalTextAA": true
+    },
+    {
+      "label": "저강도 배지",
+      "foreground": "#5A5A66",
+      "background": "#F5F5F7",
+      "opacity": 1,
+      "ratio": 6.24,
+      "normalTextAA": true
+    },
+    {
+      "label": "희미 / 회색 면",
+      "foreground": "#6E6E7A",
+      "background": "#EBEBEF",
+      "opacity": 1,
+      "ratio": 4.23,
+      "normalTextAA": false
+    },
+    {
+      "label": "취소 배지 전체 opacity 0.5",
+      "foreground": "#6E6E7A",
+      "background": "#EBEBEF",
+      "opacity": 0.5,
+      "ratio": 1.84,
+      "normalTextAA": false
+    },
+    {
+      "label": "오류 흰 글자",
+      "foreground": "#FFFFFF",
+      "background": "#E23B2E",
+      "opacity": 1,
+      "ratio": 4.29,
+      "normalTextAA": false
+    }
+  ]
+}

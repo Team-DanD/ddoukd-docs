@@ -1,0 +1,1365 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-04T03:49:32.724Z",
+  "sourceRevision": "2dd18e96d321947333c53c000107a11aaa9b0656",
+  "sourceUrl": "http://127.0.0.1:5173/",
+  "fixture": {
+    "today": "2026-10-04",
+    "timezone": "Asia/Seoul",
+    "note": "날짜만 고정. 앱 데이터·이미지·스타일을 수정하거나 대체하지 않았습니다. 예약 상태는 실제 UI 클릭으로 만들었습니다."
+  },
+  "errors": [],
+  "observations": [
+    {
+      "viewport": {
+        "width": 360,
+        "height": 800
+      },
+      "documentWidth": 360,
+      "headerButtons": [
+        {
+          "label": "스케줄",
+          "width": 63.1875,
+          "height": 56
+        },
+        {
+          "label": "MY 예약",
+          "width": 70.59375,
+          "height": 56
+        },
+        {
+          "label": "강사진",
+          "width": 63.171875,
+          "height": 56
+        }
+      ]
+    }
+  ],
+  "captures": [
+    {
+      "id": "schedule-desktop",
+      "category": "pages",
+      "title": "스케줄 데스크톱",
+      "description": "기본 뷰포트. 목록 아래 항목은 내부 스크롤로 확인합니다.",
+      "file": "screenshots/pages/schedule-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "header",
+      "category": "components",
+      "title": "공통 헤더",
+      "description": "워드마크, 포스터 타이포, 탭, 예약 수, 사용자 배지.",
+      "file": "screenshots/components/header.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 71,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderWidth": "0px 0px 2px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "date-strip",
+      "category": "components",
+      "title": "주간 날짜 선택",
+      "description": "오늘, 선택일, 예약 점, 이전·다음 주.",
+      "file": "screenshots/components/date-strip.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 156,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderWidth": "0px 0px 2px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "filter-bar",
+      "category": "components",
+      "title": "종목 필터",
+      "description": "ALL 선택 상태와 나머지 비선택 필터.",
+      "file": "screenshots/components/filter-bar.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 59,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderWidth": "0px 0px 2px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "class-available",
+      "category": "components",
+      "title": "예약 가능한 클래스",
+      "description": "저강도 배지, 검정 강조선, 시간·강사·좌석·예약 CTA.",
+      "file": "screenshots/components/class-available.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 1408,
+        "height": 139,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "2px",
+        "borderRadius": "0px",
+        "boxShadow": "rgb(17, 17, 17) 3px 3px 0px 0px"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "class-confirmed",
+      "category": "components",
+      "title": "이미 예약한 클래스",
+      "description": "보라 틴트 면, 예약됨 배지, 취소 CTA.",
+      "file": "screenshots/components/class-confirmed.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 1408,
+        "height": 139,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(243, 238, 254)",
+        "borderWidth": "2px",
+        "borderRadius": "0px",
+        "boxShadow": "rgb(17, 17, 17) 3px 3px 0px 0px"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "class-full",
+      "category": "components",
+      "title": "정원 마감 클래스",
+      "description": "마감 배지와 대기 신청 CTA. 대기는 활성 행동입니다.",
+      "file": "screenshots/components/class-full.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 1408,
+        "height": 139,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "2px",
+        "borderRadius": "0px",
+        "boxShadow": "rgb(17, 17, 17) 3px 3px 0px 0px"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "intensity-low",
+      "category": "components",
+      "title": "저강도 배지",
+      "description": "회색 면과 회색 글자.",
+      "file": "screenshots/components/intensity-low.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 42,
+        "height": 23,
+        "fontFamily": "Anton, sans-serif",
+        "fontSize": "10px",
+        "lineHeight": "15px",
+        "color": "rgb(90, 90, 102)",
+        "backgroundColor": "rgb(245, 245, 247)",
+        "borderWidth": "2px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "intensity-mid",
+      "category": "components",
+      "title": "중강도 배지",
+      "description": "보라 테두리와 옅은 보라 면.",
+      "file": "screenshots/components/intensity-mid.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 42,
+        "height": 23,
+        "fontFamily": "Anton, sans-serif",
+        "fontSize": "10px",
+        "lineHeight": "15px",
+        "color": "rgb(91, 33, 182)",
+        "backgroundColor": "rgb(243, 238, 254)",
+        "borderWidth": "2px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "intensity-high",
+      "category": "components",
+      "title": "고강도 배지",
+      "description": "노랑 면과 검정 글자.",
+      "file": "screenshots/components/intensity-high.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 42,
+        "height": 23,
+        "fontFamily": "Anton, sans-serif",
+        "fontSize": "10px",
+        "lineHeight": "15px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 229, 0)",
+        "borderWidth": "2px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "schedule-desktop-complete",
+      "category": "pages",
+      "title": "스케줄 전체 목록",
+      "description": "뷰포트를 높여 8개 클래스 전체를 캡처했습니다.",
+      "file": "screenshots/pages/schedule-desktop-complete.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1600
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 1600,
+        "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "detail-desktop",
+      "category": "pages",
+      "title": "클래스 상세 데스크톱",
+      "description": "목록 55%와 상세 패널 45% 분할.",
+      "file": "screenshots/pages/detail-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "detail-panel",
+      "category": "components",
+      "title": "클래스 상세 패널",
+      "description": "듀오톤 히어로, 통계, 설명, 강사, 정원, CTA.",
+      "file": "screenshots/components/detail-panel.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 648,
+        "height": 715,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderWidth": "0px 0px 0px 2px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "detail-hero",
+      "category": "components",
+      "title": "상세 히어로",
+      "description": "16:9 사진, 보라 multiply, 밝은 그라디언트, 낙서.",
+      "file": "screenshots/components/detail-hero.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 646,
+        "height": 363,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderWidth": "0px 0px 2px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "detail-stats",
+      "category": "components",
+      "title": "상세 통계 타일",
+      "description": "시간·잔여 좌석·강도 3열.",
+      "file": "screenshots/components/detail-stats.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 606,
+        "height": 92,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "detail-capacity",
+      "category": "components",
+      "title": "상세 정원 게이지",
+      "description": "예약 인원 / 전체 정원과 채워진 비율.",
+      "file": "screenshots/components/detail-capacity.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 606,
+        "height": 35,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "cta-primary",
+      "category": "components",
+      "title": "주요 예약 버튼",
+      "description": "노랑 배경, 검정 2px 테두리, 4px 하드 섀도.",
+      "file": "screenshots/components/cta-primary.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 606,
+        "height": 60,
+        "fontFamily": "Anton, sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 229, 0)",
+        "borderWidth": "2px",
+        "borderRadius": "0px",
+        "boxShadow": "rgb(17, 17, 17) 4px 4px 0px 0px"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "class-selected",
+      "category": "states",
+      "title": "상세 선택 상태",
+      "description": "선택한 행의 노랑 면과 5px 그림자.",
+      "file": "screenshots/states/class-selected.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 760,
+        "height": 139,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 229, 0)",
+        "borderWidth": "2px",
+        "borderRadius": "0px",
+        "boxShadow": "rgb(17, 17, 17) 5px 5px 0px 0px"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "filter-yoga",
+      "category": "states",
+      "title": "요가 필터 선택",
+      "description": "요가 2개만 노출하며 종목 필터를 검정으로 표시합니다.",
+      "file": "screenshots/states/filter-yoga.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": []
+    },
+    {
+      "id": "class-focus",
+      "category": "states",
+      "title": "클래스 키보드 포커스 표시 누락",
+      "description": "focus-visible은 활성화되지만 인라인 boxShadow가 Tailwind 링을 덮어 표시가 보이지 않습니다. 요소 경계 밖 8px도 포함했습니다.",
+      "file": "screenshots/states/class-focus.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 1408,
+        "height": 139,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "2px",
+        "borderRadius": "0px",
+        "boxShadow": "rgb(17, 17, 17) 3px 3px 0px 0px"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ],
+      "capturePadding": 8,
+      "focusObservation": {
+        "focusVisible": true,
+        "boxShadow": "rgb(17, 17, 17) 3px 3px 0px 0px",
+        "outlineStyle": "none",
+        "ringShadow": "0 0 0 calc(4px + 0px) #7C3AED"
+      }
+    },
+    {
+      "id": "booking-success",
+      "category": "states",
+      "title": "예약 완료 피드백",
+      "description": "2초간 체크와 완료 문구, 예약됨 배지, 잔여 좌석 감소.",
+      "file": "screenshots/states/booking-success.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 1408,
+        "height": 139,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(243, 238, 254)",
+        "borderWidth": "2px",
+        "borderRadius": "0px",
+        "boxShadow": "rgb(17, 17, 17) 3px 3px 0px 0px"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "detail-full",
+      "category": "states",
+      "title": "정원 마감 상세",
+      "description": "FULL, 가득 찬 게이지, 대기 신청하기 CTA.",
+      "file": "screenshots/states/detail-full.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 648,
+        "height": 715,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderWidth": "0px 0px 0px 2px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "waitlist-feedback",
+      "category": "states",
+      "title": "대기 신청 직후",
+      "description": "실제 대기인데 현재 상세 CTA는 예약 완료라고 표시하는 문제를 기록합니다.",
+      "file": "screenshots/states/waitlist-feedback.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 648,
+        "height": 715,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderWidth": "0px 0px 0px 2px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "class-waitlist",
+      "category": "states",
+      "title": "대기 중 클래스",
+      "description": "검정 대기중 배지와 취소 CTA.",
+      "file": "screenshots/states/class-waitlist.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 760,
+        "height": 139,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 229, 0)",
+        "borderWidth": "2px",
+        "borderRadius": "0px",
+        "boxShadow": "rgb(17, 17, 17) 5px 5px 0px 0px"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "bookings-waitlist",
+      "category": "states",
+      "title": "예약 목록 대기 상태",
+      "description": "확정 3 / 대기 1 / 취소 0.",
+      "file": "screenshots/states/bookings-waitlist.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": []
+    },
+    {
+      "id": "bookings-cancelled",
+      "category": "states",
+      "title": "예약 목록 취소 상태",
+      "description": "확정 2 / 대기 0 / 취소 1. 취소 행은 opacity 0.5.",
+      "file": "screenshots/states/bookings-cancelled.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [],
+      "finding": "취소 행 전체 투명도는 본문 대비도 함께 낮춥니다."
+    },
+    {
+      "id": "booking-row-cancelled",
+      "category": "components",
+      "title": "취소된 예약 행",
+      "description": "취소 배지, 회색 면, 그림자 제거.",
+      "file": "screenshots/components/booking-row-cancelled.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 632,
+        "height": 79,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(245, 245, 247)",
+        "borderWidth": "2px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": []
+    },
+    {
+      "id": "bookings-desktop",
+      "category": "pages",
+      "title": "내 예약 데스크톱",
+      "description": "포스터 제목과 상태별 통계, 날짜순 예약 목록.",
+      "file": "screenshots/pages/bookings-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": []
+    },
+    {
+      "id": "booking-summary",
+      "category": "components",
+      "title": "예약 상태 요약",
+      "description": "확정은 노랑, 대기는 보라, 취소는 회색.",
+      "file": "screenshots/components/booking-summary.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 1392,
+        "height": 77,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": []
+    },
+    {
+      "id": "booking-row-confirmed",
+      "category": "components",
+      "title": "확정 예약 행",
+      "description": "흰 면, 검정 그림자, 노랑 확정 배지.",
+      "file": "screenshots/components/booking-row-confirmed.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 632,
+        "height": 79,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "2px",
+        "borderRadius": "0px",
+        "boxShadow": "rgb(17, 17, 17) 3px 3px 0px 0px"
+      },
+      "brokenImages": []
+    },
+    {
+      "id": "instructors-desktop",
+      "category": "pages",
+      "title": "강사진 데스크톱",
+      "description": "2열 그리드, 포스터 타이틀, 듀오톤 강사 카드.",
+      "file": "screenshots/pages/instructors-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 1000,
+        "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": []
+    },
+    {
+      "id": "instructor-card",
+      "category": "components",
+      "title": "강사 카드",
+      "description": "16:7 사진, 소개, 전문 분야, 평점, 경력, 수업 수.",
+      "file": "screenshots/components/instructor-card.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 418,
+        "height": 341,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "2px",
+        "borderRadius": "0px",
+        "boxShadow": "rgb(17, 17, 17) 5px 5px 0px 0px"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "instructor-tags-rating",
+      "category": "components",
+      "title": "강사 태그와 평점",
+      "description": "회색 테두리 태그와 노랑 평점.",
+      "file": "screenshots/components/instructor-tags-rating.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "metrics": {
+        "width": 382,
+        "height": 31,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "instructors-desktop-complete",
+      "category": "pages",
+      "title": "강사진 전체 목록",
+      "description": "뷰포트를 높여 강사 4명 전체를 캡처했습니다.",
+      "file": "screenshots/pages/instructors-desktop-complete.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1350
+      },
+      "metrics": {
+        "width": 1440,
+        "height": 1350,
+        "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "schedule-mobile",
+      "category": "responsive",
+      "title": "스케줄 모바일",
+      "description": "390 × 844. 필터는 가로 스크롤, 목록은 세로 스크롤.",
+      "file": "screenshots/responsive/schedule-mobile.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "header-mobile",
+      "category": "components",
+      "title": "모바일 헤더",
+      "description": "예약 수는 숨기고 워드마크·탭·사용자 배지를 유지합니다.",
+      "file": "screenshots/components/header-mobile.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "metrics": {
+        "width": 390,
+        "height": 71,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderWidth": "0px 0px 2px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "detail-mobile",
+      "category": "responsive",
+      "title": "상세 모바일 바텀시트",
+      "description": "최대 높이 88%, 어두운 스크림, 내부 스크롤.",
+      "file": "screenshots/responsive/detail-mobile.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "bottom-sheet",
+      "category": "components",
+      "title": "모바일 바텀시트",
+      "description": "현재 구현된 dialog. 히어로와 주요 내용을 캡처합니다.",
+      "file": "screenshots/components/bottom-sheet.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "metrics": {
+        "width": 390,
+        "height": 625,
+        "fontFamily": "\"DM Sans\", sans-serif",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "2px 0px 0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "detail-mobile-actions",
+      "category": "responsive",
+      "title": "상세 모바일 하단",
+      "description": "390 × 640의 짧은 화면에서 내부 스크롤 후 정원·CTA·설명이 보이는 상태.",
+      "file": "screenshots/responsive/detail-mobile-actions.png",
+      "viewport": {
+        "width": 390,
+        "height": 640
+      },
+      "metrics": {
+        "width": 390,
+        "height": 640,
+        "scrollHeight": 623,
+        "clientHeight": 561,
+        "scrollTop": 62
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "bookings-mobile",
+      "category": "responsive",
+      "title": "내 예약 모바일",
+      "description": "390 × 844. 단일 열 예약 목록.",
+      "file": "screenshots/responsive/bookings-mobile.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": []
+    },
+    {
+      "id": "instructors-mobile",
+      "category": "responsive",
+      "title": "강사진 모바일",
+      "description": "390 × 844. 단일 열 카드.",
+      "file": "screenshots/responsive/instructors-mobile.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "metrics": {
+        "width": 390,
+        "height": 844,
+        "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "detail-tablet",
+      "category": "responsive",
+      "title": "상세 태블릿 경계",
+      "description": "768px에서 데스크톱 분할이 적용되어 목록 폭이 좁아집니다.",
+      "file": "screenshots/responsive/detail-tablet.png",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "metrics": {
+        "width": 768,
+        "height": 1024,
+        "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    },
+    {
+      "id": "schedule-small-mobile",
+      "category": "responsive",
+      "title": "좁은 모바일",
+      "description": "360 × 800. 헤더와 행의 사용 가능 폭을 확인합니다.",
+      "file": "screenshots/responsive/schedule-small-mobile.png",
+      "viewport": {
+        "width": 360,
+        "height": 800
+      },
+      "metrics": {
+        "width": 360,
+        "height": 800,
+        "fontFamily": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "color": "rgb(17, 17, 17)",
+        "backgroundColor": "rgb(255, 255, 255)",
+        "borderWidth": "0px",
+        "borderRadius": "0px",
+        "boxShadow": "none"
+      },
+      "brokenImages": [
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        },
+        {
+          "alt": "박민준",
+          "src": "https://images.unsplash.com/photo-1548449112-96a38a643324?w=80&h=80&fit=crop&auto=format"
+        }
+      ]
+    }
+  ]
+}
