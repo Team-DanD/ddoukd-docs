@@ -4,7 +4,7 @@
 
 문서 저장소의 MVP는 사업장 운영자 중심입니다. 이번 캡처는 회원이 클래스를 예약하는 프론트 프로토타입이므로 MVP 기능·권한·회원권 정책을 새로 확정하지 않습니다. 색·타이포·버튼·패널 같은 공통 기반은 재사용하고, 사업장 예약·회원 관리 화면은 별도로 설계해야 합니다. [MVP 범위](../mvp.md)와 [권한 설계](../spec/tenancy.md)가 제품 범위의 기준입니다.
 
-[시각 갤러리](index.html) · [pen.dev 원본](ddoukd.pen) · [pen.dev 설정 가이드](pen-setup.md) · [전체 캡처 목록](screenshots/README.md) · [토큰 제안](tokens.json) · [CSS 예시](tokens.css) · [색 대비 계산](contrast.json) · [프로토타입 API 명세](../spec/frontend-prototype-api.md)
+[시각 갤러리](index.html) · [운영자 화면 컴포넌트 명세](components-operator.md) · [pen.dev 원본](ddoukd.pen) · [pen.dev 설정 가이드](pen-setup.md) · [전체 캡처 목록](screenshots/README.md) · [토큰 제안](tokens.json) · [CSS 예시](tokens.css) · [색 대비 계산](contrast.json) · [프로토타입 API 명세](../spec/frontend-prototype-api.md)
 
 ## 근거와 캡처 조건
 
@@ -143,12 +143,31 @@ flowchart LR
 
 ### pen에 들어 있는 것
 
+변수 193개, 재사용 컴포넌트 78개입니다. 운영자 화면 컴포넌트는 [components-operator.md](components-operator.md)의 제안을 그대로 옮긴 것이고 전부 제안 상태입니다.
+
 | 프레임 | 내용 |
 | --- | --- |
 | Foundations | 원시 색 13, 의미 색 12쌍, 타이포 5단계, 간격, 하드 섀도 3종 |
-| Components | Button 5종(primary·secondary·waitlist·danger·disabled)과 focus-visible·pressed 예시, IntensityBadge 3종, BookingBadge 3종, CapacityMeter 2종, Decoration 6종 |
+| Components | Button 5종(primary·secondary·waitlist·danger·disabled)과 focus-visible·pressed 예시, IntensityBadge 3종, BookingBadge 3종, CapacityMeter 2종, Decoration 6종, ClassCard, BookingRow |
+| Operator Components | TextField 8종(기본·입력됨·오류·비활성·비밀번호·검색·읽기 전용+복사·shop-key 접두)과 focus 예시, Textarea, Select(트리거·열림), FormField 3종, Form 오류 요약·모바일 제출 영역, Checkbox 4종, Radio 2종, Switch 2종, StatusBadge 9종, Table 머리글·행, ListRow, Tabs, Pagination(PC·모바일), Modal(확인창·모바일 시트), Toast 2종, EmptyState 3종, DatePicker·TimePicker(트리거·패널·목록) |
+| App Shells | 부품 7종(모바일 헤더, 하단 내비, 사이드바, PC 헤더, 백오피스 헤더·사이드바, 공개 헤더)과 예시 화면 5개(사업장 390 · 사업장 1440 · 백오피스 1440 · 인증 390 · 공개 390) |
 
-ClassCard 같은 조합 컴포넌트와 운영자 화면의 입력 계열 컴포넌트는 아직 없습니다.
+예시 화면의 샵 이름·회원·내비 항목(예약·회원·수업)은 자리 채움용입니다. 내비 항목과 화면 구성은 명세의 미결 사항 그대로이며 pen에서 확정하지 않았습니다.
+
+### 명세와 pen이 다른 곳
+
+| 항목 | 명세 | pen | 이유 |
+| --- | --- | --- | --- |
+| 상태 배지 토큰 이름 | `component.badge` | `component.statusBadge`, 변수 `status-badge-*` | 기존 `component.badge`(관찰값 6 × 2, 2px)와 이름이 겹침 |
+| StatusBadge 세로 패딩 | 4px, 최소 높이 24 | 높이 24 고정 + 가로 패딩 8 | pen에 최소 높이가 없음 |
+| 컨트롤·행·패널 크기 | 토큰 참조 | 숫자 직접 입력 | 너비·높이에 변수가 적용되지 않음 |
+| ClassCard · BookingRow 높이 | 내용에 맞춤 | 139 / 81 고정 | 세로로 채우는 자식(강조선·시간 열)이 있으면 높이 자동 계산이 안 됨 |
+| hover · loading · 스켈레톤 · 부분 상태 | 상태 표에 정의 | 그리지 않음 | pen에 상태가 없음. focus는 TextField·Button 예시만 있음 |
+| Select · DatePicker · TimePicker | 폰은 네이티브 입력이 기본 | 커스텀 목록·패널만 있음 | 네이티브 UI는 그릴 수 없음 |
+| shop-key 접두 | 실제 도메인 | `<도메인>/` 문자열 | 도메인 미정 |
+| 시계 아이콘 | lucide `clock` | `clock-4` | pen의 lucide 세트에 `clock`이 없음 |
+| EmptyState 장식 | 선택 | 넣지 않음 | 운영자 화면의 장식 사용이 미결 |
+| 버튼 줄 여백 | 그림자 여유 최소 6px | 오른쪽·아래 패딩 6 | 그림자가 잘리지 않게 패딩으로 처리 |
 
 ### 이번에 tokens.json에 보완한 값
 
@@ -172,6 +191,7 @@ pen은 px 숫자와 hex 색만 받습니다. 문서에만 있거나 CSS 표현�
 | 크기 | 게이지 6 / 10, 아바타 20 / 36 / 40, 카드 패딩 16 / 20 / 24 | 위 간격과 크기 표 |
 | layout | 화면 여백 16 / 24, 기준 프레임 390×844 · 360×800 · 768×1024 · 1440×1000 | 캡처 조건 |
 | decoration | 6종의 viewBox·선 굵기, [decorations/](decorations/) SVG | App.tsx에서 추출 |
+| 운영자 화면 토큰 | 의미 색 15개(scrim, noShow·completed, session 3종, visibility 2종), 타이포 control·fieldLabel·heading, component 10종, `layer.popover`, `motion.toast`, `responsive.formMaxWidth`·`operatorSplitAt` | [components-operator.md](components-operator.md)의 추가 토큰 표 |
 
 ### pen에서 표현하지 못하는 것
 

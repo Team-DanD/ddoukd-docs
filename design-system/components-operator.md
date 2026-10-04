@@ -900,4 +900,6 @@ README는 버튼의 success 피드백을 2000ms로 관찰했습니다. 한국어
 | `responsive.formMaxWidth` | `480` px | PC에서 폼 한 열의 최대 폭. 기존 responsive 토큰은 예약 화면 폭뿐 |
 | `responsive.operatorSplitAt` | `1024` px | List ↔ Table, 하단 내비게이션 ↔ 사이드바 전환점. 기존 `proposedSplitAt`(1024)과 같은 값이지만 그쪽은 목록/상세 분할 의미 |
 
+tokens.json 반영됨(2026-10-04). `component.badge`만 기존 토큰과 이름이 겹쳐 `component.statusBadge`로 넣었습니다. pen과 다른 곳은 [README](README.md#명세와-pen이-다른-곳)에 있습니다.
+
 기존 토큰을 **이름과 다른 용도로 재사용**한 곳도 정리가 필요합니다. 입력의 비활성에 `action.disabled.*`를, placeholder에 `text.captionOnPaper`를 썼습니다. 값은 맞지만 이름이 용도와 달라, 토큰을 정리할 때 `control.disabled.*`·`text.placeholder` 같은 별칭을 둘지 함께 검토합니다.
