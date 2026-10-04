@@ -213,7 +213,7 @@ shop-key 예약어 목록에도 `ddoukd` 추가 ([spec/tenancy.md](spec/tenancy.
 - 저장소는 **NestJS용 별도 비공개 레포**
   [Team-DanD/ddoukd-server-nest](https://github.com/Team-DanD/ddoukd-server-nest)로 확정하고 생성했다.
   신규 개발·배포는 NestJS 서버를 대상으로 하고, 기존 Spring 저장소는 보존·참고용으로 둔다
-- ORM·마이그레이션 도구는 NestJS 서버 구성 단계에서 선택한다
+- ORM·마이그레이션 도구는 NestJS 서버 구성 단계에서 선택한다 → 2026-10-04 TypeORM으로 확정 (아래 기록)
 
 ### 구현 범위와 계승할 규칙
 
@@ -241,3 +241,25 @@ Claude 계정 공유는 약관 위반 → 각자 Pro 또는 Team 플랜(최소 �
 예약 스키마·상태 전이 구현의 선결 조건은 해소됐다. 회원권 트랙 5건은 계속 미정이며,
 이번 구현에는 회원권 테이블과 `booking.membership_id`를 넣지 않는다.
 기존 2026-08-16의 미결 기록은 당시 이력으로 보존한다.
+
+## 2026-10-04 — NestJS 서버 스택 확정 (TypeORM + SQL 마이그레이션)
+
+2026-10-01에 "서버 구성 단계에서 선택"으로 남긴 항목을 닫는다. 상세와 이유는
+[ddoukd-server-nest의 AGENTS.md](https://github.com/Team-DanD/ddoukd-server-nest/blob/main/AGENTS.md)가 기준이고,
+여기에는 결정만 남긴다.
+
+| 영역 | 선택 |
+|------|------|
+| 런타임 | Node.js 24 LTS, npm |
+| 프레임워크·언어 | NestJS 12 (ESM), TypeScript 6 |
+| ORM | **TypeORM** + `pg`. `synchronize: false` 고정 |
+| 마이그레이션 | 손으로 쓴 SQL 마이그레이션이 스키마의 진실. 적용된 파일은 고치지 않고 새 파일로 되돌린다 |
+| DB | Postgres 17 |
+| 인증 | JWT(HS256, `jose`), 비밀번호 해시 argon2id |
+| 테스트·린트 | vitest + supertest, oxlint + prettier |
+
+- 초기 구성과 슬라이스 1 API는 [ddoukd-server-nest PR #1](https://github.com/Team-DanD/ddoukd-server-nest/pull/1)에
+  올라와 있다. 이 기록을 쓰는 시점에는 리뷰 중이며 아직 머지되지 않았다
+- 마이그레이션은 두 번에 나눠 들어간다: 기반 4테이블(platform_admin, shop, staff, member) →
+  예약 4테이블(service, staff_availability, class_session, booking). 합쳐서 슬라이스 1의 8테이블이다
+- 기존 Kotlin/Spring 기반 코드는 `ddoukd-server`의 main에 머지해 보존했다 (참고용, 신규 개발 없음)
