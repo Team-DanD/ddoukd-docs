@@ -49,9 +49,18 @@
   --dd-feedback-error-foreground: var(--dd-color-ink);
   --dd-feedback-error-border: var(--dd-color-destructive);
   --dd-focus-color: var(--dd-color-purple);
+  --dd-action-danger-background: var(--dd-color-paper);
+  --dd-action-danger-foreground: var(--dd-color-ink);
+  --dd-action-danger-border: var(--dd-color-destructive);
+  --dd-intensity-low-border: var(--dd-color-rule);
+  --dd-intensity-mid-border: var(--dd-color-purple);
+  --dd-intensity-high-border: var(--dd-color-ink);
   --dd-space-4: 4px;
+  --dd-space-6: 6px;
   --dd-space-8: 8px;
+  --dd-space-10: 10px;
   --dd-space-12: 12px;
+  --dd-space-14: 14px;
   --dd-space-16: 16px;
   --dd-space-20: 20px;
   --dd-space-24: 24px;
@@ -61,6 +70,9 @@
   --dd-space-64: 64px;
   --dd-font-display: 'Anton', sans-serif;
   --dd-font-body: 'DM Sans', 'Noto Sans KR', sans-serif;
+  --dd-font-weight-regular: 400;
+  --dd-font-weight-semibold: 600;
+  --dd-font-weight-bold: 700;
   --dd-radius: 0px;
   --dd-shadow-row: 3px 3px 0 var(--dd-color-ink);
   --dd-shadow-action: 4px 4px 0 var(--dd-color-ink);

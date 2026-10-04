@@ -4,7 +4,7 @@
 
 문서 저장소의 MVP는 사업장 운영자 중심입니다. 이번 캡처는 회원이 클래스를 예약하는 프론트 프로토타입이므로 MVP 기능·권한·회원권 정책을 새로 확정하지 않습니다. 색·타이포·버튼·패널 같은 공통 기반은 재사용하고, 사업장 예약·회원 관리 화면은 별도로 설계해야 합니다. [MVP 범위](../mvp.md)와 [권한 설계](../spec/tenancy.md)가 제품 범위의 기준입니다.
 
-[시각 갤러리](index.html) · [전체 캡처 목록](screenshots/README.md) · [토큰 제안](tokens.json) · [CSS 예시](tokens.css) · [색 대비 계산](contrast.json) · [프로토타입 API 명세](../spec/frontend-prototype-api.md)
+[시각 갤러리](index.html) · [pen.dev 원본](ddoukd.pen) · [pen.dev 설정 가이드](pen-setup.md) · [전체 캡처 목록](screenshots/README.md) · [토큰 제안](tokens.json) · [CSS 예시](tokens.css) · [색 대비 계산](contrast.json) · [프로토타입 API 명세](../spec/frontend-prototype-api.md)
 
 ## 근거와 캡처 조건
 
@@ -32,7 +32,7 @@
 | 테두리 | 2px 검정, 게이지·아바타 일부 1px | 구조는 2px, 미세 정보는 1px, 구분선은 낮은 대비 |
 | 그림자 | 흐림 없이 3·4·5px 우하단 오프셋 | 행 3px, 주요 CTA 4px, 선택·강사 카드 5px |
 | 사진 | grayscale + contrast 1.2 + 보라 multiply | 사진의 실제 내용이 보이도록 유지하고 실패 시 이름·대체 면 제공 |
-| 장식 | Squiggle, HandRule, Burst, Sparkle, Cloud, Loop | 섹션당 1~2개. 의미·텍스트·포커스를 가리지 않도록 배치 |
+| 장식 | Squiggle, HandRule, Burst, Sparkle, Cloud, Loop ([SVG](decorations/)) | 섹션당 1~2개. 의미·텍스트·포커스를 가리지 않도록 배치 |
 | 색의 의미 | 강도와 예약 상태가 일부 다른 표현 사용 | 강도 배지와 예약 상태 배지를 독립된 타입으로 관리 |
 
 ## 토큰 구조
@@ -122,6 +122,69 @@ flowchart LR
 
 레이어는 base 0, decoration 1, header 10, sheet 50, toast 60으로 제안합니다. 장식에는 `aria-hidden`과 `pointer-events: none`을 적용합니다. 그림자가 주변 카드나 포커스 링을 자르지 않도록 최소 6px의 여유를 둡니다.
 
+## pen.dev 대응 (2026-10-04)
+
+화면 기획은 [pen.dev](https://pen.dev)의 `.pen` 파일로 그립니다. 토큰과 기초 컴포넌트를 담은 원본이 [ddoukd.pen](ddoukd.pen)이고, 설치와 사용법은 [pen-setup.md](pen-setup.md)에 있습니다. 화면 기획 파일의 위치와 규칙은 [../plans/README.md](../plans/README.md)를 따릅니다.
+
+`tokens.json`이 진실 원천이고 `ddoukd.pen`의 변수는 그 값을 옮긴 것입니다. 값을 바꿀 때는 `tokens.json`을 먼저 고치고 pen 변수를 맞춥니다.
+
+### 변수 이름 규칙
+
+`tokens.css`의 이름에서 `--dd-`를 뺀 kebab-case입니다. 의미 색은 원시 색 변수를 참조합니다.
+
+| tokens.json | pen 변수 | 예 |
+| --- | --- | --- |
+| primitive.color.purpleDeep | `color-purple-deep` | `#5B21B6` |
+| semantic action.primary.background | `action-primary-background` | `$color-yellow` |
+| primitive.space.16 | `space-16` | 16 |
+| primitive.shadow.action | `shadow-action-offset` | 4 (색은 `color-ink`, blur 0) |
+| typography.title | `text-title-size`, `text-title-line-height` | 18, 1.3 |
+| primitive.fontWeight.bold | `font-weight-bold` | "700" |
+
+### pen에 들어 있는 것
+
+| 프레임 | 내용 |
+| --- | --- |
+| Foundations | 원시 색 13, 의미 색 12쌍, 타이포 5단계, 간격, 하드 섀도 3종 |
+| Components | Button 5종(primary·secondary·waitlist·danger·disabled)과 focus-visible·pressed 예시, IntensityBadge 3종, BookingBadge 3종, CapacityMeter 2종, Decoration 6종 |
+
+ClassCard 같은 조합 컴포넌트와 운영자 화면의 입력 계열 컴포넌트는 아직 없습니다.
+
+### 이번에 tokens.json에 보완한 값
+
+pen은 px 숫자와 hex 색만 받습니다. 문서에만 있거나 CSS 표현으로만 있던 값을 숫자로 추가했습니다. 기존 `value`는 그대로 두었습니다.
+
+| 항목 | 추가한 값 | 근거 |
+| --- | --- | --- |
+| poster 단계값 | 데스크톱 96px / 모바일 42px, 자간 -3.84 / -1.68px | clamp 상한 6rem, 하한 2.6rem 반올림. -0.04em 환산 |
+| 타이포 역할 | detailTitle 40(모바일 28) / 1.2, instructorTitle 24 / 1.25, timeMinute 18 / 1, bodyLarge 16 / 1.6, caption 12 / 1.4 | 위 타이포그래피 표의 v0.1 제안 |
+| 폰트 굵기 | regular 400, semibold 600, bold 700 | bold는 App.tsx `font-bold`, semibold는 tokens.css 버튼 예시 |
+| 한국어 폰트 | `font.bodyKo` = Noto Sans KR | pen은 텍스트마다 폰트 하나만 지정 |
+| rule 색 | `hex8` `#11111124` | rgba(17,17,17,0.14) 환산 |
+| radius.signal | `numericValue` 999 | 50% 대체 |
+| shadow | offsetX·offsetY·blur·color 분리, pressed 2px 추가 | CSS 문자열 분해. pressed는 tokens.css 예시 |
+| 예외 간격 | 6 / 10 / 14 | 위 간격 표의 관찰값 |
+| 아이콘 | lucide, 크기 16 / 20 / 24 | ddoukd-web의 lucide-react. 크기는 제안 |
+| 버튼 | 패딩 16 × 8, 14px, semibold, 줄높이 1.4, danger 추가 | tokens.css 예시 |
+| action.danger | paper 면 / ink 글자 / destructive 테두리 | 제안. 빨간 면의 흰 글자 금지 규칙을 따름 |
+| 배지 | 패딩 6 × 2, 테두리 2px, 12px bold | 패딩·테두리는 관찰, 글자 크기는 최소 12px 제안 |
+| intensity 테두리 | low rule / mid purple / high ink | App.tsx `intensityStyle` |
+| 크기 | 게이지 6 / 10, 아바타 20 / 36 / 40, 카드 패딩 16 / 20 / 24 | 위 간격과 크기 표 |
+| layout | 화면 여백 16 / 24, 기준 프레임 390×844 · 360×800 · 768×1024 · 1440×1000 | 캡처 조건 |
+| decoration | 6종의 viewBox·선 굵기, [decorations/](decorations/) SVG | App.tsx에서 추출 |
+
+### pen에서 표현하지 못하는 것
+
+| 제약 | 대응 |
+| --- | --- |
+| width·height에 변수를 쓰면 값이 무시됨 (확인: 0.6.73) | 크기는 숫자로 직접 입력. 버튼 높이 48, 게이지 6 / 10 등은 tokens.json 값을 따른다 |
+| %·vw·clamp 없음 | poster·detailTitle은 단계값 사용 |
+| 점선 stroke 없음 | Loop 장식은 실선. 구현은 `decorations/loop.svg`의 dash 7 5를 따른다 |
+| 컴포넌트 variant 없음 | `Button/Primary`처럼 이름으로 구분한 별도 컴포넌트 |
+| hover·pressed·focus 상태 없음 | 상태 예시를 별도 노드로 둠. 동작은 위 버튼 상태 표가 기준 |
+| 파일 간 컴포넌트 참조 불가 | 화면 기획 파일은 `ddoukd.pen`을 복사해서 시작 |
+| 사진 듀오톤(grayscale + multiply) | 미검증. 사진이 필요한 화면에서 확인 |
+
 ## 컴포넌트 계약
 
 아래 API는 구현 제안입니다. 현재 대부분의 UI는 `App.tsx` 내부에 있고 공통 Button·Badge·Card로 추출되지 않았습니다. `src/app/components/ui`의 shadcn 컴포넌트는 현재 예약 화면의 기준으로 사용하지 않았습니다.
@@ -131,7 +194,7 @@ flowchart LR
 | AppHeader | activeTab, confirmedCount, user | 탭 선택, 모바일 줄바꿈 방지 | [헤더](screenshots/components/header.png) |
 | DateStrip | selectedDate, today, bookingDates, onChange | 오늘·선택·예약 점, 이전/다음 주 | [날짜](screenshots/components/date-strip.png) |
 | ClassFilter | value, options, onChange | 단일 선택, 가로 스크롤, aria-pressed | [필터](screenshots/components/filter-bar.png) |
-| Button | variant, size, loading, disabled | primary, secondary, waitlist, danger, icon | [주 CTA](screenshots/components/cta-primary.png) |
+| Button | variant, size, loading, disabled | primary, secondary, waitlist, danger(제안: paper 면 + destructive 테두리), icon | [주 CTA](screenshots/components/cta-primary.png) |
 | IntensityBadge | level: low/mid/high | 정보 표시, 클릭 동작 없음 | [중강도](screenshots/components/intensity-mid.png) |
 | BookingBadge | status: confirmed/waitlist/cancelled | 의미 색과 텍스트 고정 | [예약 행](screenshots/components/booking-row-confirmed.png) |
 | ClassCard | class, bookingStatus, selected, pending | 상세 열기와 예약 행동을 별도 버튼으로 구성 | [기본 행](screenshots/components/class-available.png) |
