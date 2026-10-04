@@ -1,0 +1,3374 @@
+{
+  "version": "2.19",
+  "children": [
+    {
+      "type": "frame",
+      "id": "lwWra",
+      "x": 0,
+      "y": 0,
+      "name": "Foundations",
+      "width": 1200,
+      "fill": "$background-canvas",
+      "stroke": "$border-strong",
+      "strokeWidth": "$border-width-strong",
+      "layout": "vertical",
+      "gap": "$space-48",
+      "padding": "$space-48",
+      "children": [
+        {
+          "type": "frame",
+          "id": "gu0vu",
+          "name": "Header",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": "$space-8",
+          "children": [
+            {
+              "type": "text",
+              "id": "zVF8O",
+              "name": "Wordmark",
+              "fill": "$text-primary",
+              "content": "DDOUKD FOUNDATIONS",
+              "lineHeight": 0.9,
+              "fontFamily": "$font-display",
+              "fontSize": 64,
+              "fontWeight": "normal",
+              "letterSpacing": -2
+            },
+            {
+              "type": "text",
+              "id": "X1OuB3",
+              "name": "Source",
+              "fill": "$text-secondary",
+              "content": "디자인 시스템 v0.1 제안 · 기준: design-system/tokens.json · 값은 변수로만 참조",
+              "lineHeight": "$text-label-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-label-size",
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "amTsB",
+          "name": "Primitive Colors",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": "$space-16",
+          "children": [
+            {
+              "type": "text",
+              "id": "g4OAM",
+              "name": "Primitive Colors Title",
+              "fill": "$text-primary",
+              "content": "원시 색",
+              "lineHeight": "$text-title-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-title-size",
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "ASy4m",
+              "name": "Primitive Row 1",
+              "width": "fill_container",
+              "gap": "$space-16",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "wHqCP",
+                  "name": "Swatch color-purple",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "SKIjy",
+                      "name": "Chip color-purple",
+                      "fill": "$color-purple",
+                      "width": "fill_container",
+                      "height": 64,
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-fine"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FKYwj",
+                      "name": "Name color-purple",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "color-purple",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "O1FDbE",
+                      "name": "Use color-purple",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "브랜드 · 대기 · 듀오톤",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ycBHH",
+                  "name": "Swatch color-purple-deep",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "P8C6SI",
+                      "name": "Chip color-purple-deep",
+                      "fill": "$color-purple-deep",
+                      "width": "fill_container",
+                      "height": 64,
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-fine"
+                    },
+                    {
+                      "type": "text",
+                      "id": "aAgbr",
+                      "name": "Name color-purple-deep",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "color-purple-deep",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Ze9yR",
+                      "name": "Use color-purple-deep",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "옅은 보라 면의 텍스트",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "X5lRUA",
+                  "name": "Swatch color-purple-tint",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "puAmf",
+                      "name": "Chip color-purple-tint",
+                      "fill": "$color-purple-tint",
+                      "width": "fill_container",
+                      "height": 64,
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-fine"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zUuI8",
+                      "name": "Name color-purple-tint",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "color-purple-tint",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Q8y9Cx",
+                      "name": "Use color-purple-tint",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "이미 예약한 행의 면",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "riEDP",
+                  "name": "Swatch color-yellow",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "Tj3MD",
+                      "name": "Chip color-yellow",
+                      "fill": "$color-yellow",
+                      "width": "fill_container",
+                      "height": 64,
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-fine"
+                    },
+                    {
+                      "type": "text",
+                      "id": "oC5DX",
+                      "name": "Name color-yellow",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "color-yellow",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "IStRz",
+                      "name": "Use color-yellow",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "주요 CTA · 선택 · 확정",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "PUJqS",
+                  "name": "Swatch color-yellow-deep",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "f4bEGF",
+                      "name": "Chip color-yellow-deep",
+                      "fill": "$color-yellow-deep",
+                      "width": "fill_container",
+                      "height": 64,
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-fine"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Xi2Pw",
+                      "name": "Name color-yellow-deep",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "color-yellow-deep",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "D5SHqh",
+                      "name": "Use color-yellow-deep",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "주요 CTA hover",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "HxSTO",
+                  "name": "Swatch color-ink",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "e7ue9",
+                      "name": "Chip color-ink",
+                      "fill": "$color-ink",
+                      "width": "fill_container",
+                      "height": 64,
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-fine"
+                    },
+                    {
+                      "type": "text",
+                      "id": "V1YWn",
+                      "name": "Name color-ink",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "color-ink",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "jO5ZJ",
+                      "name": "Use color-ink",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "본문 · 구조선 · 하드 섀도",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "A6kttX",
+                  "name": "Swatch color-paper",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "mdEa5",
+                      "name": "Chip color-paper",
+                      "fill": "$color-paper",
+                      "width": "fill_container",
+                      "height": 64,
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-fine"
+                    },
+                    {
+                      "type": "text",
+                      "id": "XJreM",
+                      "name": "Name color-paper",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "color-paper",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "AIY2j",
+                      "name": "Use color-paper",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "기본 면",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "t1eXak",
+              "name": "Primitive Row 2",
+              "width": "fill_container",
+              "gap": "$space-16",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "MWClJ",
+                  "name": "Swatch color-surface",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "S9otK",
+                      "name": "Chip color-surface",
+                      "fill": "$color-surface",
+                      "width": "fill_container",
+                      "height": 64,
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-fine"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Zu7ug",
+                      "name": "Name color-surface",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "color-surface",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "pYj3X",
+                      "name": "Use color-surface",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "통계 · 보조 면 · 취소 행",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "OpSx2",
+                  "name": "Swatch color-surface2",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "EYj8l",
+                      "name": "Chip color-surface2",
+                      "fill": "$color-surface2",
+                      "width": "fill_container",
+                      "height": 64,
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-fine"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zptXO",
+                      "name": "Name color-surface2",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "color-surface2",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "C7Kf5",
+                      "name": "Use color-surface2",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "보조 버튼 · 비활성 면",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "yzLPF",
+                  "name": "Swatch color-ink-soft",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "n8pq1R",
+                      "name": "Chip color-ink-soft",
+                      "fill": "$color-ink-soft",
+                      "width": "fill_container",
+                      "height": 64,
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-fine"
+                    },
+                    {
+                      "type": "text",
+                      "id": "fAOWx",
+                      "name": "Name color-ink-soft",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "color-ink-soft",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "TYJId",
+                      "name": "Use color-ink-soft",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "설명 · 취소 상태 텍스트",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "O8Mjk",
+                  "name": "Swatch color-ink-faint",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "H2CBtT",
+                      "name": "Chip color-ink-faint",
+                      "fill": "$color-ink-faint",
+                      "width": "fill_container",
+                      "height": 64,
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-fine"
+                    },
+                    {
+                      "type": "text",
+                      "id": "wXoEt",
+                      "name": "Name color-ink-faint",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "color-ink-faint",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ETnXX",
+                      "name": "Use color-ink-faint",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "흰 면의 보조 정보만",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "QcTAg",
+                  "name": "Swatch color-rule",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "WQbge",
+                      "name": "Chip color-rule",
+                      "fill": "$color-rule",
+                      "width": "fill_container",
+                      "height": 64,
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-fine"
+                    },
+                    {
+                      "type": "text",
+                      "id": "aD2ah",
+                      "name": "Name color-rule",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "color-rule",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "kWuSQ",
+                      "name": "Use color-rule",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "보조 구분선",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wTuNE",
+                  "name": "Swatch color-destructive",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "Pgt0h",
+                      "name": "Chip color-destructive",
+                      "fill": "$color-destructive",
+                      "width": "fill_container",
+                      "height": 64,
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-fine"
+                    },
+                    {
+                      "type": "text",
+                      "id": "geEkY",
+                      "name": "Name color-destructive",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "color-destructive",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "QmxbK",
+                      "name": "Use color-destructive",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "오류 아이콘 · 테두리 전용",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "s9fTD",
+                  "name": "Spacer",
+                  "width": "fill_container",
+                  "height": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "c3lmg",
+          "name": "Semantic Colors",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": "$space-16",
+          "children": [
+            {
+              "type": "text",
+              "id": "fTw7E",
+              "name": "Semantic Colors Title",
+              "fill": "$text-primary",
+              "content": "의미 색 (컴포넌트는 이 역할만 참조)",
+              "lineHeight": "$text-title-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-title-size",
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "GOfpT",
+              "name": "Semantic Row 1",
+              "width": "fill_container",
+              "gap": "$space-16",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "X2iYY",
+                  "name": "Role action.primary",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "BF5UF",
+                      "name": "Sample action.primary",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "$action-primary-background",
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-strong",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "k2ltgx",
+                          "name": "Sample Label action.primary",
+                          "fill": "$action-primary-foreground",
+                          "content": "예약하기",
+                          "fontFamily": "$font-body-ko",
+                          "fontSize": "$text-body-size",
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "jEZOV",
+                      "name": "Role Name action.primary",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "action.primary",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "H3mMc",
+                  "name": "Role action.secondary",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "I38xXZ",
+                      "name": "Sample action.secondary",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "$action-secondary-background",
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-strong",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "D3n9t",
+                          "name": "Sample Label action.secondary",
+                          "fill": "$action-secondary-foreground",
+                          "content": "예약 취소",
+                          "fontFamily": "$font-body-ko",
+                          "fontSize": "$text-body-size",
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "K52hy",
+                      "name": "Role Name action.secondary",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "action.secondary",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "uv4V0",
+                  "name": "Role action.waitlist",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "d5rEMR",
+                      "name": "Sample action.waitlist",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "$action-waitlist-background",
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-strong",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Ekh7J",
+                          "name": "Sample Label action.waitlist",
+                          "fill": "$action-waitlist-foreground",
+                          "content": "대기 신청",
+                          "fontFamily": "$font-body-ko",
+                          "fontSize": "$text-body-size",
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "VGxyG",
+                      "name": "Role Name action.waitlist",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "action.waitlist",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "V6GuNA",
+                  "name": "Role action.disabled",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "lYVVf",
+                      "name": "Sample action.disabled",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "$action-disabled-background",
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-strong",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "W6tMv",
+                          "name": "Sample Label action.disabled",
+                          "fill": "$action-disabled-foreground",
+                          "content": "비활성",
+                          "fontFamily": "$font-body-ko",
+                          "fontSize": "$text-body-size",
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "PV0R0",
+                      "name": "Role Name action.disabled",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "action.disabled",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "dSGLs",
+              "name": "Semantic Row 2",
+              "width": "fill_container",
+              "gap": "$space-16",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "noIxJ",
+                  "name": "Role selection",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "NbVQY",
+                      "name": "Sample selection",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "$selection-background",
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-strong",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "r4Uivl",
+                          "name": "Sample Label selection",
+                          "fill": "$selection-foreground",
+                          "content": "선택",
+                          "fontFamily": "$font-body-ko",
+                          "fontSize": "$text-body-size",
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "GiVrV",
+                      "name": "Role Name selection",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "selection",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "cQVr0",
+                  "name": "Role booking.confirmed",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "RWJFi",
+                      "name": "Sample booking.confirmed",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "$booking-confirmed-background",
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-strong",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "d1NEKx",
+                          "name": "Sample Label booking.confirmed",
+                          "fill": "$booking-confirmed-foreground",
+                          "content": "예약 확정",
+                          "fontFamily": "$font-body-ko",
+                          "fontSize": "$text-body-size",
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "CkMim",
+                      "name": "Role Name booking.confirmed",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "booking.confirmed",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "H0ftD",
+                  "name": "Role booking.waitlist",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "BUz18",
+                      "name": "Sample booking.waitlist",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "$booking-waitlist-background",
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-strong",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "W4E9tI",
+                          "name": "Sample Label booking.waitlist",
+                          "fill": "$booking-waitlist-foreground",
+                          "content": "대기중",
+                          "fontFamily": "$font-body-ko",
+                          "fontSize": "$text-body-size",
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "ckrOX",
+                      "name": "Role Name booking.waitlist",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "booking.waitlist",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gdEvI",
+                  "name": "Role booking.cancelled",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "L4NfAa",
+                      "name": "Sample booking.cancelled",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "$booking-cancelled-background",
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-strong",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "DB65b",
+                          "name": "Sample Label booking.cancelled",
+                          "fill": "$booking-cancelled-foreground",
+                          "content": "취소됨",
+                          "fontFamily": "$font-body-ko",
+                          "fontSize": "$text-body-size",
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "Uuda3",
+                      "name": "Role Name booking.cancelled",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "booking.cancelled",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "UGQsm",
+              "name": "Semantic Row 3",
+              "width": "fill_container",
+              "gap": "$space-16",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "RfeEn",
+                  "name": "Role intensity.low",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "aa9fk",
+                      "name": "Sample intensity.low",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "$intensity-low-background",
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-strong",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "J7CsB",
+                          "name": "Sample Label intensity.low",
+                          "fill": "$intensity-low-foreground",
+                          "content": "저강도",
+                          "fontFamily": "$font-body-ko",
+                          "fontSize": "$text-body-size",
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "N8od8",
+                      "name": "Role Name intensity.low",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "intensity.low",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "MMsDq",
+                  "name": "Role intensity.mid",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "d8G0v",
+                      "name": "Sample intensity.mid",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "$intensity-mid-background",
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-strong",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "U2ina",
+                          "name": "Sample Label intensity.mid",
+                          "fill": "$intensity-mid-foreground",
+                          "content": "중강도",
+                          "fontFamily": "$font-body-ko",
+                          "fontSize": "$text-body-size",
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "nnu9X",
+                      "name": "Role Name intensity.mid",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "intensity.mid",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Fbf0A",
+                  "name": "Role intensity.high",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ir0L8",
+                      "name": "Sample intensity.high",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "$intensity-high-background",
+                      "stroke": "$border-strong",
+                      "strokeWidth": "$border-width-strong",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ljc9P",
+                          "name": "Sample Label intensity.high",
+                          "fill": "$intensity-high-foreground",
+                          "content": "고강도",
+                          "fontFamily": "$font-body-ko",
+                          "fontSize": "$text-body-size",
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "ZR61G",
+                      "name": "Role Name intensity.high",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "intensity.high",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "QZ7nu",
+                  "name": "Role feedback.error",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "wIHux",
+                      "name": "Sample feedback.error",
+                      "width": "fill_container",
+                      "height": 56,
+                      "fill": "$feedback-error-background",
+                      "stroke": "$feedback-error-border",
+                      "strokeWidth": "$border-width-strong",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "NgzBP",
+                          "name": "Sample Label feedback.error",
+                          "fill": "$feedback-error-foreground",
+                          "content": "예약하지 못했어요",
+                          "fontFamily": "$font-body-ko",
+                          "fontSize": "$text-body-size",
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "blARo",
+                      "name": "Role Name feedback.error",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "feedback.error",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "K4cSxm",
+          "name": "Typography",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": "$space-16",
+          "children": [
+            {
+              "type": "text",
+              "id": "WlUtE",
+              "name": "Typography Title",
+              "fill": "$text-primary",
+              "content": "타이포그래피",
+              "lineHeight": "$text-title-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-title-size",
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "wisVV",
+              "name": "Type poster",
+              "width": "fill_container",
+              "gap": "$space-24",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "i25Szv",
+                  "name": "Type Meta poster",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": 260,
+                  "content": "poster · Anton · Latin 전용 · 줄높이 0.82",
+                  "lineHeight": "$text-label-line-height",
+                  "fontFamily": "$font-body-ko",
+                  "fontSize": "$text-label-size",
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "BUeWA",
+                  "name": "Type Sample poster",
+                  "fill": "$text-primary",
+                  "content": "BOOK YOUR CLASS",
+                  "lineHeight": 0.82,
+                  "fontFamily": "$font-display",
+                  "fontSize": 72,
+                  "fontWeight": "normal",
+                  "letterSpacing": -3
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "hDRk6",
+              "name": "Type time",
+              "width": "fill_container",
+              "gap": "$space-24",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "iF01Q",
+                  "name": "Type Meta time",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": 260,
+                  "content": "time · Anton 32 / 1",
+                  "lineHeight": "$text-label-line-height",
+                  "fontFamily": "$font-body-ko",
+                  "fontSize": "$text-label-size",
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "Fyshz",
+                  "name": "Type Sample time",
+                  "fill": "$text-primary",
+                  "content": "07:30",
+                  "lineHeight": "$text-time-line-height",
+                  "fontFamily": "$font-display",
+                  "fontSize": "$text-time-size",
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "GTF9s",
+              "name": "Type title",
+              "width": "fill_container",
+              "gap": "$space-24",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "RMYt6",
+                  "name": "Type Meta title",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": 260,
+                  "content": "title · 18 / 1.3",
+                  "lineHeight": "$text-label-line-height",
+                  "fontFamily": "$font-body-ko",
+                  "fontSize": "$text-label-size",
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "b350KM",
+                  "name": "Type Sample title",
+                  "fill": "$text-primary",
+                  "content": "모닝 플로우 요가",
+                  "lineHeight": "$text-title-line-height",
+                  "fontFamily": "$font-body-ko",
+                  "fontSize": "$text-title-size",
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "huT5X",
+              "name": "Type body",
+              "width": "fill_container",
+              "gap": "$space-24",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "CiKuG",
+                  "name": "Type Meta body",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": 260,
+                  "content": "body · 14 / 1.6",
+                  "lineHeight": "$text-label-line-height",
+                  "fontFamily": "$font-body-ko",
+                  "fontSize": "$text-label-size",
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "GmP0H",
+                  "name": "Type Sample body",
+                  "fill": "$text-primary",
+                  "content": "호흡과 함께 천천히 몸을 깨우는 수업입니다.",
+                  "lineHeight": "$text-body-line-height",
+                  "fontFamily": "$font-body-ko",
+                  "fontSize": "$text-body-size",
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "u3tIn4",
+              "name": "Type label",
+              "width": "fill_container",
+              "gap": "$space-24",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "LSwMn",
+                  "name": "Type Meta label",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": 260,
+                  "content": "label · 최소 12 / 1.4",
+                  "lineHeight": "$text-label-line-height",
+                  "fontFamily": "$font-body-ko",
+                  "fontSize": "$text-label-size",
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "HyG5U",
+                  "name": "Type Sample label",
+                  "fill": "$text-secondary",
+                  "content": "잔여 3석 · 50분",
+                  "lineHeight": "$text-label-line-height",
+                  "fontFamily": "$font-body-ko",
+                  "fontSize": "$text-label-size",
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Phj82",
+          "name": "Spacing",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": "$space-16",
+          "children": [
+            {
+              "type": "text",
+              "id": "Gds6G",
+              "name": "Spacing Title",
+              "fill": "$text-primary",
+              "content": "간격 (4px 기반)",
+              "lineHeight": "$text-title-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-title-size",
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "xosyC",
+              "name": "Spacing Scale",
+              "width": "fill_container",
+              "gap": "$space-24",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ypx7E",
+                  "name": "Space 4",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "pjNvX",
+                      "name": "Space Block 4",
+                      "fill": "$brand-primary",
+                      "width": 4,
+                      "height": 4
+                    },
+                    {
+                      "type": "text",
+                      "id": "c4qLx",
+                      "name": "Space Label 4",
+                      "fill": "$text-secondary",
+                      "content": "space-4",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Imzue",
+                  "name": "Space 8",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "G40eG",
+                      "name": "Space Block 8",
+                      "fill": "$brand-primary",
+                      "width": 8,
+                      "height": 8
+                    },
+                    {
+                      "type": "text",
+                      "id": "yP9ED",
+                      "name": "Space Label 8",
+                      "fill": "$text-secondary",
+                      "content": "space-8",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "P9s9A",
+                  "name": "Space 12",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "xrE0O",
+                      "name": "Space Block 12",
+                      "fill": "$brand-primary",
+                      "width": 12,
+                      "height": 12
+                    },
+                    {
+                      "type": "text",
+                      "id": "I3QCMh",
+                      "name": "Space Label 12",
+                      "fill": "$text-secondary",
+                      "content": "space-12",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "a1LpUR",
+                  "name": "Space 16",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "theDx",
+                      "name": "Space Block 16",
+                      "fill": "$brand-primary",
+                      "width": 16,
+                      "height": 16
+                    },
+                    {
+                      "type": "text",
+                      "id": "rvCPL",
+                      "name": "Space Label 16",
+                      "fill": "$text-secondary",
+                      "content": "space-16",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "EkfFn",
+                  "name": "Space 20",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "P3UtL",
+                      "name": "Space Block 20",
+                      "fill": "$brand-primary",
+                      "width": 20,
+                      "height": 20
+                    },
+                    {
+                      "type": "text",
+                      "id": "c6jku",
+                      "name": "Space Label 20",
+                      "fill": "$text-secondary",
+                      "content": "space-20",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "YjqcF",
+                  "name": "Space 24",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "lruKC",
+                      "name": "Space Block 24",
+                      "fill": "$brand-primary",
+                      "width": 24,
+                      "height": 24
+                    },
+                    {
+                      "type": "text",
+                      "id": "Wr8rp",
+                      "name": "Space Label 24",
+                      "fill": "$text-secondary",
+                      "content": "space-24",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "HfU0n",
+                  "name": "Space 32",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "k1fat",
+                      "name": "Space Block 32",
+                      "fill": "$brand-primary",
+                      "width": 32,
+                      "height": 32
+                    },
+                    {
+                      "type": "text",
+                      "id": "T5dqb",
+                      "name": "Space Label 32",
+                      "fill": "$text-secondary",
+                      "content": "space-32",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Nso2B",
+                  "name": "Space 40",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "JPmC4",
+                      "name": "Space Block 40",
+                      "fill": "$brand-primary",
+                      "width": 40,
+                      "height": 40
+                    },
+                    {
+                      "type": "text",
+                      "id": "xMKrP",
+                      "name": "Space Label 40",
+                      "fill": "$text-secondary",
+                      "content": "space-40",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "uFWeQ",
+                  "name": "Space 48",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "G8cEU",
+                      "name": "Space Block 48",
+                      "fill": "$brand-primary",
+                      "width": 48,
+                      "height": 48
+                    },
+                    {
+                      "type": "text",
+                      "id": "QoXfl",
+                      "name": "Space Label 48",
+                      "fill": "$text-secondary",
+                      "content": "space-48",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "FEyjx",
+                  "name": "Space 64",
+                  "layout": "vertical",
+                  "gap": "$space-8",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "bFNkg",
+                      "name": "Space Block 64",
+                      "fill": "$brand-primary",
+                      "width": 64,
+                      "height": 64
+                    },
+                    {
+                      "type": "text",
+                      "id": "wR7hE",
+                      "name": "Space Label 64",
+                      "fill": "$text-secondary",
+                      "content": "space-64",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "QPjBw",
+          "name": "Shape",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": "$space-16",
+          "children": [
+            {
+              "type": "text",
+              "id": "rsBQC",
+              "name": "Shape Title",
+              "fill": "$text-primary",
+              "content": "형태 · 테두리 · 하드 섀도",
+              "lineHeight": "$text-title-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-title-size",
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "gmagH",
+              "name": "Shadow Samples",
+              "width": "fill_container",
+              "gap": "$space-40",
+              "padding": [
+                0,
+                0,
+                "$space-8",
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "z4p6RB",
+                  "name": "Shadow row",
+                  "width": "fill_container",
+                  "height": 72,
+                  "fill": "$background-canvas",
+                  "cornerRadius": "$radius-square",
+                  "stroke": "$border-strong",
+                  "strokeWidth": "$border-width-strong",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "$color-ink",
+                    "offset": {
+                      "x": "$shadow-row-offset",
+                      "y": "$shadow-row-offset"
+                    }
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Wz28C",
+                      "name": "Shadow Label row",
+                      "fill": "$text-primary",
+                      "content": "shadow-row · 3px · 행",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Qj6kB",
+                  "name": "Shadow action",
+                  "width": "fill_container",
+                  "height": 72,
+                  "fill": "$background-canvas",
+                  "cornerRadius": "$radius-square",
+                  "stroke": "$border-strong",
+                  "strokeWidth": "$border-width-strong",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "$color-ink",
+                    "offset": {
+                      "x": "$shadow-action-offset",
+                      "y": "$shadow-action-offset"
+                    }
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "FRCnw",
+                      "name": "Shadow Label action",
+                      "fill": "$text-primary",
+                      "content": "shadow-action · 4px · 주요 CTA",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "d3eOH2",
+                  "name": "Shadow emphasis",
+                  "width": "fill_container",
+                  "height": 72,
+                  "fill": "$background-canvas",
+                  "cornerRadius": "$radius-square",
+                  "stroke": "$border-strong",
+                  "strokeWidth": "$border-width-strong",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "$color-ink",
+                    "offset": {
+                      "x": "$shadow-emphasis-offset",
+                      "y": "$shadow-emphasis-offset"
+                    }
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "XlubR",
+                      "name": "Shadow Label emphasis",
+                      "fill": "$text-primary",
+                      "content": "shadow-emphasis · 5px · 선택 · 강사 카드",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "scvJi",
+      "x": 1280,
+      "y": 0,
+      "name": "Components",
+      "width": 1200,
+      "fill": "$background-canvas",
+      "stroke": "$border-strong",
+      "strokeWidth": "$border-width-strong",
+      "layout": "vertical",
+      "gap": "$space-48",
+      "padding": "$space-48",
+      "children": [
+        {
+          "type": "frame",
+          "id": "XFMoM",
+          "name": "Components Header",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": "$space-8",
+          "children": [
+            {
+              "type": "text",
+              "id": "Aln7W",
+              "name": "Components Wordmark",
+              "fill": "$text-primary",
+              "content": "DDOUKD COMPONENTS",
+              "lineHeight": 0.9,
+              "fontFamily": "$font-display",
+              "fontSize": 64,
+              "fontWeight": "normal",
+              "letterSpacing": -2
+            },
+            {
+              "type": "text",
+              "id": "X601wK",
+              "name": "Components Source",
+              "fill": "$text-secondary",
+              "content": "기초 컴포넌트 · 기준: design-system/README.md 컴포넌트 계약 · 화면에서는 인스턴스로만 사용",
+              "lineHeight": "$text-label-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-label-size",
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "R4j2eX",
+          "name": "Buttons",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": "$space-16",
+          "children": [
+            {
+              "type": "text",
+              "id": "EL2ii",
+              "name": "Buttons Title",
+              "fill": "$text-primary",
+              "content": "Button",
+              "lineHeight": "$text-title-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-title-size",
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "l2X4GQ",
+              "name": "Buttons Note",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "최소 높이 48 · 테두리 2px · 하드 섀도 4px · disabled는 그림자 없음. 대기 신청에는 disabled를 쓰지 않는다",
+              "lineHeight": "$text-label-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-label-size",
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "YnYxX",
+              "name": "Buttons Items",
+              "width": "fill_container",
+              "gap": "$space-32",
+              "padding": [
+                0,
+                0,
+                "$space-8",
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "yuote",
+                  "name": "Button/Primary",
+                  "reusable": true,
+                  "height": 48,
+                  "fill": "$action-primary-background",
+                  "cornerRadius": "$radius-square",
+                  "stroke": "$border-strong",
+                  "strokeWidth": "$border-width-strong",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "$color-ink",
+                    "offset": {
+                      "x": "$shadow-action-offset",
+                      "y": "$shadow-action-offset"
+                    }
+                  },
+                  "gap": "$space-8",
+                  "padding": [
+                    "$button-padding-y",
+                    "$button-padding-x"
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Xrcfw",
+                      "name": "Label",
+                      "fill": "$action-primary-foreground",
+                      "content": "예약하기",
+                      "lineHeight": "$button-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$button-font-size",
+                      "fontWeight": "$font-weight-semibold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Gkz8u",
+                  "name": "Button/Secondary",
+                  "reusable": true,
+                  "height": 48,
+                  "fill": "$action-secondary-background",
+                  "cornerRadius": "$radius-square",
+                  "stroke": "$border-strong",
+                  "strokeWidth": "$border-width-strong",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "$color-ink",
+                    "offset": {
+                      "x": "$shadow-action-offset",
+                      "y": "$shadow-action-offset"
+                    }
+                  },
+                  "gap": "$space-8",
+                  "padding": [
+                    "$button-padding-y",
+                    "$button-padding-x"
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "MZcJD",
+                      "name": "Label",
+                      "fill": "$action-secondary-foreground",
+                      "content": "예약 취소",
+                      "lineHeight": "$button-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$button-font-size",
+                      "fontWeight": "$font-weight-semibold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "j0SoRz",
+                  "name": "Button/Waitlist",
+                  "reusable": true,
+                  "height": 48,
+                  "fill": "$action-waitlist-background",
+                  "cornerRadius": "$radius-square",
+                  "stroke": "$border-strong",
+                  "strokeWidth": "$border-width-strong",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "$color-ink",
+                    "offset": {
+                      "x": "$shadow-action-offset",
+                      "y": "$shadow-action-offset"
+                    }
+                  },
+                  "gap": "$space-8",
+                  "padding": [
+                    "$button-padding-y",
+                    "$button-padding-x"
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ZhviB",
+                      "name": "Label",
+                      "fill": "$action-waitlist-foreground",
+                      "content": "대기 신청",
+                      "lineHeight": "$button-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$button-font-size",
+                      "fontWeight": "$font-weight-semibold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "jPqqv",
+                  "name": "Button/Danger",
+                  "reusable": true,
+                  "height": 48,
+                  "fill": "$action-danger-background",
+                  "cornerRadius": "$radius-square",
+                  "stroke": "$action-danger-border",
+                  "strokeWidth": "$border-width-strong",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "$color-ink",
+                    "offset": {
+                      "x": "$shadow-action-offset",
+                      "y": "$shadow-action-offset"
+                    }
+                  },
+                  "gap": "$space-8",
+                  "padding": [
+                    "$button-padding-y",
+                    "$button-padding-x"
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "lz3U4",
+                      "name": "Icon",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "x",
+                      "library": "lucide",
+                      "fill": "$action-danger-border"
+                    },
+                    {
+                      "type": "text",
+                      "id": "cxoQ3",
+                      "name": "Label",
+                      "fill": "$action-danger-foreground",
+                      "content": "회원 삭제",
+                      "lineHeight": "$button-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$button-font-size",
+                      "fontWeight": "$font-weight-semibold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "fUk82",
+                  "name": "Button/Disabled",
+                  "reusable": true,
+                  "height": 48,
+                  "fill": "$action-disabled-background",
+                  "cornerRadius": "$radius-square",
+                  "stroke": "$border-strong",
+                  "strokeWidth": "$border-width-strong",
+                  "gap": "$space-8",
+                  "padding": [
+                    "$button-padding-y",
+                    "$button-padding-x"
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "gD3Tr",
+                      "name": "Label",
+                      "fill": "$action-disabled-foreground",
+                      "content": "예약 마감",
+                      "lineHeight": "$button-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$button-font-size",
+                      "fontWeight": "$font-weight-semibold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "NrmzH",
+                  "name": "Button State/Focus Visible",
+                  "stroke": "$focus-color",
+                  "strokeWidth": "$focus-outline-width",
+                  "strokeAlignment": "inner",
+                  "padding": 5,
+                  "children": [
+                    {
+                      "id": "Hc8GT",
+                      "type": "ref",
+                      "ref": "yuote",
+                      "name": "Focused Primary"
+                    }
+                  ]
+                },
+                {
+                  "id": "yPgJS",
+                  "type": "ref",
+                  "ref": "yuote",
+                  "name": "Button State/Pressed",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "$color-ink",
+                    "offset": {
+                      "x": "$shadow-pressed-offset",
+                      "y": "$shadow-pressed-offset"
+                    }
+                  },
+                  "descendants": {
+                    "Xrcfw": {
+                      "content": "누름 상태"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "BuwJH",
+          "name": "Intensity Badges",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": "$space-16",
+          "children": [
+            {
+              "type": "text",
+              "id": "SbL5B",
+              "name": "Intensity Badges Title",
+              "fill": "$text-primary",
+              "content": "IntensityBadge",
+              "lineHeight": "$text-title-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-title-size",
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "QkF8x",
+              "name": "Intensity Badges Note",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "정보 표시 전용, 클릭 동작 없음",
+              "lineHeight": "$text-label-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-label-size",
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "SxOQT",
+              "name": "Intensity Badges Items",
+              "width": "fill_container",
+              "gap": "$space-32",
+              "padding": [
+                0,
+                0,
+                "$space-8",
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "kfIVE",
+                  "name": "IntensityBadge/Low",
+                  "reusable": true,
+                  "fill": "$intensity-low-background",
+                  "cornerRadius": "$radius-square",
+                  "stroke": "$intensity-low-border",
+                  "strokeWidth": "$border-width-strong",
+                  "padding": [
+                    "$badge-padding-y",
+                    "$badge-padding-x"
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "XqhSp",
+                      "name": "Label",
+                      "fill": "$intensity-low-foreground",
+                      "content": "저강도",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "$font-weight-bold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "lng76",
+                  "name": "IntensityBadge/Mid",
+                  "reusable": true,
+                  "fill": "$intensity-mid-background",
+                  "cornerRadius": "$radius-square",
+                  "stroke": "$intensity-mid-border",
+                  "strokeWidth": "$border-width-strong",
+                  "padding": [
+                    "$badge-padding-y",
+                    "$badge-padding-x"
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oFp5Q",
+                      "name": "Label",
+                      "fill": "$intensity-mid-foreground",
+                      "content": "중강도",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "$font-weight-bold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "x91fd4",
+                  "name": "IntensityBadge/High",
+                  "reusable": true,
+                  "fill": "$intensity-high-background",
+                  "cornerRadius": "$radius-square",
+                  "stroke": "$intensity-high-border",
+                  "strokeWidth": "$border-width-strong",
+                  "padding": [
+                    "$badge-padding-y",
+                    "$badge-padding-x"
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "nRymV",
+                      "name": "Label",
+                      "fill": "$intensity-high-foreground",
+                      "content": "고강도",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "$font-weight-bold"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "foqX6",
+          "name": "Booking Badges",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": "$space-16",
+          "children": [
+            {
+              "type": "text",
+              "id": "ltK3q",
+              "name": "Booking Badges Title",
+              "fill": "$text-primary",
+              "content": "BookingBadge",
+              "lineHeight": "$text-title-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-title-size",
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "nC1Q7",
+              "name": "Booking Badges Note",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "문구를 항상 함께 표시한다. 색만으로 상태를 전달하지 않는다",
+              "lineHeight": "$text-label-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-label-size",
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "r0QeU",
+              "name": "Booking Badges Items",
+              "width": "fill_container",
+              "gap": "$space-32",
+              "padding": [
+                0,
+                0,
+                "$space-8",
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "MoI46",
+                  "name": "BookingBadge/Confirmed",
+                  "reusable": true,
+                  "fill": "$booking-confirmed-background",
+                  "cornerRadius": "$radius-square",
+                  "stroke": "$border-strong",
+                  "strokeWidth": "$border-width-strong",
+                  "padding": [
+                    "$badge-padding-y",
+                    "$badge-padding-x"
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "WfJDg",
+                      "name": "Label",
+                      "fill": "$booking-confirmed-foreground",
+                      "content": "확정",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "$font-weight-bold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "CvbS8",
+                  "name": "BookingBadge/Waitlist",
+                  "reusable": true,
+                  "fill": "$booking-waitlist-background",
+                  "cornerRadius": "$radius-square",
+                  "stroke": "$border-strong",
+                  "strokeWidth": "$border-width-strong",
+                  "padding": [
+                    "$badge-padding-y",
+                    "$badge-padding-x"
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "d4XL6D",
+                      "name": "Label",
+                      "fill": "$booking-waitlist-foreground",
+                      "content": "대기중",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "$font-weight-bold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "QEW4H",
+                  "name": "BookingBadge/Cancelled",
+                  "reusable": true,
+                  "fill": "$booking-cancelled-background",
+                  "cornerRadius": "$radius-square",
+                  "stroke": "$border-strong",
+                  "strokeWidth": "$border-width-strong",
+                  "padding": [
+                    "$badge-padding-y",
+                    "$badge-padding-x"
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "A2o7h",
+                      "name": "Label",
+                      "fill": "$booking-cancelled-foreground",
+                      "content": "취소됨",
+                      "lineHeight": "$text-label-line-height",
+                      "fontFamily": "$font-body-ko",
+                      "fontSize": "$text-label-size",
+                      "fontWeight": "$font-weight-bold"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "P5RNfc",
+          "name": "Capacity Meters",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": "$space-16",
+          "children": [
+            {
+              "type": "text",
+              "id": "K6lkA",
+              "name": "Capacity Meters Title",
+              "fill": "$text-primary",
+              "content": "CapacityMeter",
+              "lineHeight": "$text-title-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-title-size",
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "K25vXy",
+              "name": "Capacity Meters Note",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "행 6px · 상세 10px. 채움 폭은 0~100%로 제한하고 숫자와 함께 표시한다",
+              "lineHeight": "$text-label-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-label-size",
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "wze4C",
+              "name": "Capacity Meters Items",
+              "width": "fill_container",
+              "gap": "$space-32",
+              "padding": [
+                0,
+                0,
+                "$space-8",
+                0
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ztPaY",
+                  "name": "CapacityMeter/Row",
+                  "reusable": true,
+                  "width": 320,
+                  "height": 6,
+                  "fill": "$background-canvas",
+                  "cornerRadius": "$radius-square",
+                  "stroke": "$border-strong",
+                  "strokeWidth": "$border-width-fine",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "g2esn",
+                      "name": "Fill",
+                      "fill": "$text-primary",
+                      "width": 240,
+                      "height": "fill_container"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "HJARX",
+                  "name": "CapacityMeter/Detail",
+                  "reusable": true,
+                  "width": 320,
+                  "height": 10,
+                  "fill": "$background-canvas",
+                  "cornerRadius": "$radius-square",
+                  "stroke": "$border-strong",
+                  "strokeWidth": "$border-width-fine",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "UuRzY",
+                      "name": "Fill",
+                      "fill": "$text-primary",
+                      "width": 235,
+                      "height": "fill_container"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "gkkQ8",
+          "name": "Decorations",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": "$space-16",
+          "children": [
+            {
+              "type": "text",
+              "id": "IklZ6",
+              "name": "Decorations Title",
+              "fill": "$text-primary",
+              "content": "Decoration",
+              "lineHeight": "$text-title-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-title-size",
+              "fontWeight": "$font-weight-bold"
+            },
+            {
+              "type": "text",
+              "id": "XwolT",
+              "name": "Decorations Note",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "섹션당 1~2개 · 의미·텍스트·포커스를 가리지 않는다 · 원본 SVG: design-system/decorations/ · Loop의 점선(7 5)은 pen에서 실선으로 대체",
+              "lineHeight": "$text-label-line-height",
+              "fontFamily": "$font-body-ko",
+              "fontSize": "$text-label-size",
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "TrixX",
+              "name": "Decorations Items",
+              "width": "fill_container",
+              "gap": "$space-40",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "path",
+                  "id": "NOkpZ",
+                  "name": "Decoration/Squiggle",
+                  "reusable": true,
+                  "geometry": "M2 32c16-26 42-28 49-6 5 18-18 25-22 11-4-14 18-23 36-13 20 11 12 30 30 28 20-2 12-26 32-24 18 2 14 24 34 20 18-4 20-22 36-18",
+                  "viewBox": [
+                    0,
+                    0,
+                    200,
+                    60
+                  ],
+                  "width": 200,
+                  "height": 60,
+                  "stroke": "$brand-primary",
+                  "strokeWidth": 2.4,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "path",
+                  "id": "mYm2U",
+                  "name": "Decoration/HandRule",
+                  "reusable": true,
+                  "geometry": "M1 6c29-1.8 73-3.4 118-4",
+                  "viewBox": [
+                    0,
+                    0,
+                    120,
+                    8
+                  ],
+                  "width": 120,
+                  "height": 8,
+                  "stroke": "$text-primary",
+                  "strokeWidth": 2.2,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "frame",
+                  "id": "zIlYu",
+                  "name": "Decoration/Burst",
+                  "reusable": true,
+                  "width": 80,
+                  "height": 80,
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "path",
+                      "id": "xixj1",
+                      "x": 0,
+                      "y": 0,
+                      "name": "Thin Rays",
+                      "geometry": "M50 35l0-17m17.98 17.66l16.42-13.09m-15.88 31.66l12.68 2.89m-24.69 6.39l12.58 26.13m-29.07-18.92l-3.9 8.11m-4.64-24.6l-24.38 5.56m31.17-19.14l-13.29-10.6",
+                      "viewBox": [
+                        0,
+                        0,
+                        100,
+                        100
+                      ],
+                      "width": 80,
+                      "height": 80,
+                      "stroke": "$text-primary",
+                      "strokeWidth": 1.3,
+                      "strokeLinejoin": "round",
+                      "strokeLinecap": "round"
+                    },
+                    {
+                      "type": "path",
+                      "id": "yK7mL",
+                      "x": 0,
+                      "y": 0,
+                      "name": "Thick Rays",
+                      "geometry": "M58.24 32.88l8.25-17.12m-1.87 30.9l34.13-7.79m-30.77 25.47l11.73 9.35m-29.71-4.69l0 31m-11.73-40.65l-17.98 14.34m7.29-28.81l-26.33-6.01m40.51-5.99l-8.25-17.12",
+                      "viewBox": [
+                        0,
+                        0,
+                        100,
+                        100
+                      ],
+                      "width": 80,
+                      "height": 80,
+                      "stroke": "$text-primary",
+                      "strokeWidth": 2.1,
+                      "strokeLinejoin": "round",
+                      "strokeLinecap": "round"
+                    }
+                  ]
+                },
+                {
+                  "type": "path",
+                  "id": "buuTj",
+                  "name": "Decoration/Sparkle",
+                  "reusable": true,
+                  "geometry": "M30 4c2 14 12 24 26 26-14 2-24 12-26 26-2-14-12-24-26-26 14-2 24-12 26-26z",
+                  "viewBox": [
+                    0,
+                    0,
+                    60,
+                    60
+                  ],
+                  "width": 40,
+                  "height": 40,
+                  "stroke": "$brand-primary",
+                  "strokeWidth": 1.5,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "path",
+                  "id": "LUwqO",
+                  "name": "Decoration/Cloud",
+                  "reusable": true,
+                  "geometry": "M11 34c-7 0-8-10-1-12-2-11 12-16 18-7 6-9 20-4 18 7 7 2 6 12-1 12h-34z m19 0v9m0 0l-4-4m4 4l4-4",
+                  "viewBox": [
+                    0,
+                    0,
+                    60,
+                    46
+                  ],
+                  "width": 60,
+                  "height": 46,
+                  "stroke": "$text-primary",
+                  "strokeWidth": 2,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                },
+                {
+                  "type": "path",
+                  "id": "kM31z",
+                  "name": "Decoration/Loop",
+                  "reusable": true,
+                  "geometry": "M25 4c12 0 21 9 21 21s-9 21-21 21-21-9-21-21 8-21 21-21z",
+                  "viewBox": [
+                    0,
+                    0,
+                    50,
+                    50
+                  ],
+                  "width": 44,
+                  "height": 44,
+                  "stroke": "$text-primary",
+                  "strokeWidth": 1.8,
+                  "strokeLinejoin": "round",
+                  "strokeLinecap": "round"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "color-purple": {
+      "type": "color",
+      "value": "#7C3AED"
+    },
+    "color-purple-deep": {
+      "type": "color",
+      "value": "#5B21B6"
+    },
+    "color-purple-tint": {
+      "type": "color",
+      "value": "#F3EEFE"
+    },
+    "color-yellow": {
+      "type": "color",
+      "value": "#FFE500"
+    },
+    "color-yellow-deep": {
+      "type": "color",
+      "value": "#E6CE00"
+    },
+    "color-ink": {
+      "type": "color",
+      "value": "#111111"
+    },
+    "color-paper": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "color-surface": {
+      "type": "color",
+      "value": "#F5F5F7"
+    },
+    "color-surface2": {
+      "type": "color",
+      "value": "#EBEBEF"
+    },
+    "color-ink-soft": {
+      "type": "color",
+      "value": "#5A5A66"
+    },
+    "color-ink-faint": {
+      "type": "color",
+      "value": "#6E6E7A"
+    },
+    "color-rule": {
+      "type": "color",
+      "value": "#11111124"
+    },
+    "color-destructive": {
+      "type": "color",
+      "value": "#E23B2E"
+    },
+    "background-canvas": {
+      "type": "color",
+      "value": "$color-paper"
+    },
+    "background-subtle": {
+      "type": "color",
+      "value": "$color-surface"
+    },
+    "background-reserved": {
+      "type": "color",
+      "value": "$color-purple-tint"
+    },
+    "text-primary": {
+      "type": "color",
+      "value": "$color-ink"
+    },
+    "text-secondary": {
+      "type": "color",
+      "value": "$color-ink-soft"
+    },
+    "text-caption-on-paper": {
+      "type": "color",
+      "value": "$color-ink-faint"
+    },
+    "border-strong": {
+      "type": "color",
+      "value": "$color-ink"
+    },
+    "border-subtle": {
+      "type": "color",
+      "value": "$color-rule"
+    },
+    "brand-primary": {
+      "type": "color",
+      "value": "$color-purple"
+    },
+    "action-primary-background": {
+      "type": "color",
+      "value": "$color-yellow"
+    },
+    "action-primary-foreground": {
+      "type": "color",
+      "value": "$color-ink"
+    },
+    "action-primary-hover": {
+      "type": "color",
+      "value": "$color-yellow-deep"
+    },
+    "action-secondary-background": {
+      "type": "color",
+      "value": "$color-paper"
+    },
+    "action-secondary-foreground": {
+      "type": "color",
+      "value": "$color-ink"
+    },
+    "action-waitlist-background": {
+      "type": "color",
+      "value": "$color-surface2"
+    },
+    "action-waitlist-foreground": {
+      "type": "color",
+      "value": "$color-ink"
+    },
+    "action-disabled-background": {
+      "type": "color",
+      "value": "$color-surface2"
+    },
+    "action-disabled-foreground": {
+      "type": "color",
+      "value": "$color-ink-soft"
+    },
+    "selection-background": {
+      "type": "color",
+      "value": "$color-yellow"
+    },
+    "selection-foreground": {
+      "type": "color",
+      "value": "$color-ink"
+    },
+    "booking-confirmed-background": {
+      "type": "color",
+      "value": "$color-yellow"
+    },
+    "booking-confirmed-foreground": {
+      "type": "color",
+      "value": "$color-ink"
+    },
+    "booking-waitlist-background": {
+      "type": "color",
+      "value": "$color-purple"
+    },
+    "booking-waitlist-foreground": {
+      "type": "color",
+      "value": "$color-paper"
+    },
+    "booking-cancelled-background": {
+      "type": "color",
+      "value": "$color-surface2"
+    },
+    "booking-cancelled-foreground": {
+      "type": "color",
+      "value": "$color-ink-soft"
+    },
+    "intensity-low-background": {
+      "type": "color",
+      "value": "$color-surface"
+    },
+    "intensity-low-foreground": {
+      "type": "color",
+      "value": "$color-ink-soft"
+    },
+    "intensity-mid-background": {
+      "type": "color",
+      "value": "$color-purple-tint"
+    },
+    "intensity-mid-foreground": {
+      "type": "color",
+      "value": "$color-purple-deep"
+    },
+    "intensity-high-background": {
+      "type": "color",
+      "value": "$color-yellow"
+    },
+    "intensity-high-foreground": {
+      "type": "color",
+      "value": "$color-ink"
+    },
+    "feedback-error-background": {
+      "type": "color",
+      "value": "$color-paper"
+    },
+    "feedback-error-foreground": {
+      "type": "color",
+      "value": "$color-ink"
+    },
+    "feedback-error-border": {
+      "type": "color",
+      "value": "$color-destructive"
+    },
+    "focus-color": {
+      "type": "color",
+      "value": "$color-purple"
+    },
+    "space-4": {
+      "type": "number",
+      "value": 4
+    },
+    "space-8": {
+      "type": "number",
+      "value": 8
+    },
+    "space-12": {
+      "type": "number",
+      "value": 12
+    },
+    "space-16": {
+      "type": "number",
+      "value": 16
+    },
+    "space-20": {
+      "type": "number",
+      "value": 20
+    },
+    "space-24": {
+      "type": "number",
+      "value": 24
+    },
+    "space-32": {
+      "type": "number",
+      "value": 32
+    },
+    "space-40": {
+      "type": "number",
+      "value": 40
+    },
+    "space-48": {
+      "type": "number",
+      "value": 48
+    },
+    "space-64": {
+      "type": "number",
+      "value": 64
+    },
+    "border-width-fine": {
+      "type": "number",
+      "value": 1
+    },
+    "border-width-strong": {
+      "type": "number",
+      "value": 2
+    },
+    "radius-square": {
+      "type": "number",
+      "value": 0
+    },
+    "shadow-row-offset": {
+      "type": "number",
+      "value": 3
+    },
+    "shadow-action-offset": {
+      "type": "number",
+      "value": 4
+    },
+    "shadow-emphasis-offset": {
+      "type": "number",
+      "value": 5
+    },
+    "font-display": {
+      "type": "string",
+      "value": "Anton"
+    },
+    "font-body": {
+      "type": "string",
+      "value": "DM Sans"
+    },
+    "font-body-ko": {
+      "type": "string",
+      "value": "Noto Sans KR"
+    },
+    "text-title-size": {
+      "type": "number",
+      "value": 18
+    },
+    "text-title-line-height": {
+      "type": "number",
+      "value": 1.3
+    },
+    "text-body-size": {
+      "type": "number",
+      "value": 14
+    },
+    "text-body-line-height": {
+      "type": "number",
+      "value": 1.6
+    },
+    "text-label-size": {
+      "type": "number",
+      "value": 12
+    },
+    "text-label-line-height": {
+      "type": "number",
+      "value": 1.4
+    },
+    "text-time-size": {
+      "type": "number",
+      "value": 32
+    },
+    "text-time-line-height": {
+      "type": "number",
+      "value": 1
+    },
+    "button-min-height": {
+      "type": "number",
+      "value": 48
+    },
+    "hit-target-min": {
+      "type": "number",
+      "value": 44
+    },
+    "class-card-accent-width": {
+      "type": "number",
+      "value": 6
+    },
+    "class-card-time-min-width": {
+      "type": "number",
+      "value": 76
+    },
+    "focus-outline-width": {
+      "type": "number",
+      "value": 3
+    },
+    "focus-outline-offset": {
+      "type": "number",
+      "value": 2
+    },
+    "action-danger-background": {
+      "type": "color",
+      "value": "$color-paper"
+    },
+    "action-danger-foreground": {
+      "type": "color",
+      "value": "$color-ink"
+    },
+    "action-danger-border": {
+      "type": "color",
+      "value": "$color-destructive"
+    },
+    "intensity-low-border": {
+      "type": "color",
+      "value": "$color-rule"
+    },
+    "intensity-mid-border": {
+      "type": "color",
+      "value": "$color-purple"
+    },
+    "intensity-high-border": {
+      "type": "color",
+      "value": "$color-ink"
+    },
+    "space-6": {
+      "type": "number",
+      "value": 6
+    },
+    "space-10": {
+      "type": "number",
+      "value": 10
+    },
+    "space-14": {
+      "type": "number",
+      "value": 14
+    },
+    "radius-signal": {
+      "type": "number",
+      "value": 999
+    },
+    "shadow-pressed-offset": {
+      "type": "number",
+      "value": 2
+    },
+    "font-weight-regular": {
+      "type": "string",
+      "value": "400"
+    },
+    "font-weight-semibold": {
+      "type": "string",
+      "value": "600"
+    },
+    "font-weight-bold": {
+      "type": "string",
+      "value": "700"
+    },
+    "icon-library": {
+      "type": "string",
+      "value": "lucide"
+    },
+    "icon-size-sm": {
+      "type": "number",
+      "value": 16
+    },
+    "icon-size-md": {
+      "type": "number",
+      "value": 20
+    },
+    "icon-size-lg": {
+      "type": "number",
+      "value": 24
+    },
+    "text-poster-desktop-size": {
+      "type": "number",
+      "value": 96
+    },
+    "text-poster-mobile-size": {
+      "type": "number",
+      "value": 42
+    },
+    "text-poster-line-height": {
+      "type": "number",
+      "value": 0.82
+    },
+    "text-poster-desktop-letter-spacing": {
+      "type": "number",
+      "value": -3.84
+    },
+    "text-poster-mobile-letter-spacing": {
+      "type": "number",
+      "value": -1.68
+    },
+    "text-detail-title-size": {
+      "type": "number",
+      "value": 40
+    },
+    "text-detail-title-mobile-size": {
+      "type": "number",
+      "value": 28
+    },
+    "text-detail-title-line-height": {
+      "type": "number",
+      "value": 1.2
+    },
+    "text-instructor-title-size": {
+      "type": "number",
+      "value": 24
+    },
+    "text-instructor-title-line-height": {
+      "type": "number",
+      "value": 1.25
+    },
+    "text-time-minute-size": {
+      "type": "number",
+      "value": 18
+    },
+    "text-time-letter-spacing": {
+      "type": "number",
+      "value": -0.32
+    },
+    "text-body-large-size": {
+      "type": "number",
+      "value": 16
+    },
+    "text-body-large-line-height": {
+      "type": "number",
+      "value": 1.6
+    },
+    "text-caption-size": {
+      "type": "number",
+      "value": 12
+    },
+    "text-caption-line-height": {
+      "type": "number",
+      "value": 1.4
+    },
+    "button-padding-x": {
+      "type": "number",
+      "value": 16
+    },
+    "button-padding-y": {
+      "type": "number",
+      "value": 8
+    },
+    "button-font-size": {
+      "type": "number",
+      "value": 14
+    },
+    "button-line-height": {
+      "type": "number",
+      "value": 1.4
+    },
+    "badge-padding-x": {
+      "type": "number",
+      "value": 6
+    },
+    "badge-padding-y": {
+      "type": "number",
+      "value": 2
+    },
+    "meter-row-height": {
+      "type": "number",
+      "value": 6
+    },
+    "meter-detail-height": {
+      "type": "number",
+      "value": 10
+    },
+    "avatar-size-sm": {
+      "type": "number",
+      "value": 20
+    },
+    "avatar-size-md": {
+      "type": "number",
+      "value": 36
+    },
+    "avatar-size-lg": {
+      "type": "number",
+      "value": 40
+    },
+    "screen-margin-mobile": {
+      "type": "number",
+      "value": 16
+    },
+    "screen-margin-desktop": {
+      "type": "number",
+      "value": 24
+    },
+    "card-padding-row": {
+      "type": "number",
+      "value": 16
+    },
+    "card-padding-detail": {
+      "type": "number",
+      "value": 20
+    },
+    "card-padding-section": {
+      "type": "number",
+      "value": 24
+    }
+  },
+  "fileToken": "8babb549-1f00-45ef-83d9-e5969bfad624"
+}
