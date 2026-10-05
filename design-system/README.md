@@ -4,7 +4,7 @@
 
 문서 저장소의 MVP는 사업장 운영자 중심입니다. 이번 캡처는 회원이 클래스를 예약하는 프론트 프로토타입이므로 MVP 기능·권한·회원권 정책을 새로 확정하지 않습니다. 색·타이포·버튼·패널 같은 공통 기반은 재사용하고, 사업장 예약·회원 관리 화면은 별도로 설계해야 합니다. [MVP 범위](../mvp.md)와 [권한 설계](../spec/tenancy.md)가 제품 범위의 기준입니다.
 
-[시각 갤러리](index.html) · [운영자 화면 컴포넌트 명세](components-operator.md) · [pen.dev 원본](ddoukd.pen) · [pen.dev 설정 가이드](pen-setup.md) · [전체 캡처 목록](screenshots/README.md) · [토큰 제안](tokens.json) · [CSS 예시](tokens.css) · [색 대비 계산](contrast.json) · [프로토타입 API 명세](../spec/frontend-prototype-api.md)
+[시각 갤러리](index.html) · [운영자 화면 컴포넌트 명세](components-operator.md) · [컴포넌트 라이브러리 조사](component-library-research.md) · [pen.dev 원본](ddoukd.pen) · [pen.dev 설정 가이드](pen-setup.md) · [전체 캡처 목록](screenshots/README.md) · [토큰 제안](tokens.json) · [CSS 예시](tokens.css) · [색 대비 계산](contrast.json) · [프로토타입 API 명세](../spec/frontend-prototype-api.md)
 
 ## 근거와 캡처 조건
 
