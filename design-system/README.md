@@ -4,7 +4,7 @@
 
 2026-10-05에 운영자 화면의 톤을 **"A · 장부"**로 확정했습니다([결정 기록](../decisions.md)). 컴포넌트는 아직 구현하거나 실제 화면으로 검증하지 않은 **제안**입니다.
 
-[브랜드 가이드](claude-design/project/README.md) · [토큰](tokens.json) · [CSS 변수](tokens.css) · [컴포넌트 CSS](claude-design/project/components/bundle.css) · [운영자 화면 컴포넌트 명세](components-operator.md) · [pen.dev 설정 가이드](pen-setup.md) · [이전 포스터 톤](archived/poster-v0.1/README.md)
+[브랜드 가이드](claude-design/project/README.md) · [토큰](tokens.json) · [CSS 변수](tokens.css) · [컴포넌트 CSS](claude-design/project/components/bundle.css) · [운영자 화면 컴포넌트 명세](components-operator.md) · [컴포넌트 라이브러리 조사](component-library-research.md) · [pen.dev 설정 가이드](pen-setup.md) · [이전 포스터 톤](archived/poster-v0.1/README.md)
 
 ## 왜 바꿨나
 
@@ -74,7 +74,7 @@ python3 design-system/scripts/build-tokens.py --check
 | Table, Pagination | 운영자 PC 보기 | 제안 |
 | MemberListScreen, MemberFormScreen, BookingsScreen | 운영자 폰 390px | 시안 조합 |
 
-- 미리보기는 정적인 HTML과 CSS입니다. React나 React Native 구현이 아닙니다. 구현에 쓸 라이브러리는 PR #13의 조사 문서에서 다룹니다.
+- 미리보기는 정적인 HTML과 CSS입니다. React나 React Native 구현이 아닙니다. 구현에 쓸 라이브러리와 구조는 [조사 문서](component-library-research.md)에서 다룹니다. 아직 결정 전입니다.
 - hover, 1024px 분기, 표는 웹 전제입니다. 앱으로 옮길 때는 값(색, 간격, 모서리, 1px 선)만 그대로 쓰고 동작은 다시 정해야 합니다.
 - 이전 톤에 있던 강도 배지, 정원 게이지, 대기 배지·버튼은 1:1 수업 범위에 없어 뺐습니다. 그룹 수업을 열 때 다시 만듭니다.
 
