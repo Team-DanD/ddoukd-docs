@@ -43,7 +43,7 @@
 | `claude-design/project/components/<이름>/` | 컴포넌트 설명(`README.md`)과 미리보기(`preview.html`) | 직접 고친다 |
 | `scripts/build-tokens.py` | 생성과 검사 | |
 | `components-operator.md` | 운영자 화면 컴포넌트의 동작·상태·접근성 명세 | 직접 고친다 |
-| `ddoukd.pen` | pen.dev 원본. **아직 이전 포스터 톤** | pen.dev |
+| `ddoukd.pen` | pen.dev 원본. 변수 105개, 재사용 컴포넌트 44개, 시안 화면 3개 | pen.dev. 값은 `tokens.json`을 먼저 고친 뒤 맞춘다 |
 | `archived/poster-v0.1/` | 이전 톤 전체(README, 토큰, 캡처 43개, 장식, 스크립트) | 보관. 고치지 않는다 |
 
 토큰 이름은 pen 변수, CSS 변수, Claude Design 토큰에서 모두 같습니다. 예: `action-primary-background`, `text-secondary`, `space-16`.
@@ -105,10 +105,25 @@ Claude Design 시안의 입력 필드 테두리는 `#d1d5db`(1.47:1)였습니다
 
 | 대상 | 상태 |
 | --- | --- |
-| `ddoukd.pen` | 이전 포스터 톤 그대로입니다(변수 193개, 컴포넌트 78개). 새 톤으로 다시 그려야 합니다 |
 | `plans/backoffice-staff-auth/` | 화면 12개가 포스터 톤으로 그려져 있습니다(PR #11). 사업장 인증 화면은 새 톤으로 다시 그리고, 백오피스 화면은 아래 결정에 따라 범위를 다시 정해야 합니다 |
 | `components-operator.md`의 컴포넌트별 수치 | 맨 위 공통 규칙과 변환표만 새 톤으로 고쳤습니다. 각 절의 2px, 그림자, 노랑 선택 서술은 변환표로 읽어야 합니다 |
 | `ddoukd-web` 프로토타입 | 이전 톤의 원본입니다. 손대지 않았습니다 |
+
+## pen 원본과 다른 점
+
+`ddoukd.pen`은 화면 기획용이고 `claude-design/project/`는 미리보기와 규칙 문서입니다. 같은 토큰을 쓰지만 들어 있는 것이 조금 다릅니다.
+
+| 항목 | pen | 이유 |
+| --- | --- | --- |
+| Table, Pagination, Select의 열린 목록, 불러오는 중 행 | 없음 | 폰 화면 기획에 먼저 필요한 것만 넣었습니다. 필요할 때 추가합니다 |
+| hover, 누름, 비활성 전환 같은 상태 | 없음 | pen에 상태가 없습니다. 포커스는 TextField 예시 하나만 있습니다 |
+| 너비·높이 | 숫자로 직접 입력 | pen은 너비·높이에 변수를 적용하지 않습니다 |
+| 글자 스타일 | `text-<이름>-size`, `text-<이름>-line-height` 변수 | pen에 글자 스타일 묶음이 없습니다 |
+| 배경 가림막 | `#11182780` | pen은 rgba 대신 8자리 hex를 씁니다 |
+| 버튼 진행 중(스피너) | 없음 | 움직임을 그릴 수 없습니다 |
+| 하단 바의 그만두기 1 : 저장 2 비율 | 그만두기 112px 고정 | pen에 비율 지정이 없습니다 |
+
+이전 포스터 톤의 pen 원본은 `archived/poster-v0.1/ddoukd.pen`에 있습니다.
 
 ## 함께 정한 것 (2026-10-05)
 
