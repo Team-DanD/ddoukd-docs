@@ -1,5 +1,5 @@
 {
-  "version": "2.19",
+  "version": "2.20",
   "children": [
     {
       "type": "frame",
@@ -3054,6 +3054,12 @@
                   "y": "$shadow-row-offset"
                 }
               },
+              "padding": [
+                0,
+                0,
+                0,
+                "$border-width-strong"
+              ],
               "children": [
                 {
                   "type": "rectangle",
@@ -3506,6 +3512,7 @@
                   "cornerRadius": "$radius-square",
                   "stroke": "$border-strong",
                   "strokeWidth": "$border-width-strong",
+                  "padding": "$border-width-strong",
                   "alignItems": "center",
                   "children": [
                     {
@@ -3849,6 +3856,7 @@
                         }
                       },
                       "layout": "vertical",
+                      "padding": "$border-width-strong",
                       "children": [
                         {
                           "type": "frame",
@@ -4987,6 +4995,7 @@
               "stroke": "$border-strong",
               "strokeWidth": "$border-width-strong",
               "layout": "vertical",
+              "padding": "$border-width-strong",
               "children": [
                 {
                   "type": "frame",
@@ -5439,6 +5448,12 @@
               "strokeWidth": {
                 "bottom": 2
               },
+              "padding": [
+                0,
+                0,
+                "$border-width-strong",
+                0
+              ],
               "alignItems": "end",
               "children": [
                 {
@@ -6705,7 +6720,7 @@
                       "fill": "$text-primary",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "2026-10-04",
+                      "content": "2026-10-07",
                       "lineHeight": "$text-control-line-height",
                       "fontFamily": "$font-body",
                       "fontSize": "$text-control-size",
@@ -7787,6 +7802,7 @@
                     }
                   },
                   "layout": "vertical",
+                  "padding": "$border-width-strong",
                   "children": [
                     {
                       "type": "frame",
@@ -7999,7 +8015,7 @@
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
                       "content": "메이미 필라테스",
-                      "lineHeight": 1.2,
+                      "lineHeight": "$text-title-line-height",
                       "fontFamily": "$font-body-ko",
                       "fontSize": "$text-title-size",
                       "fontWeight": "$font-weight-bold"
@@ -8052,6 +8068,12 @@
               "strokeWidth": {
                 "top": 2
               },
+              "padding": [
+                "$border-width-strong",
+                0,
+                0,
+                0
+              ],
               "children": [
                 {
                   "type": "frame",
@@ -8173,6 +8195,12 @@
                 "right": 2
               },
               "layout": "vertical",
+              "padding": [
+                0,
+                "$border-width-strong",
+                0,
+                0
+              ],
               "children": [
                 {
                   "type": "frame",
@@ -8194,7 +8222,7 @@
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
                       "content": "메이미 필라테스",
-                      "lineHeight": 1.2,
+                      "lineHeight": "$text-title-line-height",
                       "fontFamily": "$font-body-ko",
                       "fontSize": "$text-title-size",
                       "fontWeight": "$font-weight-bold"
@@ -8282,7 +8310,7 @@
                       "lineHeight": "$text-field-label-line-height",
                       "fontFamily": "$font-body-ko",
                       "fontSize": "$text-field-label-size",
-                      "fontWeight": "$font-weight-bold"
+                      "fontWeight": "$font-weight-regular"
                     }
                   ]
                 },
@@ -8319,7 +8347,7 @@
                       "lineHeight": "$text-field-label-line-height",
                       "fontFamily": "$font-body-ko",
                       "fontSize": "$text-field-label-size",
-                      "fontWeight": "$font-weight-bold"
+                      "fontWeight": "$font-weight-regular"
                     }
                   ]
                 }
@@ -8446,6 +8474,12 @@
                 "right": 2
               },
               "layout": "vertical",
+              "padding": [
+                0,
+                "$border-width-strong",
+                0,
+                0
+              ],
               "children": [
                 {
                   "type": "frame",
@@ -8517,7 +8551,7 @@
                       "lineHeight": "$text-field-label-line-height",
                       "fontFamily": "$font-body-ko",
                       "fontSize": "$text-field-label-size",
-                      "fontWeight": "$font-weight-bold"
+                      "fontWeight": "$font-weight-regular"
                     }
                   ]
                 }
@@ -8681,8 +8715,22 @@
                     "H7Ijc": {
                       "fill": "$background-canvas"
                     },
+                    "KuylS": {
+                      "fill": "$text-secondary"
+                    },
+                    "TJvN1": {
+                      "fill": "$text-secondary",
+                      "fontWeight": "$font-weight-regular"
+                    },
                     "TYMAQ": {
                       "fill": "$selection-background"
+                    },
+                    "dCUII": {
+                      "fill": "$selection-foreground"
+                    },
+                    "Nk0X5": {
+                      "fill": "$selection-foreground",
+                      "fontWeight": "$font-weight-bold"
                     }
                   }
                 }
@@ -8709,8 +8757,22 @@
                     "OQo8I": {
                       "fill": "$background-canvas"
                     },
+                    "u6OFEe": {
+                      "fill": "$text-secondary"
+                    },
+                    "anEHF": {
+                      "fill": "$text-secondary",
+                      "fontWeight": "$font-weight-regular"
+                    },
                     "vaIuQ": {
                       "fill": "$selection-background"
+                    },
+                    "noOJx": {
+                      "fill": "$selection-foreground"
+                    },
+                    "sNSGi": {
+                      "fill": "$selection-foreground",
+                      "fontWeight": "$font-weight-bold"
                     }
                   }
                 },
@@ -8756,6 +8818,7 @@
                           "stroke": "$border-strong",
                           "strokeWidth": "$border-width-strong",
                           "layout": "vertical",
+                          "padding": "$border-width-strong",
                           "children": [
                             {
                               "id": "tB2yo",
@@ -8962,7 +9025,8 @@
                           "content": "owner@example.com"
                         },
                         "C2nZ4F": {
-                          "enabled": false
+                          "enabled": false,
+                          "width": 310
                         }
                       }
                     },
@@ -9076,8 +9140,13 @@
                         "GoSMf": {
                           "content": "이 주에는 공개된 수업이 없어요"
                         },
+                        "x9N4J7": {
+                          "enabled": false,
+                          "width": 310
+                        },
                         "lB3D1": {
-                          "enabled": false
+                          "enabled": false,
+                          "width": 310
                         },
                         "qv0i5": {
                           "enabled": false

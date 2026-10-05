@@ -82,11 +82,15 @@ claude mcp add pencil --scope user -- \
   --app visual_studio_code --agent claudeCodeCLI
 ```
 
-3. VS Code에서 고칠 `.pen` 파일을 열어 둔 상태로 에이전트에게 요청합니다. 예: "plans/booking-calendar/booking-calendar.pen에 예약 목록 모바일 화면을 디자인 시스템 컴포넌트로 그려줘."
+3. VS Code에서 고칠 `.pen` 파일을 열어 둔 상태로, 파일 경로를 적어서 에이전트에게 요청합니다. 예: "plans/booking-calendar/booking-calendar.pen에 예약 목록 모바일 화면을 디자인 시스템 컴포넌트로 그려줘."
 
 에이전트를 쓸 때 주의할 점입니다.
 
-- 에이전트는 지금 활성화된 `.pen` 탭을 고칩니다. 파일 경로를 지정해도 다른 탭이 앞에 있으면 그 파일이 바뀌는 것을 확인했습니다. 요청 전에 고칠 파일의 탭을 앞에 두고, 작업 중에는 다른 `.pen` 탭으로 옮기지 않습니다.
+- 에이전트에게 고칠 파일의 경로를 명시하게 합니다(MCP 도구의 `filePath`). VS Code에 열려 있는 정상 파일은 경로를 지정하면 다른 `.pen` 탭이 활성이어도 지정한 파일이 대상이 됩니다(2026-10-05 확인).
+- 경로를 지정하지 않으면 지금 활성화된 `.pen` 탭이 대상이 됩니다. `.pen` 파일을 여러 개 열어 두었거나 다른 에이전트 세션이 같은 VS Code를 쓰고 있으면 경로를 빼먹지 않습니다.
+- 경로를 지정해도 그 파일이 VS Code에 열려 있지 않으면 활성 탭의 파일이 대신 읽혔습니다(2026-10-05, 오류 없이 다른 파일의 프레임이 반환됨). `code <경로>`로 파일을 먼저 엽니다.
+- 0바이트짜리 빈 `.pen` 파일은 문서로 인식되지 않아 경로를 지정해도 대상이 되지 않습니다. 이때도 활성 탭의 파일이 바뀔 수 있습니다.
+- 고치기 전에 읽기 전용 호출로 최상위 프레임 이름을 확인해 대상이 맞는지 봅니다.
 - `.pen` 파일을 텍스트 편집기나 `cat`으로 고치지 않습니다. 에이전트도 MCP 도구로만 읽고 씁니다.
 - 한 파일에는 에이전트 세션도 하나만 붙입니다.
 
@@ -98,5 +102,6 @@ claude mcp add pencil --scope user -- \
 | 빈 파일로 만든 `.pen`이 안 열림 | 0바이트 파일은 문서로 인식되지 않는다. `pen.dev: New File` 명령으로 만들거나 `ddoukd.pen`을 복사한다 |
 | MCP가 `failed to connect to running Pencil app` | VS Code에 `.pen` 파일이 열려 있지 않음. 파일을 열고 `/mcp`에서 다시 연결 |
 | MCP가 갑자기 `Connection closed` | 확장이 자동 업데이트되며 서버 실행 파일을 교체한 경우. `/mcp`에서 재연결하고, 안 되면 VS Code와 Claude Code를 다시 시작 |
-| `you are probably referencing the wrong .pen file` | 활성 탭이 `.pen` 에디터가 아님. 고칠 파일의 탭을 클릭한 뒤 재시도 |
+| `you are probably referencing the wrong .pen file` | 경로를 지정하지 않았는데 활성 탭이 `.pen` 에디터가 아님. 에이전트에게 파일 경로를 지정하게 하거나 고칠 파일의 탭을 클릭한 뒤 재시도 |
+| 에이전트가 다른 `.pen` 파일을 읽거나 고침 | 경로를 지정하지 않았거나, 지정한 파일이 VS Code에 열려 있지 않거나, 0바이트 파일임. `code <경로>`로 파일을 열고 경로를 지정해 다시 요청한다 |
 | 글꼴이 다르게 보임 | Google Fonts는 자동으로 쓸 수 있다. 변수 `font-display`·`font-body`·`font-body-ko`가 지정됐는지 확인 |
