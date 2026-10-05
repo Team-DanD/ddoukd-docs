@@ -1,0 +1,23 @@
+<!-- @dsCard group="Feedback" height=170 subtitle="성공 · 실패" -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+body { margin: 0; padding: 24px; background: var(--background-canvas); }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.col { display: flex; flex-direction: column; gap: 16px; }
+.note { margin: 0; font: 400 12px/1.4 var(--font-body); color: var(--text-secondary); }
+.phone { width: 390px; max-width: 100%; border: 1px solid var(--border-strong); }
+</style>
+</head>
+<body>
+<div class="dd">
+<div class="col">
+<div class="dd-toast" role="status"><span class="dd-toast__mark"><svg class="dd-icon dd-icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><p class="dd-toast__text">회원을 등록했어요</p><button class="dd-iconbtn" type="button" aria-label="닫기"><svg class="dd-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+<div class="dd-toast dd-toast--error" role="alert"><span class="dd-toast__mark"><svg class="dd-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></span><p class="dd-toast__text">저장하지 못했어요. 다시 시도해주세요</p><button class="dd-iconbtn" type="button" aria-label="닫기"><svg class="dd-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+</div>
+</div>
+</body>
+</html>

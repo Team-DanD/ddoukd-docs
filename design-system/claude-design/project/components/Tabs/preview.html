@@ -1,0 +1,26 @@
+<!-- @dsCard group="Navigation" height=110 subtitle="선택 · 기본" -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+body { margin: 0; padding: 24px; background: var(--background-canvas); }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.col { display: flex; flex-direction: column; gap: 16px; }
+.note { margin: 0; font: 400 12px/1.4 var(--font-body); color: var(--text-secondary); }
+.phone { width: 390px; max-width: 100%; border: 1px solid var(--border-strong); }
+</style>
+</head>
+<body>
+<div class="dd">
+<div style="max-width: 390px;">
+<div class="dd-tabs" role="tablist">
+<button class="dd-tab" role="tab" aria-selected="true" type="button">전체</button>
+<button class="dd-tab" role="tab" aria-selected="false" type="button">만료 임박 <small>5</small></button>
+<button class="dd-tab" role="tab" aria-selected="false" type="button">만료 <small>3</small></button>
+</div>
+</div>
+</div>
+</body>
+</html>

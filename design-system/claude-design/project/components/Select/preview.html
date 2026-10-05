@@ -1,0 +1,33 @@
+<!-- @dsCard group="Forms" height=290 subtitle="트리거 · 열린 목록" -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+body { margin: 0; padding: 24px; background: var(--background-canvas); }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.col { display: flex; flex-direction: column; gap: 16px; }
+.note { margin: 0; font: 400 12px/1.4 var(--font-body); color: var(--text-secondary); }
+.phone { width: 390px; max-width: 100%; border: 1px solid var(--border-strong); }
+</style>
+</head>
+<body>
+<div class="dd">
+<div class="row" style="align-items: flex-start;">
+<div style="flex: 1; min-width: 240px; max-width: 320px;">
+<div class="dd-field"><select aria-label="회원권"><option>10회권</option><option>20회권</option><option>체험 1회</option></select><svg class="dd-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></div>
+<p class="note" style="margin-top: 8px;">폰에서는 네이티브 select를 쓴다.</p>
+</div>
+<div style="flex: 1; min-width: 240px; max-width: 320px;">
+<div class="dd-field" role="combobox" aria-expanded="true" aria-controls="sel-list" tabindex="0"><span class="dd-field__value">10회권</span><svg class="dd-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></div>
+<ul class="dd-select-list" id="sel-list" role="listbox">
+<li role="option" aria-selected="true"><svg class="dd-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>10회권</li>
+<li role="option" aria-selected="false" class="is-active">20회권</li>
+<li role="option" aria-selected="false">체험 1회</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

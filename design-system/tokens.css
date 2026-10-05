@@ -1,116 +1,100 @@
-/* DDoukD v0.1 proposal. Documentation only; not imported by ddoukd-web. */
+/* 생성 파일. design-system/tokens.json을 고치고 scripts/build-tokens.py를 실행한다. */
 :root {
-  --dd-color-purple: #7C3AED;
-  --dd-color-purple-deep: #5B21B6;
-  --dd-color-purple-tint: #F3EEFE;
-  --dd-color-yellow: #FFE500;
-  --dd-color-yellow-deep: #E6CE00;
-  --dd-color-ink: #111111;
-  --dd-color-paper: #FFFFFF;
-  --dd-color-surface: #F5F5F7;
-  --dd-color-surface2: #EBEBEF;
-  --dd-color-ink-soft: #5A5A66;
-  --dd-color-ink-faint: #6E6E7A;
-  --dd-color-rule: rgba(17,17,17,0.14);
-  --dd-color-destructive: #E23B2E;
-  --dd-background-canvas: var(--dd-color-paper);
-  --dd-background-subtle: var(--dd-color-surface);
-  --dd-background-reserved: var(--dd-color-purple-tint);
-  --dd-text-primary: var(--dd-color-ink);
-  --dd-text-secondary: var(--dd-color-ink-soft);
-  --dd-text-caption-on-paper: var(--dd-color-ink-faint);
-  --dd-border-strong: var(--dd-color-ink);
-  --dd-border-subtle: var(--dd-color-rule);
-  --dd-brand-primary: var(--dd-color-purple);
-  --dd-action-primary-background: var(--dd-color-yellow);
-  --dd-action-primary-foreground: var(--dd-color-ink);
-  --dd-action-primary-hover: var(--dd-color-yellow-deep);
-  --dd-action-secondary-background: var(--dd-color-paper);
-  --dd-action-secondary-foreground: var(--dd-color-ink);
-  --dd-action-waitlist-background: var(--dd-color-surface2);
-  --dd-action-waitlist-foreground: var(--dd-color-ink);
-  --dd-action-disabled-background: var(--dd-color-surface2);
-  --dd-action-disabled-foreground: var(--dd-color-ink-soft);
-  --dd-selection-background: var(--dd-color-yellow);
-  --dd-selection-foreground: var(--dd-color-ink);
-  --dd-booking-confirmed-background: var(--dd-color-yellow);
-  --dd-booking-confirmed-foreground: var(--dd-color-ink);
-  --dd-booking-waitlist-background: var(--dd-color-purple);
-  --dd-booking-waitlist-foreground: var(--dd-color-paper);
-  --dd-booking-cancelled-background: var(--dd-color-surface2);
-  --dd-booking-cancelled-foreground: var(--dd-color-ink-soft);
-  --dd-intensity-low-background: var(--dd-color-surface);
-  --dd-intensity-low-foreground: var(--dd-color-ink-soft);
-  --dd-intensity-mid-background: var(--dd-color-purple-tint);
-  --dd-intensity-mid-foreground: var(--dd-color-purple-deep);
-  --dd-intensity-high-background: var(--dd-color-yellow);
-  --dd-intensity-high-foreground: var(--dd-color-ink);
-  --dd-feedback-error-background: var(--dd-color-paper);
-  --dd-feedback-error-foreground: var(--dd-color-ink);
-  --dd-feedback-error-border: var(--dd-color-destructive);
-  --dd-focus-color: var(--dd-color-purple);
-  --dd-action-danger-background: var(--dd-color-paper);
-  --dd-action-danger-foreground: var(--dd-color-ink);
-  --dd-action-danger-border: var(--dd-color-destructive);
-  --dd-intensity-low-border: var(--dd-color-rule);
-  --dd-intensity-mid-border: var(--dd-color-purple);
-  --dd-intensity-high-border: var(--dd-color-ink);
-  --dd-overlay-scrim: rgba(17,17,17,0.5);
-  --dd-booking-no-show-background: var(--dd-color-ink);
-  --dd-booking-no-show-foreground: var(--dd-color-paper);
-  --dd-booking-completed-background: var(--dd-color-surface);
-  --dd-booking-completed-foreground: var(--dd-color-ink);
-  --dd-session-open-background: var(--dd-color-paper);
-  --dd-session-open-foreground: var(--dd-color-ink);
-  --dd-session-closed-background: var(--dd-color-surface2);
-  --dd-session-closed-foreground: var(--dd-color-ink);
-  --dd-session-cancelled-background: var(--dd-color-surface2);
-  --dd-session-cancelled-foreground: var(--dd-color-ink-soft);
-  --dd-visibility-public-background: var(--dd-color-purple-tint);
-  --dd-visibility-public-foreground: var(--dd-color-purple-deep);
-  --dd-visibility-private-background: var(--dd-color-surface);
-  --dd-visibility-private-foreground: var(--dd-color-ink-soft);
-  --dd-space-4: 4px;
-  --dd-space-6: 6px;
-  --dd-space-8: 8px;
-  --dd-space-10: 10px;
-  --dd-space-12: 12px;
-  --dd-space-14: 14px;
-  --dd-space-16: 16px;
-  --dd-space-20: 20px;
-  --dd-space-24: 24px;
-  --dd-space-32: 32px;
-  --dd-space-40: 40px;
-  --dd-space-48: 48px;
-  --dd-space-64: 64px;
-  --dd-font-display: 'Anton', sans-serif;
-  --dd-font-body: 'DM Sans', 'Noto Sans KR', sans-serif;
-  --dd-font-weight-regular: 400;
-  --dd-font-weight-semibold: 600;
-  --dd-font-weight-bold: 700;
-  --dd-radius: 0px;
-  --dd-shadow-row: 3px 3px 0 var(--dd-color-ink);
-  --dd-shadow-action: 4px 4px 0 var(--dd-color-ink);
-  --dd-shadow-emphasis: 5px 5px 0 var(--dd-color-ink);
-  --dd-duration-fast: 150ms;
-  --dd-duration-standard: 300ms;
-  --dd-duration-toast: 4000ms;
-  --dd-layer-popover: 30;
+  --color-ink: #111827;
+  --color-ink-strong: #4b5563;
+  --color-ink-soft: #6b7280;
+  --color-paper: #ffffff;
+  --color-surface: #f9fafb;
+  --color-surface-strong: #f3f4f6;
+  --color-rule: #e5e7eb;
+  --color-rule-soft: #f3f4f6;
+  --color-control-border: #8791a0;
+  --color-purple: #5a46c8;
+  --color-purple-deep: #4c35a8;
+  --color-purple-tint: #f6f4fd;
+  --color-destructive: #dc2626;
+  --color-warn: #b45309;
+  --background-canvas: var(--color-paper);
+  --background-subtle: var(--color-surface);
+  --background-current: var(--color-purple-tint);
+  --text-primary: var(--color-ink);
+  --text-secondary: var(--color-ink-soft);
+  --text-on-muted: var(--color-ink-strong);
+  --text-warn: var(--color-warn);
+  --border-strong: var(--color-rule);
+  --border-subtle: var(--color-rule-soft);
+  --border-control: var(--color-control-border);
+  --brand-primary: var(--color-purple);
+  --brand-foreground: var(--color-paper);
+  --action-primary-background: var(--color-purple);
+  --action-primary-foreground: var(--color-paper);
+  --action-primary-hover: var(--color-purple-deep);
+  --action-secondary-background: var(--color-paper);
+  --action-secondary-foreground: var(--color-ink);
+  --action-secondary-border: var(--color-control-border);
+  --action-disabled-background: var(--color-surface-strong);
+  --action-disabled-foreground: var(--color-ink-strong);
+  --action-disabled-border: var(--color-rule);
+  --action-danger-background: var(--color-paper);
+  --action-danger-foreground: var(--color-ink);
+  --action-danger-border: var(--color-destructive);
+  --selection-background: var(--color-purple);
+  --selection-foreground: var(--color-paper);
+  --selection-indicator: var(--color-purple);
+  --status-booked-background: var(--color-paper);
+  --status-booked-foreground: var(--color-purple-deep);
+  --status-booked-border: var(--color-purple);
+  --status-muted-background: var(--color-paper);
+  --status-muted-foreground: var(--color-ink-strong);
+  --status-muted-border: var(--color-control-border);
+  --status-no-show-background: var(--color-ink);
+  --status-no-show-foreground: var(--color-paper);
+  --feedback-error-background: var(--color-paper);
+  --feedback-error-foreground: var(--color-ink);
+  --feedback-error-border: var(--color-destructive);
+  --feedback-success-background: var(--color-purple-tint);
+  --feedback-success-foreground: var(--color-purple-deep);
+  --focus-color: var(--color-purple);
+  --focus-color-on-brand: var(--color-paper);
+  --overlay-scrim: rgba(17, 24, 39, 0.5);
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --radius-control: 8px;
+  --radius-badge: 4px;
+  --radius-signal: 999px;
+  --border-width-fine: 1px;
+  --border-width-indicator: 2px;
+  --focus-outline-width: 2px;
+  --focus-outline-offset: 2px;
+  --control-min-height: 48px;
+  --hit-target-min: 44px;
+  --row-height: 60px;
+  --form-max-width: 480px;
+  --motion-fast: 150ms;
+  --motion-slow: 300ms;
+  --layer-base: 0;
+  --layer-header: 10;
+  --layer-popover: 30;
+  --layer-sheet: 50;
+  --layer-toast: 60;
+  --font-body: "Noto Sans KR", system-ui, sans-serif;
 }
-
-/* Proposed implementation examples. */
-.dd-button {
-  min-height: 48px; padding: 8px 16px; border: 2px solid var(--dd-border-strong);
-  border-radius: var(--dd-radius); box-shadow: var(--dd-shadow-action);
-  background: var(--dd-action-primary-background); color: var(--dd-action-primary-foreground);
-  font: 600 14px/1.4 var(--dd-font-body); cursor: pointer;
-  transition: transform var(--dd-duration-fast), background-color var(--dd-duration-fast);
-}
-.dd-button:hover { background: var(--dd-action-primary-hover); }
-.dd-button:active { transform: translateY(2px); box-shadow: 2px 2px 0 var(--dd-color-ink); }
-.dd-button:focus-visible { outline: 3px solid var(--dd-focus-color); outline-offset: 2px; }
-.dd-button:disabled { background: var(--dd-action-disabled-background); color: var(--dd-action-disabled-foreground); box-shadow: none; cursor: default; }
-@media (prefers-reduced-motion: reduce) {
-.dd-button { transition: none; }
-.dd-button:active { transform: none; }
-}
+.detail-title { font: 700 28px/1.25 var(--font-body); }
+.heading { font: 700 20px/1.3 var(--font-body); }
+.number-large { font: 700 20px/1.2 var(--font-body); }
+.title { font: 700 18px/1.3 var(--font-body); }
+.control { font: 400 16px/1.4 var(--font-body); }
+.row-title { font: 700 15px/1.4 var(--font-body); }
+.body { font: 400 14px/1.6 var(--font-body); }
+.field-label { font: 700 14px/1.4 var(--font-body); }
+.row-meta { font: 400 13px/1.4 var(--font-body); }
+.label { font: 700 12px/1.4 var(--font-body); }
+.caption { font: 400 12px/1.4 var(--font-body); }

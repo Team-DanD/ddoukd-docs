@@ -10,25 +10,45 @@
 - `tokens.json`은 고치지 않았습니다. 기존 토큰으로 표현할 수 없는 값은 [추가가 필요한 토큰](#추가가-필요한-토큰)에 모았습니다. 본문에서 그 토큰을 쓸 때는 이름 뒤에 `(추가)`를 붙였습니다.
 - 운영자 화면은 **폰 기준**으로 먼저 설계합니다([mvp.md](../mvp.md)). 백오피스는 PC 기준입니다.
 
+## 톤 변경 안내 (2026-10-05)
+
+이 문서는 이전 포스터 톤(검정 2px 선, 흐림 없는 그림자, 노랑 선택)을 전제로 쓰였습니다. 2026-10-05에 운영자 화면의 톤이 "A · 장부"로 바뀌었습니다. **각 컴포넌트의 용도, 상태, 동작, 접근성, 미결 사항은 그대로 유효합니다.** 시각 수치는 아래 공통 규칙과 변환표, 그리고 [README](README.md)와 `claude-design/project/components/<이름>/README.md`가 우선합니다. 각 절의 수치 서술은 아직 고치지 않았습니다.
+
+| 이 문서의 서술 | 지금 값 |
+| --- | --- |
+| 2px `border.strong` 구조 테두리 | 1px. 구획 `border-strong`, 입력·보조 버튼 `border-control` |
+| 1px `border.subtle` 구분선 | 1px `border-subtle` |
+| radius 0, `primitive.radius.square` | 버튼·입력 8px(`radius-control`), 배지 4px(`radius-badge`) |
+| `primitive.shadow.row` / `action` / `emphasis` | 그림자 없음. 떠 있는 면은 1px 선과 `overlay-scrim` |
+| 노랑 `action.primary.*` | 보라 면 + 흰 글자(`action-primary-*`) |
+| 노랑 `selection.*` (탭, 옵션, 현재 페이지, 내비 항목) | 날짜·체크박스·현재 페이지는 보라 면. 탭과 하단 내비는 면 없이 보라 선·글자(`selection-indicator`) |
+| 포커스 보라 3px outline | 보라 2px outline + 2px offset |
+| `text.captionOnPaper` placeholder | `text-secondary` |
+| `action.disabled.*` | 같은 이름. 글자는 `action-disabled-foreground`(더 진한 회색) |
+| Table·List의 카드 리스트, ClassCard | 카드가 아니라 행(MemberRow, BookingRow). 강조선과 그림자 없음 |
+| StatusBadge 9종의 면 색 | Badge 하나. 예약·공개는 보라 외곽선, 노쇼만 검정 면, 나머지는 회색 외곽선 |
+| 백오피스 Shell(보라 헤더) | 범위 밖. 백오피스는 기성 UI 라이브러리로 만든다 |
+| DateStrip(README) | DateStrip 컴포넌트로 새로 정의 |
+| 장식 사용 | 운영자 화면에서 쓰지 않음 |
+| `primitive.space.*`, `typography.*` 같은 점 표기 토큰 이름 | kebab-case 이름(`space-16`, `row-title`). [tokens.json](tokens.json) 참고 |
+
 ## 공통 규칙
 
-README의 시각 방향을 그대로 따릅니다. 아래는 이 문서의 모든 컴포넌트에 적용되는 기본값입니다.
+아래는 이 문서의 모든 컴포넌트에 적용되는 기본값입니다.
 
 | 항목 | 값 | 토큰 |
 | --- | --- | --- |
-| 모서리 | 0. 라디오와 스피너만 원형 예외 | `primitive.radius.square`, `primitive.radius.signal` |
-| 구조 테두리 | 검정 2px | `primitive.border.strong` + `border.strong` |
-| 보조 구분선 | 1px 낮은 대비 | `primitive.border.fine` + `border.subtle` |
-| 그림자 | 흐림 없는 우하단 오프셋. 행 3px, 행동 4px, 강조 5px | `primitive.shadow.row` / `action` / `emphasis` |
-| 주요 행동·선택 | 노랑 면 + 검정 글자 | `action.primary.*`, `selection.*` |
-| 브랜드 | 보라 | `brand.primary` |
-| 포커스 | 보라 3px outline + 2px offset. `:focus-visible`에만 표시 | `component.focus`, `focus.color` |
-| 클릭 영역 | 최소 44 × 44px | `component.button.hitTarget` |
-| 글자 | 라벨 최소 12px. 입력 글자 16px | `typography.label`, `typography.control`(추가) |
-| 간격 | 4px 기반 스케일 | `primitive.space.*` |
-| 모션 | 전환 150ms, 펼침 300ms. `prefers-reduced-motion`에서는 이동 제거 | `motion.fast`, `motion.standard` |
+| 모서리 | 버튼·입력 8px, 배지 4px. Radio·스위치·이니셜만 원형 | `radius-control`, `radius-badge`, `radius-signal` |
+| 테두리 | 모두 1px. 입력과 보조 버튼은 바탕과 3:1 이상인 회색 | `border-strong`, `border-subtle`, `border-control` |
+| 그림자 | 없음 | — |
+| 주요 행동·선택 | 보라 면 + 흰 글자 | `action-primary-*`, `selection-*` |
+| 포커스 | 보라 2px outline + 2px offset. `:focus-visible`에만 표시 | `focus-color`, `focus-outline-width` |
+| 클릭 영역 | 최소 44 × 44px | `hit-target-min` |
+| 글자 | 라벨 최소 12px. 입력 글자 16px | `label`, `control` |
+| 간격 | 4px 기반 스케일 | `space-*` |
+| 모션 | 전환 150ms, 펼침 300ms. `prefers-reduced-motion`에서는 제거 | `motion-fast`, `motion-slow` |
 
-**그림자를 쓰는 곳과 안 쓰는 곳.** 입력 컨트롤(필드·체크박스·탭)은 그림자 없이 평면으로 둡니다. 그림자는 누를 수 있는 행동(버튼), 떠 있는 면(모달·토스트·팝오버), 카드 행에만 씁니다. 한 화면에서 입력과 행동이 그림자 유무로 구분됩니다.
+**그림자를 쓰지 않습니다.** 입력과 행동은 그림자가 아니라 면으로 구분합니다. 주요 행동은 보라 면, 입력은 흰 면에 회색 테두리입니다. Modal, Toast, Select 목록은 1px 선과 배경 가림막으로 떠 있음을 표시합니다.
 
 **포커스.** outline은 테두리·그림자와 독립적으로 그립니다. 오류 상태의 빨간 테두리 위에서도 보라 outline이 함께 보여야 합니다. 스크롤 컨테이너에 잘리는 표 행처럼 바깥 offset을 둘 수 없는 곳만 안쪽 outline(`outline-offset: -3px`)을 예외로 허용합니다. 포커스 색의 비텍스트 대비는 흰 면 5.70:1, `surface` 5.23:1, 노랑 4.47:1, 검정 3.31:1로 모두 3:1 이상입니다.
 
@@ -36,16 +56,7 @@ README의 시각 방향을 그대로 따릅니다. 아래는 이 문서의 모�
 
 **비활성.** 입력 계열도 `action.disabled.background` / `action.disabled.foreground`를 재사용합니다(`surface2` 위 `inkSoft` 5.72:1). 테두리는 `border.subtle` 2px로 낮추고 그림자를 제거합니다. 실제 `disabled` 속성을 쓰고, 왜 비활성인지는 도움말로 적습니다.
 
-**이 문서에서 계산한 대비.** README의 [contrast.cjs](scripts/contrast.cjs)와 같은 sRGB 상대 휘도 방식입니다.
-
-| 조합 | 대비 | 쓰는 곳 |
-| --- | --- | --- |
-| inkFaint / paper | 5.03:1 | placeholder |
-| inkSoft / paper | 6.80:1 | 도움말, 보조 텍스트 |
-| inkSoft / surface | 6.24:1 | 표 머리글, 읽기 전용 값 |
-| inkSoft / surface2 | 5.72:1 | 비활성 글자 |
-| destructive / paper | 4.29:1 | 오류 테두리·아이콘(비텍스트 3:1 충족). 글자색으로는 쓰지 않음 |
-| paper / ink | 18.88:1 | 노쇼 배지 |
+**대비.** 현재 토큰의 대비는 [README의 대비 표](README.md#대비)에 있습니다. `python3 design-system/scripts/build-tokens.py --check`로 다시 계산합니다.
 
 ## 컴포넌트 목록
 
@@ -847,6 +858,8 @@ README는 버튼의 success 피드백을 2000ms로 관찰했습니다. 한국어
 ---
 
 ## 추가가 필요한 토큰
+
+> 2026-10-05 톤 변경으로 아래 표의 이름과 값은 기록으로만 남깁니다. 현재 토큰은 [tokens.json](tokens.json)에 있습니다. 강도·대기 관련 토큰과 그림자 토큰은 없어졌습니다.
 
 `tokens.json`에 없어서 이 문서가 임시 이름으로 쓴 값입니다. 전부 **제안**이고 `tokens.json`은 고치지 않았습니다. 색은 새 원시 색 없이 기존 원시 색을 참조합니다.
 
