@@ -1,7 +1,5 @@
 # pen.dev 설정 가이드
 
-> **2026-10-05 알림.** `ddoukd.pen`은 아직 이전 포스터 톤입니다. 운영자 화면의 톤이 "A · 장부"로 바뀌었고([README](README.md)), pen 원본은 새 톤으로 다시 그릴 예정입니다. 그 전까지 이 파일로 새 화면을 그리지 않는 것이 좋습니다. 설치와 연결 방법은 그대로 유효합니다.
-
 처음 pen.dev를 쓰는 사람이 `ddoukd.pen`을 열고 화면 기획을 시작할 때까지의 순서입니다. 2026-10-04, macOS, VS Code 확장 0.6.73~0.6.74 기준으로 확인했습니다.
 
 - 무엇을 그리나: 화면 기획·프로토타입. 규칙은 [../plans/README.md](../plans/README.md)
@@ -32,12 +30,11 @@ VS Code 탐색기에서 `design-system/ddoukd.pen`을 클릭합니다. `.pen` �
 
 | 프레임 | 내용 |
 | --- | --- |
-| Foundations | 색, 타이포, 간격, 하드 섀도 견본 |
-| Components | Button, IntensityBadge, BookingBadge, CapacityMeter, Decoration, ClassCard, BookingRow |
-| Operator Components | 운영자 화면용 입력·목록·피드백 컴포넌트. 명세는 [components-operator.md](components-operator.md) |
-| App Shells | 헤더·내비게이션 부품과 예시 화면 5개 |
+| Foundations | 원시 색 14, 역할 색 12쌍, 글자 11단계, 간격, 선과 모서리 견본 |
+| Components | 재사용 컴포넌트 44개: Button, Badge, TextField, Textarea, Select, FormField, Checkbox, Radio, Switch, Tabs, DateStrip, MemberRow, BookingRow, Modal, Toast, EmptyState, TopBar, ActionBar, BottomNav |
+| Screens | 시안 화면 3개(회원 목록, 회원 등록, 오늘 예약). 컴포넌트를 조합한 예시 |
 
-변수 목록에 `color-purple`, `action-primary-background`, `space-16` 같은 토큰 193개가 보이면 정상입니다. 변수 패널의 위치는 확장 버전에 따라 다를 수 있습니다. 이름 규칙은 [README의 pen.dev 대응](README.md#pendev-대응-2026-10-04)에 있습니다.
+변수 목록에 `color-purple`, `action-primary-background`, `space-16` 같은 토큰 105개가 보이면 정상입니다. 변수 패널의 위치는 확장 버전에 따라 다를 수 있습니다. 변수 이름은 [tokens.json](tokens.json)의 토큰 이름과 같습니다. 글자 스타일은 `text-<이름>-size`와 `text-<이름>-line-height` 두 변수로 나뉘어 있습니다.
 
 ## 3. 화면 기획 시작하기
 
@@ -48,18 +45,20 @@ mkdir -p plans/booking-calendar
 cp design-system/ddoukd.pen plans/booking-calendar/booking-calendar.pen
 ```
 
-1. 복사한 파일을 열고, Foundations·Components 프레임 아래쪽에 화면 프레임을 만듭니다.
+1. 복사한 파일을 열고, Screens 프레임 아래쪽에 화면 프레임을 만듭니다.
 2. 프레임 크기는 모바일 390 × 844, 데스크톱 1440 × 1000을 기본으로 씁니다. 좁은 화면 확인은 360 × 800, 태블릿은 768 × 1024입니다.
-3. 버튼·배지·입력 필드·표는 새로 그리지 않고 Components·Operator Components의 컴포넌트를 복사해 인스턴스로 씁니다. 화면 틀은 App Shells의 예시 화면을 복사해서 시작하면 빠릅니다.
+3. 버튼·배지·입력 필드·목록 행은 새로 그리지 않고 Components의 컴포넌트를 복사해 인스턴스로 씁니다. 화면 틀은 Screens의 시안 화면을 복사해서 시작하면 빠릅니다.
 4. `plans/<작업>/README.md`에 화면 목록·정책·미결 사항을 적습니다. 템플릿은 [../plans/README.md](../plans/README.md)에 있습니다.
 
 `design-system/ddoukd.pen` 자체는 토큰이나 공통 컴포넌트를 바꿀 때만 고칩니다. 값은 `tokens.json`을 먼저 고친 뒤 맞춥니다.
 
 ## 4. 그릴 때 지킬 것
 
-- 색·간격·글자 크기는 직접 입력하지 않고 변수를 고릅니다. 컴포넌트에는 원시 색(`color-*`)이 아니라 의미 색(`action-*`, `booking-*`, `text-*`)을 씁니다.
-- 모서리는 각지게(radius 0), 구조선은 검정 2px, 그림자는 흐림 없는 3 / 4 / 5px 오프셋입니다.
-- 한국어 텍스트의 폰트는 `font-body-ko`(Noto Sans KR), 영문 본문은 `font-body`(DM Sans), 포스터 제목과 시간 숫자는 `font-display`(Anton)입니다. Anton은 한국어에 쓰지 않습니다.
+- 색·간격·글자 크기는 직접 입력하지 않고 변수를 고릅니다. 컴포넌트에는 원시 색(`color-*`)이 아니라 역할 색(`action-*`, `status-*`, `text-*`)을 씁니다.
+- 선은 모두 1px입니다. 모서리는 버튼과 입력이 8, 배지가 4입니다. 그림자를 쓰지 않습니다.
+- 폰트는 `font-body`(Noto Sans KR) 하나입니다. 굵기는 400, 500, 700을 씁니다.
+- 목록은 카드가 아니라 행으로 그립니다. 화면의 주 행동은 아래 고정 바(ActionBar)에 둡니다.
+- 보라 면의 버튼은 화면에 하나만 둡니다. 면을 채우는 배지는 노쇼 하나입니다.
 - 글자는 12px 미만으로 쓰지 않습니다. 버튼 높이는 48 이상, 누를 수 있는 영역은 44 이상입니다.
 - 아이콘은 lucide 라이브러리만 씁니다.
 - 너비·높이에는 변수가 적용되지 않습니다. 숫자를 직접 넣습니다.
