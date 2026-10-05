@@ -105,4 +105,4 @@ claude mcp add pencil --scope user -- \
 | MCP가 갑자기 `Connection closed` | 확장이 자동 업데이트되며 서버 실행 파일을 교체한 경우. `/mcp`에서 재연결하고, 안 되면 VS Code와 Claude Code를 다시 시작 |
 | `you are probably referencing the wrong .pen file` | 경로를 지정하지 않았는데 활성 탭이 `.pen` 에디터가 아님. 에이전트에게 파일 경로를 지정하게 하거나 고칠 파일의 탭을 클릭한 뒤 재시도 |
 | 에이전트가 다른 `.pen` 파일을 읽거나 고침 | 경로를 지정하지 않았거나, 지정한 파일이 VS Code에 열려 있지 않거나, 0바이트 파일임. `code <경로>`로 파일을 열고 경로를 지정해 다시 요청한다 |
-| 글꼴이 다르게 보임 | Google Fonts는 자동으로 쓸 수 있다. 변수 `font-display`·`font-body`·`font-body-ko`가 지정됐는지 확인 |
+| 글꼴이 다르게 보임 | Google Fonts는 자동으로 쓸 수 있다. 텍스트의 폰트가 변수 `font-body`로 지정됐는지 확인 |
