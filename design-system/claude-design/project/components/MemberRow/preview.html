@@ -1,0 +1,27 @@
+<!-- @dsCard group="Data" height=330 subtitle="주의 · 기본 · 만료 · 불러오는 중" -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+body { margin: 0; padding: 24px; background: var(--background-canvas); }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.col { display: flex; flex-direction: column; gap: 16px; }
+.note { margin: 0; font: 400 12px/1.4 var(--font-body); color: var(--text-secondary); }
+.phone { width: 390px; max-width: 100%; border: 1px solid var(--border-strong); }
+</style>
+</head>
+<body>
+<div class="dd">
+<div class="phone">
+<ul class="dd-rows">
+<li class="dd-row"><span class="dd-row__main"><span class="dd-row__title">김하늘</span><span class="dd-row__meta">010-1234-5678</span></span><span class="dd-row__side"><span class="dd-row__figure">10회권 · 잔여 3회</span><span class="dd-row__note dd-row__note--warn">만료 D-5</span></span></li>
+<li class="dd-row"><span class="dd-row__main"><span class="dd-row__title">박서준</span><span class="dd-row__meta">010-9876-5432</span></span><span class="dd-row__side"><span class="dd-row__figure">20회권 · 잔여 14회</span><span class="dd-row__note">~ 12.31</span></span></li>
+<li class="dd-row is-ended"><span class="dd-row__main"><span class="dd-row__title">이지은</span><span class="dd-row__meta">010-5555-0101</span></span><span class="dd-row__side"><span class="dd-row__figure">10회권 · 잔여 0회</span><span class="dd-badge">만료</span></span></li>
+<li class="dd-row dd-row--skeleton" aria-hidden="true"><span class="dd-row__main"><span class="dd-row__title"></span><span class="dd-row__meta"></span></span></li>
+</ul>
+</div>
+</div>
+</body>
+</html>
