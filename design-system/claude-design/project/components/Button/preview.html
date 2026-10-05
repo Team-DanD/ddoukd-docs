@@ -1,0 +1,32 @@
+<!-- @dsCard group="Actions" height=150 subtitle="primary · secondary · danger · disabled · 진행 중" -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+body { margin: 0; padding: 24px; background: var(--background-canvas); }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.col { display: flex; flex-direction: column; gap: 16px; }
+.note { margin: 0; font: 400 12px/1.4 var(--font-body); color: var(--text-secondary); }
+.phone { width: 390px; max-width: 100%; border: 1px solid var(--border-strong); }
+</style>
+</head>
+<body>
+<div class="dd">
+<div class="col">
+<div class="row">
+<button class="dd-btn" type="button">회원 등록</button>
+<button class="dd-btn dd-btn--secondary" type="button">그만두기</button>
+<button class="dd-btn dd-btn--danger" type="button"><svg class="dd-icon dd-icon--sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>휴강 처리</button>
+<button class="dd-btn" type="button" disabled>저장</button>
+<button class="dd-btn" type="button" aria-busy="true"><span class="dd-spinner"></span>저장하는 중</button>
+</div>
+<div class="row">
+<button class="dd-btn is-focused" type="button">포커스</button>
+<p class="note">Tab으로 이동하면 보라 2px outline이 2px 떨어져 보인다. 그림자와 눌림 이동은 없다.</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -35,7 +35,7 @@ DB는 Postgres를 유지하고, 기존 도메인 설계와 슬라이스 구분�
 | 문서 | 내용 |
 |------|------|
 | [plans/](plans/README.md) | 화면 기획·프로토타입 — 작업별 디렉터리, 화면은 pen.dev `.pen` 파일 |
-| [design-system/](design-system/README.md) | 현재 프론트 참고 캡처 43개, 라이트 디자인 시스템 v0.1 제안, 시각 갤러리 |
+| [design-system/](design-system/README.md) | 디자인 시스템 — 운영자 화면 톤 "A · 장부"(2026-10-05 확정), 토큰, 컴포넌트 제안, Claude Design용 파일. 이전 포스터 톤은 `archived/poster-v0.1/` |
 | [design-system/components-operator.md](design-system/components-operator.md) | 운영자 화면 컴포넌트 명세(제안) — 입력·목록·피드백·AppShell 14종, 미결 17건 |
 | [design-system/component-library-research.md](design-system/component-library-research.md) | 구현용 UI 컴포넌트 라이브러리 조사(RN + React) — 후보 비교, 구조 3안, 검증 스파이크. 결정 전 자료 |
 | [design-system/pen-setup.md](design-system/pen-setup.md) | pen.dev 처음 설정하기 — 설치, `ddoukd.pen` 열기, 화면 기획 시작, 에이전트 연결 |

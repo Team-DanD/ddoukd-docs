@@ -1,0 +1,29 @@
+<!-- @dsCard group="Data" height=220 subtitle="PC 1024px 이상" -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+body { margin: 0; padding: 24px; background: var(--background-canvas); }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.col { display: flex; flex-direction: column; gap: 16px; }
+.note { margin: 0; font: 400 12px/1.4 var(--font-body); color: var(--text-secondary); }
+.phone { width: 390px; max-width: 100%; border: 1px solid var(--border-strong); }
+</style>
+</head>
+<body>
+<div class="dd">
+<div class="dd-table-wrap" style="max-width: 760px;">
+<table class="dd-table dd-table--interactive">
+<thead><tr><th scope="col">이름</th><th scope="col">전화번호</th><th scope="col">회원권</th><th scope="col" class="is-num">잔여</th><th scope="col">상태</th></tr></thead>
+<tbody>
+<tr><td>김하늘</td><td>010-1234-5678</td><td>10회권</td><td class="is-num">3</td><td><span class="dd-badge dd-badge--booked">예약</span></td></tr>
+<tr><td>박서준</td><td>010-9876-5432</td><td>20회권</td><td class="is-num">14</td><td><span class="dd-badge">완료</span></td></tr>
+<tr><td>이지은</td><td>010-5555-0101</td><td>10회권</td><td class="is-num">0</td><td><span class="dd-badge dd-badge--no-show">노쇼</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</body>
+</html>

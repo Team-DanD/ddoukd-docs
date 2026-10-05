@@ -1,0 +1,33 @@
+<!-- @dsCard group="Forms" height=360 subtitle="라벨 · 도움말 · 오류 · 짝 필드 · 오류 요약" -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+body { margin: 0; padding: 24px; background: var(--background-canvas); }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.col { display: flex; flex-direction: column; gap: 16px; }
+.note { margin: 0; font: 400 12px/1.4 var(--font-body); color: var(--text-secondary); }
+.phone { width: 390px; max-width: 100%; border: 1px solid var(--border-strong); }
+</style>
+</head>
+<body>
+<div class="dd">
+<div class="row" style="align-items: flex-start; gap: 32px;">
+<div style="flex: 1; min-width: 260px; max-width: 360px;">
+<div class="dd-formfield"><label class="dd-label" for="ff-tel">전화번호</label><div class="dd-field dd-field--error"><input id="ff-tel" type="tel" value="010-1234" aria-invalid="true" aria-describedby="ff-tel-err"></div><p class="dd-error" id="ff-tel-err"><svg class="dd-icon dd-icon--sm" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>숫자만 10~11자리로 입력해주세요</p></div>
+<div class="dd-formfield"><label class="dd-label" for="ff-plan">회원권</label><div class="dd-field"><select id="ff-plan"><option>10회권</option></select><svg class="dd-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></div><p class="dd-help">회원권 정책은 설정에서 바꿀 수 있어요</p></div>
+</div>
+<div style="flex: 1; min-width: 260px; max-width: 360px;">
+<div class="dd-form-summary" role="alert" style="margin-bottom: 20px;"><svg class="dd-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg><span>정원이 마감돼 예약하지 못했어요. 다른 수업을 선택해주세요</span></div>
+<div class="dd-formrow">
+<div class="dd-formfield"><label class="dd-label" for="ff-start">시작일</label><div class="dd-field"><input id="ff-start" type="text" value="2026-10-05"></div></div>
+<div class="dd-formfield"><label class="dd-label" for="ff-end">만료일</label><div class="dd-field dd-field--readonly"><input id="ff-end" type="text" value="2027-01-05" readonly></div></div>
+</div>
+<div class="dd-formfield"><label class="dd-label" for="ff-memo">메모 <small>(선택)</small></label><div class="dd-field"><input id="ff-memo" type="text"></div></div>
+</div>
+</div>
+</div>
+</body>
+</html>
