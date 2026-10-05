@@ -105,9 +105,10 @@ Claude Design 시안의 입력 필드 테두리는 `#d1d5db`(1.47:1)였습니다
 
 | 대상 | 상태 |
 | --- | --- |
-| `plans/backoffice-staff-auth/` | 화면 12개가 포스터 톤으로 그려져 있습니다(PR #11). 사업장 인증 화면은 새 톤으로 다시 그리고, 백오피스 화면은 아래 결정에 따라 범위를 다시 정해야 합니다 |
-| `components-operator.md`의 컴포넌트별 수치 | 맨 위 공통 규칙과 변환표만 새 톤으로 고쳤습니다. 각 절의 2px, 그림자, 노랑 선택 서술은 변환표로 읽어야 합니다 |
-| `ddoukd-web` 프로토타입 | 이전 톤의 원본입니다. 손대지 않았습니다 |
+| `ddoukd-web` 프로토타입 | 이전 포스터 톤의 원본입니다. 손대지 않았습니다 |
+| 공개 캘린더 | 톤과 구성이 정해지지 않았습니다 |
+
+`ddoukd.pen`, 사업장 인증 화면 기획(`plans/backoffice-staff-auth/`), 운영자 명세([components-operator.md](components-operator.md))는 2026-10-06까지 새 톤으로 맞췄습니다.
 
 ## pen 원본과 다른 점
 
