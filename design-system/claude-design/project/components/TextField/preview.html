@@ -1,0 +1,33 @@
+<!-- @dsCard group="Forms" height=330 subtitle="기본 · 오류 · 비활성 · 비밀번호 · 검색 · 접두 · 읽기 전용" -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+body { margin: 0; padding: 24px; background: var(--background-canvas); }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.col { display: flex; flex-direction: column; gap: 16px; }
+.note { margin: 0; font: 400 12px/1.4 var(--font-body); color: var(--text-secondary); }
+.phone { width: 390px; max-width: 100%; border: 1px solid var(--border-strong); }
+</style>
+</head>
+<body>
+<div class="dd">
+<div class="row" style="align-items: flex-start;">
+<div class="col" style="flex: 1; min-width: 260px;">
+<div class="dd-field"><input type="text" placeholder="이름" aria-label="이름"></div>
+<div class="dd-field dd-field--error"><input type="tel" value="010-1234" aria-label="전화번호" aria-invalid="true"></div>
+<div class="dd-field dd-field--disabled"><input type="text" value="수정할 수 없어요" aria-label="비활성 예시" disabled></div>
+<div class="dd-field"><span class="dd-field__prefix">ddoukd.example/</span><input type="text" value="maymi-pilates" aria-label="shop-key"></div>
+</div>
+<div class="col" style="flex: 1; min-width: 260px;">
+<div class="dd-field"><input type="password" value="password1" aria-label="비밀번호"><button class="dd-field__btn" type="button" aria-label="비밀번호 보기"><svg class="dd-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+<div class="dd-field"><svg class="dd-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input type="search" placeholder="이름 또는 전화번호" aria-label="회원 검색"></div>
+<div class="dd-field dd-field--readonly"><input type="text" value="Tmp-8f3K2q" aria-label="임시 비밀번호" readonly><button class="dd-field__btn" type="button" aria-label="복사"><svg class="dd-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg></button></div>
+<p class="note">입력 글자는 16px. 필드를 누르면 보라 outline이 보인다. 접두의 도메인은 예시다.</p>
+</div>
+</div>
+</div>
+</body>
+</html>

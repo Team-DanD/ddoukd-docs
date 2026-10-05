@@ -1,0 +1,35 @@
+<!-- @dsCard group="Overlays" height=560 subtitle="확인창 · 폰 하단 시트" -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+body { margin: 0; padding: 24px; background: var(--background-canvas); }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.col { display: flex; flex-direction: column; gap: 16px; }
+.note { margin: 0; font: 400 12px/1.4 var(--font-body); color: var(--text-secondary); }
+.phone { width: 390px; max-width: 100%; border: 1px solid var(--border-strong); }
+</style>
+</head>
+<body>
+<div class="dd">
+<div class="row" style="align-items: stretch;">
+<div class="dd-scrim" style="flex: 1; min-width: 320px;">
+<div class="dd-modal" role="alertdialog" aria-labelledby="m-title" aria-describedby="m-body">
+<div class="dd-modal__head"><h2 class="dd-modal__title" id="m-title">이 수업을 휴강 처리할까요?</h2><button class="dd-iconbtn" type="button" aria-label="닫기"><svg class="dd-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+<p class="dd-modal__body" id="m-body">예약 3건이 함께 취소돼요. 휴강 처리는 되돌릴 수 없어요.</p>
+<div class="dd-modal__actions"><button class="dd-btn dd-btn--secondary" type="button">그만두기</button><button class="dd-btn dd-btn--danger" type="button">휴강 처리</button></div>
+</div>
+</div>
+<div class="dd-scrim dd-scrim--sheet" style="width: 390px; max-width: 100%;">
+<div class="dd-modal dd-modal--sheet" role="alertdialog" aria-labelledby="s-title" aria-describedby="s-body">
+<div class="dd-modal__head"><h2 class="dd-modal__title" id="s-title">노쇼로 기록할까요?</h2><button class="dd-iconbtn" type="button" aria-label="닫기"><svg class="dd-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+<p class="dd-modal__body" id="s-body">이지은 회원의 10월 5일 11:00 예약을 노쇼로 기록해요. 회원권 1회가 차감돼요.</p>
+<div class="dd-modal__actions"><button class="dd-btn dd-btn--secondary dd-btn--block" type="button">그만두기</button><button class="dd-btn dd-btn--danger dd-btn--block" type="button">노쇼 기록</button></div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
