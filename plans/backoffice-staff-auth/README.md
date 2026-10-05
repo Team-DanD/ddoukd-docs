@@ -6,7 +6,7 @@
 - 상태: 초안 (2026-10-05 화면 12개를 `.pen`에 모두 그림. 리뷰 전이고 미결 14건이 남아 있다)
 - 화면 원본: [backoffice-staff-auth.pen](backoffice-staff-auth.pen). [design-system/ddoukd.pen](../../design-system/ddoukd.pen)을 2026-10-04에 복사한 파일이라
   Foundations·Components·Operator Components·App Shells 프레임과 변수 193개가 함께 들어 있다. 화면 프레임은 그 아래에 있다 — `B-` 7개가 한 줄(y 6340), `S-` 5개가 그 아랫줄(y 7360).
-  복사 이후 `ddoukd.pen`이 바뀌면 이 파일에는 자동으로 반영되지 않는다
+  복사 이후 `ddoukd.pen`이 바뀌면 이 파일에는 자동으로 반영되지 않는다. 디자인 시스템 PR #12(테두리 패딩, 내비 라벨 굵기 등)까지는 2026-10-05에 손으로 반영했다
 
 **셀프 회원가입 화면은 없다.** shop과 최초 OWNER는 마스터가 만들고(tenancy.md 1절), 회원은 로그인하지 않는다(6절).
 2026-10-04 사용자 확인: 지금 스펙대로 진행.
