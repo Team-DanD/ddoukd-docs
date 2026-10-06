@@ -3,6 +3,8 @@
 화면 기획·프로토타입을 작업 단위로 모으는 곳. 화면은 [pen.dev](https://pen.dev)의 `.pen` 파일로 그린다.
 도메인 결정은 여기가 아니라 [../decisions.md](../decisions.md)와 [../spec/](../spec/)에 남긴다.
 
+- [서비스·강사 관리](service-staff/README.md): 등록 주체·경로·가용시간·수업/예약 복귀. 2026-10-06 초안.
+
 ## 구조
 
 ```

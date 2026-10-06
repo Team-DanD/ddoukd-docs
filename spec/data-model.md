@@ -222,6 +222,8 @@ erDiagram
 
 ### staff — 사업장 user (강사/관리사 + 로그인 계정)
 
+등록 주체·화면·로그인 없는 강사와 가용시간의 연결은 [서비스·강사 등록 초안](service-staff-registration.md)을 참고한다. 신규 검증·비활성 정책은 확정 전 제안이다.
+
 | 컬럼 | 타입 | 비고 |
 |------|------|------|
 | id | uuid PK | |
@@ -252,6 +254,8 @@ erDiagram
 | created_at | timestamptz | |
 
 ### service — 수업/시술 종류
+
+사장 직접 등록 경로와 입력·수정 범위는 [서비스·강사 등록 초안](service-staff-registration.md)에 있다.
 
 | 컬럼 | 타입 | 비고 |
 |------|------|------|
@@ -487,6 +491,7 @@ plan type에 따라 갈린다:
 | 6 | FIRST_USE 롤백이 **만료를 앞당길 수 있다** — 회원에게 불리한 방향 | 🟡 | 7절 |
 
 **1번은 A안으로 해결돼 슬라이스 1을 막지 않는다.** 나머지 5건은 회원권 트랙에서 구현 착수 전까지 닫으면 된다.
+5건의 사례 · 선택지 · 영향을 한곳에 모은 결정 자료: [membership-open-decisions.md](membership-open-decisions.md)
 
 ---
 

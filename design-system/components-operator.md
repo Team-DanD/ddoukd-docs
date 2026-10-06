@@ -807,7 +807,7 @@ Checkbox와 Switch를 같은 값에 섞어 쓰지 않습니다. 수업 개설 �
 | Pagination | 회원 목록, 예약 목록 |
 | AppShell | 전 화면(종류는 위 표의 Shell 열) |
 
-서비스(`service`)·직원(`staff`)·가용시간(`staff_availability`) 관리 화면은 대상 화면 목록에 없어 연결하지 않았습니다. 수업 개설의 Select가 이 데이터를 필요로 하므로 화면 기획 때 확인이 필요합니다.
+서비스(`service`)·직원(`staff`)·가용시간(`staff_availability`) 관리와 수업/예약 Select의 연결은 [서비스·강사 관리 초안](../plans/service-staff/README.md)에 추가했습니다(2026-10-06). 등록·가용시간·복귀 화면을 포함하며, 가용시간 밖 개설 등의 신규 정책은 아직 제안입니다.
 
 ---
 
@@ -829,7 +829,7 @@ Checkbox와 Switch를 같은 값에 섞어 쓰지 않습니다. 수업 개설 �
 | 10 | 서버 오류 응답 형식(필드별 오류) | API | Form |
 | 11 | 내비게이션 항목·순서·첫 화면, 사용자 메뉴 구성 | 화면 기획 | AppShell |
 | 12 | shop-key 불일치(403)·세션 만료 시 화면 | 정책·화면 기획 | AppShell, EmptyState |
-| 13 | 서비스·직원·가용시간 관리 화면의 범위 | 화면 기획 | Select |
+| 13 | 서비스·직원·가용시간 관리: [등록·복귀 화면 초안 작성](../plans/service-staff/README.md), 정책 확정 전 | 화면 기획 | Select |
 | 14 | 회원 상세·예약 목록을 탭으로 나눌지 | 화면 기획 | Tabs |
 | 15 | 상태 배지 문구, "예약 가능"과 "공개"가 같은 모양인 것 | 디자인 확인 | StatusBadge |
 | 16 | 서체를 Pretendard로 바꿀지(지금은 Noto Sans KR, 아이콘은 lucide) | 디자인·구현 | 전체 |
