@@ -487,6 +487,7 @@ plan type에 따라 갈린다:
 | 6 | FIRST_USE 롤백이 **만료를 앞당길 수 있다** — 회원에게 불리한 방향 | 🟡 | 7절 |
 
 **1번은 A안으로 해결돼 슬라이스 1을 막지 않는다.** 나머지 5건은 회원권 트랙에서 구현 착수 전까지 닫으면 된다.
+5건의 사례 · 선택지 · 영향을 한곳에 모은 결정 자료: [membership-open-decisions.md](membership-open-decisions.md)
 
 ---
 
