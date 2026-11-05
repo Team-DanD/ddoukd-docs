@@ -34,6 +34,7 @@ DB는 Postgres를 유지하고, 기존 도메인 설계와 슬라이스 구분�
 
 | 문서 | 내용 |
 |------|------|
+| [Git 컨벤션](spec/github/git-convention.md) | 커밋 규칙과 브랜치·PR·디자인 시스템 변경 제안. 똑디 적용안 합의 전 초안 |
 | [plans/](plans/README.md) | 화면 기획·프로토타입 — 작업별 디렉터리, 화면은 pen.dev `.pen` 파일 |
 | [서비스·강사 등록 스펙](spec/service-staff-registration.md) · [화면](plans/service-staff/README.md) | 사장의 서비스·강사·가용시간 등록, 수업 개설·예약 추가로 복귀하는 흐름 (초안) |
 | [design-system/](design-system/README.md) | 디자인 시스템 — 운영자 화면 톤 "A · 장부"(2026-10-05 확정), 토큰, 컴포넌트 제안, Claude Design용 파일. 이전 포스터 톤은 `archived/poster-v0.1/` |
