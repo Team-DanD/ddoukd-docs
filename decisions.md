@@ -283,3 +283,18 @@ Claude 계정 공유는 약관 위반 → 각자 Pro 또는 Team 플랜(최소 �
 - `design-system/ddoukd.pen`과 `plans/backoffice-staff-auth/`의 화면은 아직 이전 톤이다. 새 톤으로 다시 그려야 한다
 - 공개 캘린더가 이 톤을 쓸지 포스터 톤 변형을 쓸지는 미정. 샵별 로고·색 커스텀(후순위)과 함께 정한다
 - Pretendard 채택, 이니셜 원형, 만료 임박 기준 일수, 회원권 선택 UI, 상태 문구, 내비게이션 항목은 미정
+
+## 2026-11-16 - 이슈 추적은 Jira (dand-msh, 프로젝트 DD)
+
+이슈 추적을 **Jira**로 확정한다. 사이트 `dand-msh.atlassian.net`, 프로젝트 키 `DD`.
+2026-10-08의 [Git 컨벤션](spec/github/git-convention.md) 초안이 제안한 GitHub 이슈 `#번호` 표기는 채택하지 않는다.
+티켓 템플릿은 [spec/jira/](spec/jira/)의 BE·FE·Design·Infra·Admin·QA 6종을 쓴다.
+
+- 브랜치 이름에 티켓 키를 넣는다: `<작업종류>/DD-<번호>-<slug>` (예: `feature/DD-12-booking-cancel`)
+- 이슈가 있는 커밋은 첫 줄에 `feat(booking): DD-12, 예약 취소 추가`. 브랜치의 첫 커밋이나 마지막 커밋 한 번이면 된다
+- 상태 전이는 GitHub for Jira 앱과 Jira Automation으로 자동화한다. 브랜치 생성이면 진행 중, PR 머지면 완료.
+  PR 없이 main에 바로 push해 끝내는 작업은 커밋 메시지에 `DD-12 #done`(스마트 커밋)을 붙인다
+- 저장소 코드에는 연동 설정이 없다. 규칙은 Jira 프로젝트 설정의 Automation에 둔다
+
+이 기록 시점의 상태: Team-DanD 조직에 GitHub for Jira 앱은 아직 설치되지 않았고 Automation 규칙도 없다.
+설치와 규칙 생성이 끝나면 이 항목에 날짜를 덧붙인다. 그 전까지 자동 전이는 동작하지 않는다.
